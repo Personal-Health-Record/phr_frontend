@@ -1,5 +1,5 @@
 import { Route, Routes } from "react-router-dom";
-import PrivateRoutes from "../helpers/PrivateRoutes";
+import PrivateRoutes from "../components/PrivateRoutes";
 import HomePage from "./HomePage";
 
 const MainRoutes = () => {
