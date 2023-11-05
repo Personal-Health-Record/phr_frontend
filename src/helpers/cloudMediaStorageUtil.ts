@@ -1,6 +1,6 @@
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { SetStateAction, useState } from "react";
-import { storage } from "../../firebaseConfig.js";
+import { storage } from "../firebaseConfig";
 
 const useCloudMediaStorageUtils = () => {
   const [imageFile, setImageFile] = useState<File>();

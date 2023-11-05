@@ -24,13 +24,13 @@ const RadioInput = ({
           <label className="flex items-center" key={index}>
             <input
               type="radio"
-              name={'radioOption_' + inputKey}
+              name={"radioOption_" + inputKey}
               value={option.value}
               className="mr-2"
               onChange={() => {
                 onClick(option.value);
               }}
-              checked={value == option.value ? true : false}
+              checked={value === option.value ? true : false}
             />
             <p className="text-sm">{option.label}</p>
           </label>
