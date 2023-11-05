@@ -2,9 +2,9 @@ import React from "react";
 import { Navigate, Outlet } from "react-router-dom";
 
 const PrivateRoutes = () => {
-  const { isAuthenticated } = { isAuthenticated: true };
+  const isLoggedIn = localStorage.getItem("authUserEmail") !== null;
 
-  return isAuthenticated ? <Outlet /> : <Navigate to="/login" replace />;
+  return isLoggedIn ? <Outlet /> : <Navigate to="/auth" replace />;
 };
 
 export default PrivateRoutes;
