@@ -3,6 +3,9 @@ import PrivateRoutes from "../components/PrivateRoutes";
 import HomePage from "./HomePage";
 import AuthenticationPage from "./AuthPage";
 import RegisterPage from "./RegisterPage";
+import VaksinasiPribadi from "./VaksinasiPage";
+import VaksinasiHistory from "./VaksinasiHistoryPage";
+import VaksinasiDetails from "./DetailsVaksinasiPage";
 
 const MainRoutes = () => {
   return (
@@ -13,6 +16,10 @@ const MainRoutes = () => {
 
       <Route path="/auth" element={<AuthenticationPage />} />
       <Route path="/auth/register" element={<RegisterPage />} />
+
+      <Route path="/vaksinasi" element={<VaksinasiPribadi />} />
+      <Route path="/vaksinasi/history" element={<VaksinasiHistory />} />
+      <Route path="/vaksinasi/details/:id" element={<VaksinasiDetails />} />
     </Routes>
   );
 };
