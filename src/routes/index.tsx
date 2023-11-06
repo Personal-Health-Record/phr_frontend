@@ -35,6 +35,8 @@ import AddInsurancePage from "./ProfileEditInsurancePage/page";
 import FamilyPage from "./ProfileInsurancePage";
 import InsurancePage from "./ProfileInsurancePage";
 import KirimPesanPage from "./PesanPage";
+import PatientPage from "./PatientPage";
+import ProfilePatientPage from "./PatientDetailsPage";
 
 const MainRoutes = () => {
   return (
@@ -93,6 +95,9 @@ const MainRoutes = () => {
       <Route path="/profile/insurance" element={<InsurancePage />} />
 
       <Route path="/pesan" element={<KirimPesanPage />} />
+
+      <Route path="/patient" element={<PatientPage />} />
+      <Route path="/patient/details/:id" element={<ProfilePatientPage />} />
     </Routes>
   );
 };
