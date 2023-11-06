@@ -22,6 +22,8 @@ import DetailMental from "./ScreeningMentalDetail";
 import ScreeningPTM from "./ScreeningPTM";
 import DetailPTM from "./ScreeningPTMDetail";
 import ScreeningPTMResult from "./ScreeningPTMResult";
+import RujukanPage from "./RujukanPage";
+import RujukanDetails from "./RujukanDetailsPage";
 
 const MainRoutes = () => {
   return (
@@ -62,6 +64,9 @@ const MainRoutes = () => {
       <Route path="/screening/ptm" element={<ScreeningPTM />} />
       <Route path="/screening/ptm/detail" element={<DetailPTM />} />
       <Route path="/screening/ptm/result" element={<ScreeningPTMResult />} />
+
+      <Route path="/rujukan" element={<RujukanPage />} />
+      <Route path="/rujukan/details/:id" element={<RujukanDetails />} />
     </Routes>
   );
 };
