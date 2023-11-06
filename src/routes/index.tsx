@@ -6,6 +6,7 @@ import RegisterPage from "./RegisterPage";
 import VaksinasiPribadi from "./VaksinasiPage";
 import VaksinasiHistory from "./VaksinasiHistoryPage";
 import VaksinasiDetails from "./DetailsVaksinasiPage";
+import TenagaMedisPage from "./TenagaKesehatanPage";
 
 const MainRoutes = () => {
   return (
@@ -20,6 +21,8 @@ const MainRoutes = () => {
       <Route path="/vaksinasi" element={<VaksinasiPribadi />} />
       <Route path="/vaksinasi/history" element={<VaksinasiHistory />} />
       <Route path="/vaksinasi/details/:id" element={<VaksinasiDetails />} />
+
+      <Route path="/tenaga" element={<TenagaMedisPage />} />
     </Routes>
   );
 };
