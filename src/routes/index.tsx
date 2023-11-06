@@ -8,6 +8,8 @@ import VaksinasiHistory from "./VaksinasiHistoryPage";
 import VaksinasiDetails from "./DetailsVaksinasiPage";
 import TenagaMedisPage from "./TenagaKesehatanPage";
 import ProfileTenagaMedis from "./TenagaKesehatanProfilePage";
+import EditProfilePage from "./TenagaKesehatanEditPage";
+import SharePage from "./SharePage";
 
 const MainRoutes = () => {
   return (
@@ -25,6 +27,9 @@ const MainRoutes = () => {
 
       <Route path="/tenaga" element={<TenagaMedisPage />} />
       <Route path="/tenaga/profile" element={<ProfileTenagaMedis />} />
+      <Route path="/tenaga/edit" element={<EditProfilePage />} />
+
+      <Route path="/share" element={<SharePage />} />
     </Routes>
   );
 };
