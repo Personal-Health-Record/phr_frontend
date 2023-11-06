@@ -11,6 +11,8 @@ import ProfileTenagaMedis from "./TenagaKesehatanProfilePage";
 import EditProfilePage from "./TenagaKesehatanEditPage";
 import SharePage from "./SharePage";
 import ScreeningPage from "./ScreeningPage";
+import ScreeningCovid from "./ScreeningCovidPage";
+import ScreeningCovidResultPage from "./ScreeningCovidResultPage";
 
 const MainRoutes = () => {
   return (
@@ -33,6 +35,11 @@ const MainRoutes = () => {
       <Route path="/share" element={<SharePage />} />
 
       <Route path="/screening" element={<ScreeningPage />} />
+      <Route path="/screening/covid" element={<ScreeningCovid />} />
+      <Route
+        path="/screening/covid/result"
+        element={<ScreeningCovidResultPage />}
+      />
     </Routes>
   );
 };
