@@ -10,6 +10,7 @@ import TenagaMedisPage from "./TenagaKesehatanPage";
 import ProfileTenagaMedis from "./TenagaKesehatanProfilePage";
 import EditProfilePage from "./TenagaKesehatanEditPage";
 import SharePage from "./SharePage";
+import ScreeningPage from "./ScreeningPage";
 
 const MainRoutes = () => {
   return (
@@ -30,6 +31,8 @@ const MainRoutes = () => {
       <Route path="/tenaga/edit" element={<EditProfilePage />} />
 
       <Route path="/share" element={<SharePage />} />
+
+      <Route path="/screening" element={<ScreeningPage />} />
     </Routes>
   );
 };
