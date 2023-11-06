@@ -13,6 +13,8 @@ import SharePage from "./SharePage";
 import ScreeningPage from "./ScreeningPage";
 import ScreeningCovid from "./ScreeningCovidPage";
 import ScreeningCovidResultPage from "./ScreeningCovidResultPage";
+import ScreeningDoctor from "./ScreeningDoctor";
+import ScreeningHistory from "./ScreeningHistory";
 
 const MainRoutes = () => {
   return (
@@ -40,6 +42,8 @@ const MainRoutes = () => {
         path="/screening/covid/result"
         element={<ScreeningCovidResultPage />}
       />
+      <Route path="/screening/doctor" element={<ScreeningDoctor />} />
+      <Route path="/screening/history" element={<ScreeningHistory />} />
     </Routes>
   );
 };
