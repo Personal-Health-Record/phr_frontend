@@ -15,6 +15,10 @@ import ScreeningCovid from "./ScreeningCovidPage";
 import ScreeningCovidResultPage from "./ScreeningCovidResultPage";
 import ScreeningDoctor from "./ScreeningDoctor";
 import ScreeningHistory from "./ScreeningHistory";
+import DetailCovid from "./ScreeningCovidDetailPage";
+import ScreeningMental from "./ScreeningMental";
+import ScreeningMentalResult from "./ScreeningMentalResult";
+import DetailMental from "./ScreeningMentalDetail";
 
 const MainRoutes = () => {
   return (
@@ -38,12 +42,19 @@ const MainRoutes = () => {
 
       <Route path="/screening" element={<ScreeningPage />} />
       <Route path="/screening/covid" element={<ScreeningCovid />} />
+      <Route path="/screening/covid/detail" element={<DetailCovid />} />
       <Route
         path="/screening/covid/result"
         element={<ScreeningCovidResultPage />}
       />
       <Route path="/screening/doctor" element={<ScreeningDoctor />} />
       <Route path="/screening/history" element={<ScreeningHistory />} />
+      <Route path="/screening/mental" element={<ScreeningMental />} />
+      <Route
+        path="/screening/mental/result"
+        element={<ScreeningMentalResult />}
+      />
+      <Route path="/screening/mental/detail" element={<DetailMental />} />
     </Routes>
   );
 };
