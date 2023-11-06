@@ -37,6 +37,10 @@ import InsurancePage from "./ProfileInsurancePage";
 import KirimPesanPage from "./PesanPage";
 import PatientPage from "./PatientPage";
 import ProfilePatientPage from "./PatientDetailsPage";
+import PengingatObatPage from "./ObatPage/page";
+import PemesananObatPage from "./ObatPemesananPage/page";
+import RiwayatObat from "./ObatRiwayatPage";
+import TambahPengingat from "./ObatTambahPage";
 
 const MainRoutes = () => {
   return (
@@ -98,6 +102,11 @@ const MainRoutes = () => {
 
       <Route path="/patient" element={<PatientPage />} />
       <Route path="/patient/details/:id" element={<ProfilePatientPage />} />
+
+      <Route path="/obat" element={<PengingatObatPage />} />
+      <Route path="/obat/pemesanan" element={<PemesananObatPage />} />
+      <Route path="/obat/riwayat" element={<RiwayatObat />} />
+      <Route path="/obat/tambah" element={<TambahPengingat />} />
     </Routes>
   );
 };
