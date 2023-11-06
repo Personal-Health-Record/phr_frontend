@@ -27,6 +27,13 @@ import RujukanDetails from "./RujukanDetailsPage";
 import ResumePage from "./ResumePage";
 import ResumeDetail from "./ResumeDetailsPage";
 import RiwayatResume from "./ResumeRiwayatPage";
+import ProfilePage from "./ProfilePage";
+import ChangePasswordPage from "./ProfileChangePassword";
+import ProfileDetail from "./ProfileDetailPage/page";
+import AddFamilyPage from "./ProfileEditFamilyPage";
+import AddInsurancePage from "./ProfileEditInsurancePage/page";
+import FamilyPage from "./ProfileInsurancePage";
+import InsurancePage from "./ProfileInsurancePage";
 
 const MainRoutes = () => {
   return (
@@ -74,6 +81,15 @@ const MainRoutes = () => {
       <Route path="/resume" element={<ResumePage />} />
       <Route path="/resume/riwayat" element={<RiwayatResume />} />
       <Route path="/resume/details/:id" element={<ResumeDetail />} />
+
+      <Route path="/profile" element={<ProfilePage />} />
+      <Route path="/profile/changepassword" element={<ChangePasswordPage />} />
+      <Route path="/profile/detail/:id" element={<ProfileDetail />} />
+      <Route path="/profile/edit" element={<EditProfilePage />} />
+      <Route path="/profile/edit/family" element={<AddFamilyPage />} />
+      <Route path="/profile/edit/insurance" element={<AddInsurancePage />} />
+      <Route path="/profile/family" element={<FamilyPage />} />
+      <Route path="/profile/insurance" element={<InsurancePage />} />
     </Routes>
   );
 };

@@ -1,4 +1,4 @@
-import Header from "../HomePage/components/Header";
+import Header from "../../components/Header";
 import EditProfileForm from "../ProfilePage/components/EditProfileForm";
 
 const EditProfilePage = () => {
