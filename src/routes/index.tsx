@@ -19,6 +19,9 @@ import DetailCovid from "./ScreeningCovidDetailPage";
 import ScreeningMental from "./ScreeningMental";
 import ScreeningMentalResult from "./ScreeningMentalResult";
 import DetailMental from "./ScreeningMentalDetail";
+import ScreeningPTM from "./ScreeningPTM";
+import DetailPTM from "./ScreeningPTMDetail";
+import ScreeningPTMResult from "./ScreeningPTMResult";
 
 const MainRoutes = () => {
   return (
@@ -55,6 +58,10 @@ const MainRoutes = () => {
         element={<ScreeningMentalResult />}
       />
       <Route path="/screening/mental/detail" element={<DetailMental />} />
+
+      <Route path="/screening/ptm" element={<ScreeningPTM />} />
+      <Route path="/screening/ptm/detail" element={<DetailPTM />} />
+      <Route path="/screening/ptm/result" element={<ScreeningPTMResult />} />
     </Routes>
   );
 };
