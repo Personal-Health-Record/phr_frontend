@@ -34,6 +34,7 @@ import AddFamilyPage from "./ProfileEditFamilyPage";
 import AddInsurancePage from "./ProfileEditInsurancePage/page";
 import FamilyPage from "./ProfileInsurancePage";
 import InsurancePage from "./ProfileInsurancePage";
+import KirimPesanPage from "./PesanPage";
 
 const MainRoutes = () => {
   return (
@@ -90,6 +91,8 @@ const MainRoutes = () => {
       <Route path="/profile/edit/insurance" element={<AddInsurancePage />} />
       <Route path="/profile/family" element={<FamilyPage />} />
       <Route path="/profile/insurance" element={<InsurancePage />} />
+
+      <Route path="/pesan" element={<KirimPesanPage />} />
     </Routes>
   );
 };
