@@ -24,6 +24,9 @@ import DetailPTM from "./ScreeningPTMDetail";
 import ScreeningPTMResult from "./ScreeningPTMResult";
 import RujukanPage from "./RujukanPage";
 import RujukanDetails from "./RujukanDetailsPage";
+import ResumePage from "./ResumePage";
+import ResumeDetail from "./ResumeDetailsPage";
+import RiwayatResume from "./ResumeRiwayatPage";
 
 const MainRoutes = () => {
   return (
@@ -67,6 +70,10 @@ const MainRoutes = () => {
 
       <Route path="/rujukan" element={<RujukanPage />} />
       <Route path="/rujukan/details/:id" element={<RujukanDetails />} />
+
+      <Route path="/resume" element={<ResumePage />} />
+      <Route path="/resume/riwayat" element={<RiwayatResume />} />
+      <Route path="/resume/details/:id" element={<ResumeDetail />} />
     </Routes>
   );
 };
