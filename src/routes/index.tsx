@@ -45,6 +45,15 @@ import News from "./NewsPage/page";
 import NewsDetail1 from "./NewsPage/DetailsNews1";
 import NewsDetail2 from "./NewsPage/DetailsNews2";
 import NewsDetail3 from "./NewsPage/DetailsNews3";
+import MonitoringPage from "./MonitoringPage";
+import KalulatorKesehatan from "./MonitoringPage/KalkulatorPage/page";
+import InsertDataFisik from "./MonitoringPage/InsertDataFisikPage";
+import InsertDataHeightWeight from "./MonitoringPage/InsertDataPage";
+import DataTracking from "./MonitoringPage/DataTrackingPage";
+import MonitoringDashboard from "./MonitoringPage/DashboardPage/page";
+import KalkulatorKalori from "./MonitoringPage/BMRPage";
+import KalkulatorIndeksMassa from "./MonitoringPage/BMIPage";
+import AddAktifitas from "./MonitoringPage/AddAktifitasPage";
 
 const MainRoutes = () => {
   return (
@@ -116,6 +125,22 @@ const MainRoutes = () => {
       <Route path="/news/details/1" element={<NewsDetail1 />} />
       <Route path="/news/details/2" element={<NewsDetail2 />} />
       <Route path="/news/details/3" element={<NewsDetail3 />} />
+
+      <Route path="/monitoring" element={<MonitoringPage />} />
+      <Route path="/monitoring/kalkulator" element={<KalulatorKesehatan />} />
+      <Route path="/monitoring/bmr" element={<KalkulatorKalori />} />
+      <Route path="/monitoring/bmi" element={<KalkulatorIndeksMassa />} />
+      <Route path="/monitoring/add-aktifitas" element={<AddAktifitas />} />
+      <Route
+        path="/monitoring/insert-data-fisik"
+        element={<InsertDataFisik />}
+      />
+      <Route
+        path="/monitoring/insert-data"
+        element={<InsertDataHeightWeight />}
+      />
+      <Route path="/monitoring/data-tracking" element={<DataTracking />} />
+      <Route path="/monitoring/dashboard" element={<MonitoringDashboard />} />
     </Routes>
   );
 };
