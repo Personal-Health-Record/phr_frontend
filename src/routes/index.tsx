@@ -56,6 +56,7 @@ import KalkulatorIndeksMassa from "./MonitoringPage/BMIPage";
 import AddAktifitas from "./MonitoringPage/AddAktifitasPage";
 import FaskesPage from "./FaskesPage";
 import FaskesDetail from "./FaskesPage/FaskesDetails";
+import NotificationPage from "./NotificationsPage";
 
 const MainRoutes = () => {
   return (
@@ -146,6 +147,8 @@ const MainRoutes = () => {
 
       <Route path="/faskes" element={<FaskesPage />} />
       <Route path="/faskes/details" element={<FaskesDetail />} />
+
+      <Route path="/notifications" element={<NotificationPage />} />
     </Routes>
   );
 };

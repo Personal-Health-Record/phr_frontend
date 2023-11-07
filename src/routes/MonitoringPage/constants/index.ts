@@ -1,11 +1,14 @@
+import imageBmi from "../../../assets/images/kalkulator/bmi.png";
+import imageBmr from "../../../assets/images/kalkulator/bmr.png";
+
 export const calculatorMenuList = [
   {
-    image: "/images/kalkulator/bmi.png",
+    image: imageBmi,
     title: "Indeks Massa Tubuh (BMI)",
     path: "/monitoring/bmi",
   },
   {
-    image: "/images/kalkulator/bmr.png",
+    image: imageBmr,
     title: "Kalkulator Kalori (BMR)",
     path: "/monitoring/bmr",
   },
