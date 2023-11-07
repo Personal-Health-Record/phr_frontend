@@ -41,6 +41,10 @@ import PengingatObatPage from "./ObatPage/page";
 import PemesananObatPage from "./ObatPemesananPage/page";
 import RiwayatObat from "./ObatRiwayatPage";
 import TambahPengingat from "./ObatTambahPage";
+import News from "./NewsPage/page";
+import NewsDetail1 from "./NewsPage/DetailsNews1";
+import NewsDetail2 from "./NewsPage/DetailsNews2";
+import NewsDetail3 from "./NewsPage/DetailsNews3";
 
 const MainRoutes = () => {
   return (
@@ -107,6 +111,11 @@ const MainRoutes = () => {
       <Route path="/obat/pemesanan" element={<PemesananObatPage />} />
       <Route path="/obat/riwayat" element={<RiwayatObat />} />
       <Route path="/obat/tambah" element={<TambahPengingat />} />
+
+      <Route path="/news" element={<News />} />
+      <Route path="/news/details/1" element={<NewsDetail1 />} />
+      <Route path="/news/details/2" element={<NewsDetail2 />} />
+      <Route path="/news/details/3" element={<NewsDetail3 />} />
     </Routes>
   );
 };
