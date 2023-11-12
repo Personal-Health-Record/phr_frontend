@@ -1,6 +1,7 @@
 import Header from "../../components/Header";
 import BottomNavbarDownloadShare from "../HomePage/components/BottomNavbarDownloadShare";
 import CardHeightWeight from "./components/CardHeightWeight";
+import CardKonsumsiMakananMonitoring from "./components/CardKonsumsiMakananMonitoring";
 import HeaderMonitoring from "./components/HeaderMonitoring";
 import TargetSection from "./components/TargetSection";
 
@@ -13,6 +14,7 @@ const MonitoringPage = () => {
         <HeaderMonitoring />
         <CardHeightWeight />
         <TargetSection />
+        <CardKonsumsiMakananMonitoring />
 
         <button className="border py-3 rounded-3xl text-mainBlue font-semibold border-mainBlue mt-5">
           + Tambahkan Target
