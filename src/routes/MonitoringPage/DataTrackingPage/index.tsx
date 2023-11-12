@@ -13,6 +13,7 @@ import TabHeader from "../components/TabHeader";
 import CardSelectDate from "../components/CardSelectDate";
 import BarChartSection from "../components/BarChartSection";
 import BottomNavbarDownloadShare from "../../HomePage/components/BottomNavbarDownloadShare";
+import CardKonsumsiMakanan from "../components/CardKonsumsiMakanan";
 
 ChartJS.register(
   CategoryScale,
@@ -33,7 +34,8 @@ const DataTracking = () => {
 
       <div className="flex flex-col w-full px-4 pt-4 gap-2 mb-32">
         <CardSelectDate />
-        <BarChartSection activeIdx={activeTabIdx} />
+        {activeTabIdx === 1 && <BarChartSection activeIdx={activeTabIdx} />}
+        {activeTabIdx === 2 && <CardKonsumsiMakanan />}
       </div>
 
       <BottomNavbarDownloadShare body="" link="" title="" />
