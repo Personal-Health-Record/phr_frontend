@@ -14,6 +14,7 @@ module.exports = {
         mainGrey: "#5F5F5F",
         superLightGrey: "#F5F5F5",
         lightBlue: "#4FB3FD33",
+        mainGreen: "#5DBEA3",
       },
     },
   },
