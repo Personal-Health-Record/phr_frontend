@@ -1,8 +1,8 @@
 export const chipTypes = ["Semua", "Sarapan", "Makan Siang", "Makan Malam"];
 
 export type KonsumsiMakanan = {
-  type: "Sarapan" | "Makan Siang" | "Makan Malam";
-  category: "Makanan Pokok" | "Buah" | "Sayuran" | "Lauk Pauk";
+  type: string;
+  category: string;
   name: string;
 };
 

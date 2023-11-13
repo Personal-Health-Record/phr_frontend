@@ -3,8 +3,10 @@ import Header from "../../../components/Header";
 import ChipTypes from "./components/ChipTypes";
 import CardMakanan from "./components/CardMakanan";
 import { useGetKonsumsiMakanan } from "../../../helpers/konsumsiMakananHelper";
+import { useNavigate } from "react-router-dom";
 
 const MonitoringMakananPage = () => {
+  const navigate = useNavigate();
   const { konsumsiMakanan } = useGetKonsumsiMakanan();
   const [typeFilter, setTypeFilter] = useState("");
   const [finalDataMakanan, setFinalDataMakanan] = useState(konsumsiMakanan);
@@ -21,6 +23,10 @@ const MonitoringMakananPage = () => {
 
     setFinalDataMakanan(filteredData);
   }, [konsumsiMakanan, typeFilter]);
+
+  const handleAddMakanan = () => {
+    navigate("/monitoring/makanan/insert");
+  };
 
   return (
     <div className="flex flex-col">
@@ -42,7 +48,10 @@ const MonitoringMakananPage = () => {
           ))}
         </div>
 
-        <button className="border py-3 rounded-3xl text-mainBlue font-semibold border-mainBlue mt-5">
+        <button
+          className="border py-3 rounded-3xl text-mainBlue font-semibold border-mainBlue mt-5"
+          onClick={handleAddMakanan}
+        >
           + Tambahkan Makanan
         </button>
       </div>
