@@ -9,7 +9,7 @@ const CardKonsumsiMakananMonitoring = () => {
   const navigate = useNavigate();
 
   const handleUbahTarget = () => {
-    navigate("/monitoring/makanan");
+    navigate("/monitoring/makanan/change");
   };
 
   return (

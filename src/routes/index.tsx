@@ -59,6 +59,7 @@ import FaskesDetail from "./FaskesPage/FaskesDetails";
 import NotificationPage from "./NotificationsPage";
 import MonitoringMakananPage from "./MonitoringPage/MonitoringMakananPage";
 import InsertKonsumsiMakananPage from "./MonitoringPage/InsertKonsumsiMakananPage";
+import KonsumsiMakananTargetPage from "./MonitoringPage/KonsumsiMakananTargetPage";
 
 const MainRoutes = () => {
   return (
@@ -150,6 +151,10 @@ const MainRoutes = () => {
       <Route
         path="/monitoring/makanan/insert"
         element={<InsertKonsumsiMakananPage />}
+      />
+      <Route
+        path="/monitoring/makanan/change"
+        element={<KonsumsiMakananTargetPage />}
       />
 
       <Route path="/faskes" element={<FaskesPage />} />
