@@ -29,7 +29,7 @@ const HomePage = () => {
         </>
       ) : (
         <>
-          <HeaderHome isDoctor />
+          <HeaderHome isDoctor={false} />
           <Dashboard />
           <Pengingat />
           <MainMenu />
