@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { setUserPhysique } from "../../../helpers/dataTrackerHelper";
 import Header from "../../../components/Header";
 import TextInput from "../../../components/TextInput";
 import { setTekananDarah } from "../../../helpers/tekananDarahHelpers";
