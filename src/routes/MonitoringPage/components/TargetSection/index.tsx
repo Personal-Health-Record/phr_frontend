@@ -3,8 +3,10 @@ import {
   useGetAktifitasFisik,
   useGetAktifitasTargetFisik,
 } from "../../../../helpers/aktifitasFisikHelper";
+import { useGetTekananDarah } from "../../../../helpers/tekananDarahHelpers";
 
 const TargetSection = () => {
+  const { tekananDarah } = useGetTekananDarah();
   const { aktifitasFisik } = useGetAktifitasFisik();
   const { durasiTargetFisik } = useGetAktifitasTargetFisik();
   const navigate = useNavigate();
@@ -13,6 +15,10 @@ const TargetSection = () => {
     aktifitasFisik?.reduce((acc, current) => {
       return acc + current.duration;
     }, 0) || 0;
+
+  const handleClickTekananDarah = () => {
+    navigate("/monitoring/darah/change");
+  };
 
   return (
     <div className="flex flex-col">
@@ -58,7 +64,10 @@ const TargetSection = () => {
         </div>
       </div>
 
-      <div className="flex flex-col mt-5 shadow-md p-3 rounded-xl gap-2">
+      <div
+        className="flex flex-col mt-5 shadow-md p-3 rounded-xl gap-2"
+        onClick={handleClickTekananDarah}
+      >
         <div className="flex justify-between">
           <p className="text-sm">Tekanan Darah</p>
           <p className="text-sm">Normal</p>
@@ -70,7 +79,7 @@ const TargetSection = () => {
               <p className="text-xs text-lightGrey">SYSTOLE</p>
               <p className="text-xs text-mainGrey">mmHg</p>
             </div>
-            <p className="text-xs font-bold">120</p>
+            <p className="text-xs font-bold">{tekananDarah?.systole || 0}</p>
           </div>
 
           <div className="flex items-center gap-8">
@@ -78,7 +87,7 @@ const TargetSection = () => {
               <p className="text-xs text-lightGrey">DIASTOLE</p>
               <p className="text-xs text-mainGrey">mmHg</p>
             </div>
-            <p className="text-xs font-bold">80</p>
+            <p className="text-xs font-bold">{tekananDarah?.diastole || 0}</p>
           </div>
         </div>
       </div>

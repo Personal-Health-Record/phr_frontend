@@ -101,6 +101,11 @@ export type PhysiqueData = {
   latestUpdate: string;
 };
 
+export type TekananDarah = {
+  systole: number;
+  diastole: number;
+};
+
 export const dummyUserPhysique: PhysiqueData = {
   height: 170,
   weight: 80,
