@@ -1,7 +1,3 @@
-import riceImg from "../../../../assets/images/food/rice.png";
-import chickenImg from "../../../../assets/images/food/chicken.png";
-import fruitImg from "../../../../assets/images/food/fruit.png";
-import vegetableImg from "../../../../assets/images/food/vegetable.png";
 import imageCheckAll from "../../../../assets/images/pengingat/check_all.png";
 import { useNavigate } from "react-router-dom";
 import { useGetKonsumsiMakananTarget } from "../../../../helpers/konsumsiMakananHelper";

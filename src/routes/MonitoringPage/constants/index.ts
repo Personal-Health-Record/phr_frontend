@@ -5,7 +5,6 @@ import chickenImg from "../../../assets/images/food/chicken.png";
 import fruitImg from "../../../assets/images/food/fruit.png";
 import vegetableImg from "../../../assets/images/food/vegetable.png";
 import milkImg from "../../../assets/images/food/milk.png";
-import imageCheckAll from "../../../assets/images/pengingat/check_all.png";
 
 export const calculatorMenuList = [
   {

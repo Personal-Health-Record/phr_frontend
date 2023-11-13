@@ -5,14 +5,10 @@ import fruitImg from "../../../assets/images/food/fruit.png";
 import vegetableImg from "../../../assets/images/food/vegetable.png";
 import milkImg from "../../../assets/images/food/milk.png";
 import { useNavigate } from "react-router-dom";
-import {
-  editTargetKonsumsiMakanan,
-  useGetKonsumsiMakananTarget,
-} from "../../../helpers/konsumsiMakananHelper";
+import { editTargetKonsumsiMakanan } from "../../../helpers/konsumsiMakananHelper";
 import { useState } from "react";
 
 const KonsumsiMakananTargetPage = () => {
-  const { konsumsiMakananTarget } = useGetKonsumsiMakananTarget();
   const navigate = useNavigate();
 
   const [rice, setRice] = useState(false);
