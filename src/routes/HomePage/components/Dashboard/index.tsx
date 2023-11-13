@@ -1,7 +1,6 @@
 import { useGetAktifitasFisik } from "../../../../helpers/aktifitasFisikHelper";
 import { useGetTekananDarah } from "../../../../helpers/tekananDarahHelpers";
 import DashboardCard from "../DashboardCard";
-import { dashboardKesehatan } from "./constants";
 
 const Dashboard = () => {
   const { aktifitasFisik } = useGetAktifitasFisik();
