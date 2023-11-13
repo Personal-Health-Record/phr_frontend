@@ -38,3 +38,32 @@ export const addAktifitasFisik = (
     JSON.stringify(updatedAktifitasFisikList)
   );
 };
+
+export const useGetAktifitasTargetFisik = () => {
+  const [durasiTargetFisik, setDurasiTargetFisik] = useState<number>(0);
+
+  useEffect(() => {
+    if (!durasiTargetFisik && typeof window !== "undefined") {
+      const durasiTargetFisikStorage = localStorage.getItem(
+        "durasiTargetFisikStorage"
+      );
+      if (durasiTargetFisikStorage) {
+        setDurasiTargetFisik(JSON.parse(durasiTargetFisikStorage));
+        return;
+      }
+
+      setDurasiTargetFisik(200);
+    }
+  }, [durasiTargetFisik]);
+
+  return {
+    durasiTargetFisik,
+  };
+};
+
+export const changeAktifitasFisikTarget = (newAktifitas: number) => {
+  localStorage.setItem(
+    "durasiTargetFisikStorage",
+    JSON.stringify(newAktifitas)
+  );
+};

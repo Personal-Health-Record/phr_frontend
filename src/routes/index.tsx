@@ -61,6 +61,7 @@ import MonitoringMakananPage from "./MonitoringPage/MonitoringMakananPage";
 import InsertKonsumsiMakananPage from "./MonitoringPage/InsertKonsumsiMakananPage";
 import KonsumsiMakananTargetPage from "./MonitoringPage/KonsumsiMakananTargetPage";
 import MonitoringAktifitasPage from "./MonitoringPage/MonitoringAktifitasPage";
+import UbahTargetFisikpage from "./MonitoringPage/UbahTargetFisikPage";
 
 const MainRoutes = () => {
   return (
@@ -150,6 +151,10 @@ const MainRoutes = () => {
       <Route path="/monitoring/dashboard" element={<MonitoringDashboard />} />
       <Route path="/monitoring/makanan" element={<MonitoringMakananPage />} />
       <Route path="/monitoring/fisik" element={<MonitoringAktifitasPage />} />
+      <Route
+        path="/monitoring/fisik/change"
+        element={<UbahTargetFisikpage />}
+      />
       <Route
         path="/monitoring/makanan/insert"
         element={<InsertKonsumsiMakananPage />}

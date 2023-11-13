@@ -1,7 +1,18 @@
 import { useNavigate } from "react-router-dom";
+import {
+  useGetAktifitasFisik,
+  useGetAktifitasTargetFisik,
+} from "../../../../helpers/aktifitasFisikHelper";
 
 const TargetSection = () => {
+  const { aktifitasFisik } = useGetAktifitasFisik();
+  const { durasiTargetFisik } = useGetAktifitasTargetFisik();
   const navigate = useNavigate();
+
+  const totalDuration =
+    aktifitasFisik?.reduce((acc, current) => {
+      return acc + current.duration;
+    }, 0) || 0;
 
   return (
     <div className="flex flex-col">
@@ -11,24 +22,36 @@ const TargetSection = () => {
 
       <div
         className="flex flex-col"
-        onClick={() => navigate("/monitoring/insert-data-fisik")}
+        onClick={() => navigate("/monitoring/fisik")}
       >
         <div className="flex flex-col shadow-md px-3 py-3 rounded-xl gap-2">
           <div className="flex justify-between">
             <p className="text-md font-bold text-mainGrey">Aktivitas Fisik</p>
-            <p className="text-xs text-mainGrey">Belum cukup</p>
+            <p className="text-xs text-mainGrey">
+              {totalDuration > (durasiTargetFisik || 0)
+                ? "Cukup"
+                : "Belum cukup"}
+            </p>
           </div>
 
           <div className="relative w-full bg-white border rounded-full">
             <div className="absolute right-0 top-0 mt-1.5 mr-2 text-mainGrey">
-              <p className="text-xs">30 menit</p>
+              <p className="text-xs">{durasiTargetFisik} menit</p>
             </div>
             <div
               className="h-7 bg-lightBlue rounded-full relative"
-              style={{ width: "70%" }}
+              style={{
+                width: `${
+                  totalDuration > durasiTargetFisik
+                    ? "100%"
+                    : `${(totalDuration / durasiTargetFisik) * 100}%`
+                } `,
+              }}
             >
               <div className="absolute right-0 top-0 mt-1.5 mr-5 text-mainGrey">
-                <p className="text-xs">20 menit</p>
+                {totalDuration < durasiTargetFisik && (
+                  <p className="text-xs">{totalDuration} menit</p>
+                )}
               </div>
             </div>
           </div>
