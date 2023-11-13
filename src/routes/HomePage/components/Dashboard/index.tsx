@@ -23,7 +23,7 @@ const Dashboard = () => {
           value={totalDuration.toString()}
         />
 
-        <DashboardCard title="jam Tidur" unit="jam" value="8" />
+        <DashboardCard title="Jam Tidur" unit="jam" value="8" />
 
         <DashboardCard
           title="Tekanan darah"
