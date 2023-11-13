@@ -17,7 +17,6 @@ const InsertKonsumsiMakananPage = () => {
   const [name, setName] = useState("");
 
   const handleClickWaktu = (value: string) => {
-    console.log("handleclickwaktu");
     setWaktu(value);
   };
 

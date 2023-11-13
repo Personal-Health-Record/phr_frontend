@@ -1,5 +1,5 @@
 export const formatDate = (inputDate: string): string => {
-  const dateParts = inputDate.split('-');
+  const dateParts = inputDate.split("-");
   if (dateParts.length === 3) {
     const year = parseInt(dateParts[0], 10);
     const monthIndex = parseInt(dateParts[1], 10) - 1;
@@ -7,18 +7,18 @@ export const formatDate = (inputDate: string): string => {
 
     if (!isNaN(day) && !isNaN(monthIndex) && !isNaN(year)) {
       const months = [
-        'Januari',
-        'Februari',
-        'Maret',
-        'April',
-        'Mei',
-        'Juni',
-        'Juli',
-        'Agustus',
-        'September',
-        'Oktober',
-        'November',
-        'Desember',
+        "Januari",
+        "Februari",
+        "Maret",
+        "April",
+        "Mei",
+        "Juni",
+        "Juli",
+        "Agustus",
+        "September",
+        "Oktober",
+        "November",
+        "Desember",
       ];
 
       const monthName = months[monthIndex];
@@ -28,7 +28,7 @@ export const formatDate = (inputDate: string): string => {
   }
 
   // If the input date is not in the correct format, return an error message or the original input.
-  return 'Invalid Date';
+  return "Invalid Date";
 };
 
 export const getDiffDate = (dateBefore: Date, dateAfter: Date): number => {
@@ -40,8 +40,8 @@ export const getDiffDate = (dateBefore: Date, dateAfter: Date): number => {
 
 export const formatDateToDay = (inputDate: Date): string => {
   const date = new Date(inputDate);
-  const day = date.toLocaleDateString('id-ID', { weekday: 'long' });
-  const month = date.toLocaleDateString('id-ID', { month: 'long' });
+  const day = date.toLocaleDateString("id-ID", { weekday: "long" });
+  const month = date.toLocaleDateString("id-ID", { month: "long" });
   const year = date.getFullYear();
   const dateNumber = date.getDate();
 
@@ -58,8 +58,8 @@ export const getCurrentYearMonthDate = () => {
   const currentDate = new Date();
 
   const year = currentDate.getFullYear();
-  const month = (currentDate.getMonth() + 1).toString().padStart(2, '0'); // Adding 1 to the month since it's zero-based
-  const day = currentDate.getDate().toString().padStart(2, '0');
+  const month = (currentDate.getMonth() + 1).toString().padStart(2, "0"); // Adding 1 to the month since it's zero-based
+  const day = currentDate.getDate().toString().padStart(2, "0");
 
   const formattedDate = `${year}-${month}-${day}`;
 
@@ -71,27 +71,27 @@ export const getDateTrackerKesehatan = (val: string) => {
 
   // Create an array of Indonesian day and month names.
   const daysInIndonesian = [
-    'Minggu',
-    'Senin',
-    'Selasa',
-    'Rabu',
-    'Kamis',
-    'Jumat',
-    'Sabtu',
+    "Minggu",
+    "Senin",
+    "Selasa",
+    "Rabu",
+    "Kamis",
+    "Jumat",
+    "Sabtu",
   ];
   const monthsInIndonesian = [
-    'Januari',
-    'Februari',
-    'Maret',
-    'April',
-    'Mei',
-    'Juni',
-    'Juli',
-    'Agustus',
-    'September',
-    'Oktober',
-    'November',
-    'Desember',
+    "Januari",
+    "Februari",
+    "Maret",
+    "April",
+    "Mei",
+    "Juni",
+    "Juli",
+    "Agustus",
+    "September",
+    "Oktober",
+    "November",
+    "Desember",
   ];
 
   // Extract day, month, and year from the parsed date.
@@ -103,4 +103,23 @@ export const getDateTrackerKesehatan = (val: string) => {
   const formattedDate = `${dayInIndonesian}, ${day} ${monthInIndonesian} ${year}`;
 
   return formattedDate;
+};
+
+export const getTimeDifferenceInMinutes = (start: string, end: string) => {
+  // Parse time strings into Date objects
+  const startTime = new Date(`2000-01-01T${start}`);
+  const endTime = new Date(`2000-01-01T${end}`);
+
+  // Convert Date objects to numbers (timestamps)
+  const startTimeStamp = startTime.getTime();
+  const endTimeStamp = endTime.getTime();
+
+  // Calculate the difference in milliseconds
+  const timeDifferenceInMillis = endTimeStamp - startTimeStamp;
+
+  // Convert milliseconds to minutes
+  const timeDifferenceInMinutes = timeDifferenceInMillis / (1000 * 60);
+
+  // Return the result as a number
+  return timeDifferenceInMinutes;
 };
