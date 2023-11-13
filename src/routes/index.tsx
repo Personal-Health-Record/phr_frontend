@@ -57,6 +57,7 @@ import AddAktifitas from "./MonitoringPage/AddAktifitasPage";
 import FaskesPage from "./FaskesPage";
 import FaskesDetail from "./FaskesPage/FaskesDetails";
 import NotificationPage from "./NotificationsPage";
+import MonitoringMakananPage from "./MonitoringPage/MonitoringMakananPage";
 
 const MainRoutes = () => {
   return (
@@ -144,6 +145,7 @@ const MainRoutes = () => {
       />
       <Route path="/monitoring/data-tracking" element={<DataTracking />} />
       <Route path="/monitoring/dashboard" element={<MonitoringDashboard />} />
+      <Route path="/monitoring/makanan" element={<MonitoringMakananPage />} />
 
       <Route path="/faskes" element={<FaskesPage />} />
       <Route path="/faskes/details" element={<FaskesDetail />} />

@@ -3,13 +3,22 @@ import chickenImg from "../../../../assets/images/food/chicken.png";
 import fruitImg from "../../../../assets/images/food/fruit.png";
 import vegetableImg from "../../../../assets/images/food/vegetable.png";
 import imageCheckAll from "../../../../assets/images/pengingat/check_all.png";
+import { useNavigate } from "react-router-dom";
 
 const CardKonsumsiMakananMonitoring = () => {
+  const navigate = useNavigate();
+
+  const handleUbahTarget = () => {
+    navigate("/monitoring/makanan");
+  };
+
   return (
     <div className="flex flex-col p-5 shadow-md rounded-xl">
       <div className="flex justify-between items-center">
         <p>Konsumsi Makanan</p>
-        <p className="text-xs text-lightGrey">Ubah target</p>
+        <p className="text-xs text-lightGrey" onClick={handleUbahTarget}>
+          Ubah target
+        </p>
       </div>
 
       <div className="mt-5">
