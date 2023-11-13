@@ -1,5 +1,11 @@
 import imageBmi from "../../../assets/images/kalkulator/bmi.png";
 import imageBmr from "../../../assets/images/kalkulator/bmr.png";
+import riceImg from "../../../assets/images/food/rice.png";
+import chickenImg from "../../../assets/images/food/chicken.png";
+import fruitImg from "../../../assets/images/food/fruit.png";
+import vegetableImg from "../../../assets/images/food/vegetable.png";
+import milkImg from "../../../assets/images/food/milk.png";
+import imageCheckAll from "../../../assets/images/pengingat/check_all.png";
 
 export const calculatorMenuList = [
   {
@@ -100,4 +106,21 @@ export const dummyUserPhysique: PhysiqueData = {
   height: 170,
   weight: 80,
   latestUpdate: "2023-10-22T12:00:00Z",
+};
+
+interface ImageKonsumsiMakanan {
+  "Makanan Pokok": string;
+  "Lauk Pauk": string;
+  Sayuran: string;
+  Buah: string;
+  Susu: string;
+  [key: string]: string; // Index signature
+}
+
+export const imageKonsumsiMakanan: ImageKonsumsiMakanan = {
+  "Makanan Pokok": riceImg,
+  "Lauk Pauk": chickenImg,
+  Sayuran: vegetableImg,
+  Buah: fruitImg,
+  Susu: milkImg,
 };

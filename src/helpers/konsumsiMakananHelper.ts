@@ -3,6 +3,7 @@ import {
   KonsumsiMakanan,
   dummyKonsumsiMakanan,
 } from "../routes/MonitoringPage/MonitoringMakananPage/constants";
+import { dummyTargetMakanan } from "../routes/MonitoringPage/MonitoringMakananPage/constants";
 
 export const useGetKonsumsiMakanan = () => {
   const [konsumsiMakanan, setKonsumsiMakanan] = useState<KonsumsiMakanan[]>();
@@ -36,5 +37,35 @@ export const addKonsumsiMakanan = (
   localStorage.setItem(
     "konsumsiMakananStorage",
     JSON.stringify(updatedKonsumsiMakananList)
+  );
+};
+
+export const useGetKonsumsiMakananTarget = () => {
+  const [konsumsiMakananTarget, setKonsumsiMakananTarget] =
+    useState<string[]>();
+
+  useEffect(() => {
+    if (!konsumsiMakananTarget && typeof window !== "undefined") {
+      const konsumsiMakananTargetStorage = localStorage.getItem(
+        "konsumsiMakananTargetStorage"
+      );
+      if (konsumsiMakananTargetStorage) {
+        setKonsumsiMakananTarget(JSON.parse(konsumsiMakananTargetStorage));
+        return;
+      }
+
+      setKonsumsiMakananTarget(dummyTargetMakanan);
+    }
+  }, [konsumsiMakananTarget]);
+
+  return {
+    konsumsiMakananTarget,
+  };
+};
+
+export const editTargetKonsumsiMakanan = (newTarget: string[]) => {
+  localStorage.setItem(
+    "konsumsiMakananTargetStorage",
+    JSON.stringify(newTarget)
   );
 };

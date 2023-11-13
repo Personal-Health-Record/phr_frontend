@@ -5,11 +5,48 @@ import fruitImg from "../../../assets/images/food/fruit.png";
 import vegetableImg from "../../../assets/images/food/vegetable.png";
 import milkImg from "../../../assets/images/food/milk.png";
 import { useNavigate } from "react-router-dom";
+import {
+  editTargetKonsumsiMakanan,
+  useGetKonsumsiMakananTarget,
+} from "../../../helpers/konsumsiMakananHelper";
+import { useState } from "react";
 
 const KonsumsiMakananTargetPage = () => {
+  const { konsumsiMakananTarget } = useGetKonsumsiMakananTarget();
   const navigate = useNavigate();
 
+  const [rice, setRice] = useState(false);
+  const [vegetable, setVegetable] = useState(false);
+  const [lauk, setLauk] = useState(false);
+  const [fruit, setFruit] = useState(false);
+  const [milk, setMilk] = useState(false);
+
   const handleSubmit = () => {
+    const target = [];
+    console.log({ rice, lauk, vegetable, fruit, milk });
+
+    if (rice) {
+      target.push("Makanan Pokok");
+    }
+
+    if (lauk) {
+      target.push("Lauk Pauk");
+    }
+
+    if (vegetable) {
+      target.push("Sayuran");
+    }
+
+    if (fruit) {
+      target.push("Buah");
+    }
+
+    if (milk) {
+      target.push("Susu");
+    }
+
+    editTargetKonsumsiMakanan(target);
+
     navigate(-1);
   };
 
@@ -32,6 +69,10 @@ const KonsumsiMakananTargetPage = () => {
                 name="radioOption"
                 value="Demam"
                 className="mr-2 justify-items-end"
+                checked={rice}
+                onClick={() => {
+                  setRice(!rice);
+                }}
               />
             </div>
             <div
@@ -56,6 +97,10 @@ const KonsumsiMakananTargetPage = () => {
                 name="radioOption"
                 value="Demam"
                 className="mr-2 justify-items-end"
+                checked={lauk}
+                onClick={() => {
+                  setLauk(!lauk);
+                }}
               />
             </div>
             <div
@@ -80,6 +125,10 @@ const KonsumsiMakananTargetPage = () => {
                 name="radioOption"
                 value="Demam"
                 className="mr-2 justify-items-end"
+                checked={vegetable}
+                onClick={() => {
+                  setVegetable(!vegetable);
+                }}
               />
             </div>
             <div
@@ -99,6 +148,10 @@ const KonsumsiMakananTargetPage = () => {
                 name="radioOption"
                 value="Demam"
                 className="mr-2 justify-items-end"
+                checked={fruit}
+                onClick={() => {
+                  setFruit(!fruit);
+                }}
               />
             </div>
             <div
@@ -118,6 +171,10 @@ const KonsumsiMakananTargetPage = () => {
                 name="radioOption"
                 value="Demam"
                 className="mr-2 justify-items-end"
+                checked={milk}
+                onClick={() => {
+                  setMilk(!milk);
+                }}
               />
             </div>
             <div

@@ -23,3 +23,10 @@ export const dummyKonsumsiMakanan: KonsumsiMakanan[] = [
     type: "Makan Siang",
   },
 ];
+
+export const dummyTargetMakanan = [
+  "Makanan Pokok",
+  "Lauk Pauk",
+  "Sayuran",
+  "Buah",
+];
