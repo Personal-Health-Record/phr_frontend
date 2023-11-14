@@ -41,6 +41,11 @@ const FaskesPage = () => {
     }
   };
 
+  const successCallback = (position: GeolocationPosition) => {
+    const { latitude, longitude } = position.coords;
+    setMarkerPosition({ lat: latitude, lng: longitude });
+  };
+
   useEffect(() => {
     if (typeFilter === "" || typeFilter === "Semua") {
       setFilteredFaskes(dummyFaskes);
@@ -52,6 +57,12 @@ const FaskesPage = () => {
       setFilteredFaskes(filtered);
     }
   }, [typeFilter]);
+
+  useEffect(() => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(successCallback);
+    }
+  }, []);
 
   const onLoad = useCallback(
     (map: google.maps.Map) => {
