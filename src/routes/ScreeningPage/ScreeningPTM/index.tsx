@@ -69,7 +69,7 @@ const ScreeningPTM = () => {
 
   return (
     <div className="flex flex-col">
-      <Header title="Skrining Kesehatan Mental" />
+      <Header title="Skrining PTM" />
 
       <div className="flex py-5 px-4 flex-col gap-5">
         <h3 className="font-semibold text-mainGrey text-sm mb-1">

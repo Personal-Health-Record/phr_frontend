@@ -10,7 +10,7 @@ const ScreeningMentalResult = () => {
 
   const isMentalIssue = useMemo(() => {
     if (totalScore) {
-      return parseInt(totalScore) > 8 ? true : false;
+      return parseInt(totalScore) > 10 ? true : false;
     }
 
     return false;
