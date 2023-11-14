@@ -18,6 +18,7 @@ const ChipTypes = ({ handleClickChip, selectedChip }: Props) => {
             bgColor={
               selectedChip !== chip ? "bg-superLightGrey" : "bg-mainBlue"
             }
+            textColor={selectedChip === chip ? "text-white" : "text-black"}
           />
         </div>
       ))}

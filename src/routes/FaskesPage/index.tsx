@@ -105,7 +105,7 @@ const FaskesPage = () => {
           <GoogleMap
             mapContainerStyle={containerStyle}
             center={markerPosition}
-            zoom={10}
+            zoom={20}
             onLoad={onLoad}
             onUnmount={onUnmount}
           >
