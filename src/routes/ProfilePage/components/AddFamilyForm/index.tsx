@@ -7,6 +7,7 @@ import TextInput from "../../../../components/TextInput";
 import RadioInput from "../../../../components/RadioInput";
 import FileInput from "../../../../components/ImageInput";
 import CircleLoader from "../../../../components/CircleLoader";
+import { useToaster } from "../../../../contexts/ToasterContext";
 
 export type AddFamilyFormAttributes = {
   name: string;
@@ -31,6 +32,7 @@ const AddFamilyForm = () => {
   });
   const { downloadURL, handleSelectFile } = useCloudMediaStorageUtils();
   const { loggedInUser, userData } = useGetLoggedInUser();
+  const { toggleDiv } = useToaster();
   if (!userData || !loggedInUser) {
     return <CircleLoader />;
   }
@@ -53,7 +55,7 @@ const AddFamilyForm = () => {
       return;
     }
     if (!downloadURL) {
-      alert("Sedang mengunggah gambar");
+      toggleDiv("success", "Sedang mengunggah gambar");
       return;
     }
 
@@ -78,7 +80,7 @@ const AddFamilyForm = () => {
   const validateForm = () => {
     for (const [key, value] of Object.entries(formState)) {
       if (!value) {
-        alert(`Data ${key} harus diisi semua`);
+        toggleDiv("error", `Data ${key} harus diisi semua`);
         return false;
       }
     }

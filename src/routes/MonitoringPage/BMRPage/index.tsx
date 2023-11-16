@@ -4,6 +4,7 @@ import Header from "../../../components/Header";
 import FormKalori from "../components/FormKalori";
 import CardHasilBmr from "../components/CardHasilBmr";
 import CircleLoader from "../../../components/CircleLoader";
+import { useToaster } from "../../../contexts/ToasterContext";
 
 export type BMRForm = {
   gender: string;
@@ -23,6 +24,8 @@ const KalkulatorKalori = () => {
     exerciseIntensity: "",
   });
   const { loggedInUser: user } = useGetLoggedInUser();
+  const { toggleDiv } = useToaster();
+
   if (!user) {
     return <CircleLoader />;
   }
@@ -37,13 +40,13 @@ const KalkulatorKalori = () => {
   const validateForm = () => {
     for (const [key, value] of Object.entries(formState)) {
       if (typeof value === "number" && value === 0) {
-        alert(`Data ${key} harus diisi semua`);
+        toggleDiv("error", `Data ${key} harus diisi semua`);
 
         return false;
       }
 
       if (!value) {
-        alert("Data harus diisi semua");
+        toggleDiv("error", "Data harus diisi semua");
         return false;
       }
     }

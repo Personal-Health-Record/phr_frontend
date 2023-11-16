@@ -10,6 +10,7 @@ import TextInput from "../../../../components/TextInput";
 import RadioInput from "../../../../components/RadioInput";
 import Notifikasi from "../Notifikasi";
 import CircleLoader from "../../../../components/CircleLoader";
+import { useToaster } from "../../../../contexts/ToasterContext";
 
 const FormTambahPengingat = () => {
   const navigate = useNavigate();
@@ -31,6 +32,7 @@ const FormTambahPengingat = () => {
 
   const { loggedInUser } = useGetLoggedInUser();
   const { obatData } = useGetObatData();
+  const { toggleDiv } = useToaster();
   if (!loggedInUser || !obatData) {
     return <CircleLoader />;
   }
@@ -53,13 +55,13 @@ const FormTambahPengingat = () => {
   const validateForm = () => {
     for (const [key, value] of Object.entries(formState)) {
       if (!value) {
-        alert(`Data ${key} harus diisi semua`);
+        toggleDiv("error", `Data ${key} harus diisi semua`);
         return false;
       }
     }
 
     if (formState.listPengingat.length === 0) {
-      alert("Notifikasi harus diisi minimal satu");
+      toggleDiv("error", "Notifikasi harus diisi minimal satu");
       return false;
     }
 

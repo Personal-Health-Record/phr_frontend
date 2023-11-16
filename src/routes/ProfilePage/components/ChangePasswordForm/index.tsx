@@ -7,6 +7,7 @@ import {
 import { User } from "../../../../helpers/constants";
 import TextInput from "../../../../components/TextInput";
 import CircleLoader from "../../../../components/CircleLoader";
+import { useToaster } from "../../../../contexts/ToasterContext";
 
 export type ChangePasswordFormAttributes = {
   previousPass: string;
@@ -22,6 +23,8 @@ const ChangePasswordForm = () => {
     confirmationPass: "",
   });
   const { loggedInUser, userData } = useGetLoggedInUser();
+  const { toggleDiv } = useToaster();
+
   if (!userData || !loggedInUser) {
     return <CircleLoader />;
   }
@@ -39,7 +42,7 @@ const ChangePasswordForm = () => {
 
     updateUserData(newUser, userData);
 
-    alert("Password berhasil diubah");
+    toggleDiv("success", "Password berhasil diubah");
 
     navigate(-1);
   };
@@ -47,18 +50,18 @@ const ChangePasswordForm = () => {
   const validateForm = () => {
     for (const [key, value] of Object.entries(formState)) {
       if (!value) {
-        alert(`Data ${key} harus diisi semua`);
+        toggleDiv("error", `Data ${key} harus diisi semua`);
         return false;
       }
     }
 
     if (formState.previousPass !== loggedInUser.password) {
-      alert("Password sebelumnya tidak sesuai");
+      toggleDiv("error", "Password sebelumnya tidak sesuai");
       return false;
     }
 
     if (formState.newPass !== formState.confirmationPass) {
-      alert("Password baru tidak sama");
+      toggleDiv("error", "Password baru tidak sama");
       return false;
     }
 

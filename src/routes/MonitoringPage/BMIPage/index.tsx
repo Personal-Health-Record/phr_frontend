@@ -4,6 +4,7 @@ import Header from "../../../components/Header";
 import FormIndeksMassa from "../components/FormIndeksMassa";
 import CardHasilBmi from "../components/CardHasilBmi";
 import CircleLoader from "../../../components/CircleLoader";
+import { useToaster } from "../../../contexts/ToasterContext";
 
 export type BMIForm = {
   gender: string;
@@ -21,6 +22,7 @@ const KalkulatorIndeksMassa = () => {
     height: 0,
   });
   const { loggedInUser: user } = useGetLoggedInUser();
+  const { toggleDiv } = useToaster();
   if (!user) {
     return <CircleLoader />;
   }
@@ -35,12 +37,12 @@ const KalkulatorIndeksMassa = () => {
   const validateForm = () => {
     for (const [key, value] of Object.entries(formState)) {
       if (typeof value === "number" && value === 0) {
-        alert(`Data ${key} harus diisi semua`);
+        toggleDiv("error", `Data ${key} harus diisi semua`);
         return false;
       }
 
       if (!value) {
-        alert("Data harus diisi semua");
+        toggleDiv("error", "Data harus diisi semua");
         return false;
       }
     }

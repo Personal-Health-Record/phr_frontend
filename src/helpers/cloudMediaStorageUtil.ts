@@ -1,12 +1,14 @@
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { SetStateAction, useState } from "react";
 import { storage } from "../firebaseConfig";
+import { useToaster } from "../contexts/ToasterContext";
 
 const useCloudMediaStorageUtils = () => {
   const [imageFile, setImageFile] = useState<File>();
   const [downloadURL, setDownloadURL] = useState("");
   const [isUploading, setIsUploading] = useState(false);
   const [progressUpload, setProgressUpload] = useState(0);
+  const { toggleDiv } = useToaster();
 
   const handleSelectFile = (files: any) => {
     if (!files) return;
@@ -15,7 +17,7 @@ const useCloudMediaStorageUtils = () => {
       setImageFile(files[0]);
       handleUploadFile(files[0]);
     } else {
-      alert("File size to large");
+      toggleDiv("error", "File size to large");
     }
   };
 
@@ -48,7 +50,7 @@ const useCloudMediaStorageUtils = () => {
           }
         },
         (error: { message: any }) => {
-          alert(error.message);
+          toggleDiv("error", error.message);
         },
         () => {
           console.log("Upload complete");
@@ -61,7 +63,7 @@ const useCloudMediaStorageUtils = () => {
         }
       );
     } else {
-      alert("File not found");
+      toggleDiv("error", "File not found");
     }
     setIsUploading(false);
   };

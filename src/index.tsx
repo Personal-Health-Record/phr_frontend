@@ -4,6 +4,7 @@ import "./index.css";
 import reportWebVitals from "./reportWebVitals";
 import MainRoutes from "./routes";
 import { BrowserRouter } from "react-router-dom";
+import { ToasterProvider } from "./contexts/ToasterContext";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -11,7 +12,9 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-      <MainRoutes />
+      <ToasterProvider>
+        <MainRoutes />
+      </ToasterProvider>
     </BrowserRouter>
   </React.StrictMode>
 );

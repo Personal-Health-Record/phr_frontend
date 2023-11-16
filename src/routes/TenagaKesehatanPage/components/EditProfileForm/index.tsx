@@ -8,6 +8,7 @@ import {
 } from "../../../../helpers/tenagaKesehatanHelper";
 import TextInput from "../../../HomePage/components/TextInput";
 import CircleLoader from "../../../../components/CircleLoader";
+import { useToaster } from "../../../../contexts/ToasterContext";
 
 export type EditProfileFormAttributes = {
   specialist: string;
@@ -26,6 +27,7 @@ const EditProfileForm = () => {
   });
 
   const { loggedInUser } = useGetLoggedInUser();
+  const { toggleDiv } = useToaster();
   if (!loggedInUser) {
     return <CircleLoader />;
   }
@@ -57,7 +59,7 @@ const EditProfileForm = () => {
 
     updateTenkesData(updatedTenkesData);
 
-    alert("Data berhasil diupdate");
+    toggleDiv("success", "Data berhasil diupdate");
 
     navigate(-1);
   };
@@ -65,7 +67,7 @@ const EditProfileForm = () => {
   const validateForm = () => {
     for (const [key, value] of Object.entries(formState)) {
       if (!value) {
-        alert(`Data ${key} harus diisi semua`);
+        toggleDiv("error", `Data ${key} harus diisi semua`);
         return false;
       }
     }

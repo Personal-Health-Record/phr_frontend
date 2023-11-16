@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { User, dummyUserData } from "./constants";
+import { useToaster } from "../contexts/ToasterContext";
 
 export const useGetUserData = () => {
   const [userData, setUserData] = useState<User[]>();
@@ -24,12 +25,13 @@ export const useGetUserData = () => {
 export const useGetLoggedInUser = () => {
   const { userData } = useGetUserData();
   const [loggedInUser, setLoggedInUser] = useState<User>();
+  const { toggleDiv } = useToaster();
 
   useEffect(() => {
     if (!loggedInUser && typeof window !== "undefined") {
       const userEmail = localStorage.getItem("authUserEmail");
       if (!userEmail) {
-        alert("Please login to continue");
+        toggleDiv("error", "Please login to continue");
         return;
       }
 
@@ -37,7 +39,7 @@ export const useGetLoggedInUser = () => {
         setLoggedInUser(userData.find((user) => user.email === userEmail));
       }
     }
-  }, [loggedInUser, userData]);
+  }, [loggedInUser, toggleDiv, userData]);
 
   return {
     loggedInUser,

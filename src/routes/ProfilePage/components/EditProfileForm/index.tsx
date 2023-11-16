@@ -10,6 +10,7 @@ import TextInput from "../../../../components/TextInput";
 import RadioInput from "../../../../components/RadioInput";
 import FileInput from "../../../../components/ImageInput";
 import CircleLoader from "../../../../components/CircleLoader";
+import { useToaster } from "../../../../contexts/ToasterContext";
 
 export type EditProfileFormAttributes = {
   email?: string;
@@ -40,6 +41,7 @@ const EditProfileForm = () => {
   });
 
   const { downloadURL, handleSelectFile } = useCloudMediaStorageUtils();
+  const { toggleDiv } = useToaster();
 
   const { loggedInUser, userData } = useGetLoggedInUser();
   if (!userData || !loggedInUser) {
@@ -76,7 +78,7 @@ const EditProfileForm = () => {
     }
 
     if (!downloadURL) {
-      alert("Sedang mengunggah gambar");
+      toggleDiv("success", "Sedang mengunggah gambar");
       return;
     }
 
@@ -102,7 +104,7 @@ const EditProfileForm = () => {
         continue;
       }
       if (user.email === updatedUser.email) {
-        alert("Email sudah terdaftar");
+        toggleDiv("error", "Email sudah terdaftar");
         return;
       }
     }
@@ -115,7 +117,7 @@ const EditProfileForm = () => {
   const validateForm = () => {
     for (const [key, value] of Object.entries(formState)) {
       if (!value) {
-        alert(`Data ${key} harus diisi semua`);
+        toggleDiv("error", `Data ${key} harus diisi semua`);
         return false;
       }
     }

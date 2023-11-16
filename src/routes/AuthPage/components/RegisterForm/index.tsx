@@ -7,6 +7,7 @@ import TextInput from "../../../HomePage/components/TextInput";
 import RadioInput from "../../../HomePage/components/RadioInput";
 import FileInput from "../../../HomePage/components/ImageInput";
 import CircleLoader from "../../../../components/CircleLoader";
+import { useToaster } from "../../../../contexts/ToasterContext";
 
 export type RegisterFormAttributes = {
   email: string;
@@ -41,6 +42,7 @@ const RegisterForm = () => {
   });
   const { downloadURL, handleSelectFile } = useCloudMediaStorageUtils();
   const { userData } = useGetUserData();
+  const { toggleDiv } = useToaster();
 
   if (!userData) {
     return <CircleLoader />;
@@ -52,7 +54,7 @@ const RegisterForm = () => {
       return;
     }
     if (!downloadURL) {
-      alert("Sedang mengunggah gambar");
+      toggleDiv("success", "Sedang mengunggah gambar");
       return;
     }
 
@@ -75,7 +77,7 @@ const RegisterForm = () => {
     // validate email uniqueness
     for (const user of userData) {
       if (user.email === newUser.email) {
-        alert("Email sudah terdaftar");
+        toggleDiv("error", "Email sudah terdaftar");
         return;
       }
     }
@@ -89,12 +91,12 @@ const RegisterForm = () => {
 
   const validateForm = () => {
     if (formState.password !== formState.confirmPassword) {
-      alert("Password dan konfirmasi password harus sama");
+      toggleDiv("error", "Password dan konfirmasi password harus sama");
       return false;
     }
     for (const [key, value] of Object.entries(formState)) {
       if (!value) {
-        alert(`Data ${key} harus diisi`);
+        toggleDiv("error", `Data ${key} harus diisi`);
         return false;
       }
     }

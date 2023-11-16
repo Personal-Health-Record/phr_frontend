@@ -13,6 +13,7 @@ import Title from "../HomePage/components/Title";
 import CardTenkes from "./components/CardTenkes";
 import ButtonSection from "./components/ButtonSection";
 import CircleLoader from "../../components/CircleLoader";
+import { useToaster } from "../../contexts/ToasterContext";
 
 const SharePage = () => {
   const navigate = useNavigate();
@@ -27,6 +28,7 @@ const SharePage = () => {
   let { notificationData } = useGetNotificationData();
   let { loggedInUser, userData } = useGetLoggedInUser();
   const { listTenkes } = useGetTenagaKesehatanList();
+  const { toggleDiv } = useToaster();
   if (!loggedInUser || !userData || !notificationData || !listTenkes) {
     return <CircleLoader />;
   }
@@ -44,7 +46,7 @@ const SharePage = () => {
 
   const handleKirimData = () => {
     if (listSelectedDoctor.length === 0) {
-      alert("Harap pilih tenaga kesehatan terlebih dahulu");
+      toggleDiv("error", "Harap pilih tenaga kesehatan terlebih dahulu");
       return;
     }
 
@@ -65,17 +67,18 @@ const SharePage = () => {
     }
 
     addNotificationData(newNotificationDataList, notificationData!);
-    alert("Data berhasil dikirim");
+    toggleDiv("error", "Data berhasil dikirim");
     navigate("/");
   };
 
   const handleKirimEmail = () => {
     if (listSelectedDoctor.length === 0) {
-      alert("Harap pilih tenaga kesehatan terlebih dahulu");
+      toggleDiv("error", "Harap pilih tenaga kesehatan terlebih dahulu");
       return;
     }
     if (listSelectedDoctor.length > 1) {
-      alert(
+      toggleDiv(
+        "error",
         "Metode kirim email hanya dapat digunakan untuk satu tenaga kesehatan"
       );
       return;
@@ -105,7 +108,7 @@ const SharePage = () => {
     }
 
     addNotificationData(newNotificationDataList, notificationData!);
-    alert("Data berhasil dikirim");
+    toggleDiv("success", "Data berhasil dikirim");
     navigate("/");
   };
 

@@ -6,6 +6,7 @@ import { Insurance } from "../../constants";
 import TextInput from "../../../../components/TextInput";
 import RadioInput from "../../../../components/RadioInput";
 import CircleLoader from "../../../../components/CircleLoader";
+import { useToaster } from "../../../../contexts/ToasterContext";
 
 export type AddInsuranceFormAttributes = {
   title: string;
@@ -24,6 +25,7 @@ const AddInsuranceForm = () => {
   });
   const { loggedInUser } = useGetLoggedInUser();
   const { insuranceData } = useGetInsuranceData();
+  const { toggleDiv } = useToaster();
   if (!insuranceData || !loggedInUser) {
     return <CircleLoader />;
   }
@@ -62,7 +64,7 @@ const AddInsuranceForm = () => {
     for (const [key, value] of Object.entries(formState)) {
       // TODO: remove validation for profile picture until firebase storage is ready
       if (!value && key !== "profilePicture") {
-        alert("Data harus diisi semua");
+        toggleDiv("error", "Data harus diisi semua");
         return false;
       }
     }

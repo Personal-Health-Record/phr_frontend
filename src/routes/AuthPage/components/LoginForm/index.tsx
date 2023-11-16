@@ -3,11 +3,13 @@ import { useNavigate } from "react-router-dom";
 import { useGetUserData } from "../../../../helpers/userDataHelper";
 import TextInput from "../../../HomePage/components/TextInput";
 import CircleLoader from "../../../../components/CircleLoader";
+import { useToaster } from "../../../../contexts/ToasterContext";
 
 const LoginForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const { userData } = useGetUserData();
+  const { toggleDiv } = useToaster();
 
   const navigate = useNavigate();
 
@@ -19,7 +21,7 @@ const LoginForm = () => {
       localStorage.setItem("authUserEmail", user.email);
       navigate("/");
     } else {
-      alert("Login gagal");
+      toggleDiv("error", "Login gagal");
     }
   };
 
