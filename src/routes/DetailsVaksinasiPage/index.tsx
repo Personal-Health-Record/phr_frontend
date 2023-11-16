@@ -6,6 +6,7 @@ import CardDetails from "./components/CardDetails";
 import { formatDate } from "../../helpers/dateHelper";
 import CardVaksin from "./components/CardVaksin";
 import BottomNavbarDownloadShare from "../HomePage/components/BottomNavbarDownloadShare";
+import CircleLoader from "../../components/CircleLoader";
 
 const VaksinasiDetails = () => {
   const params = useParams();
@@ -15,7 +16,7 @@ const VaksinasiDetails = () => {
 
   const { userData } = useGetUserData();
   if (!userData) {
-    return <div> Loading... </div>;
+    return <CircleLoader />;
   }
 
   const user = userData.find((data) => data.id === vaksin.userId)!;

@@ -4,13 +4,14 @@ import { useGetLoggedInUser } from "../../../helpers/userDataHelper";
 import BottomNavbarOneButton from "../../HomePage/components/BottomNavbarOneButton";
 import InsuranceCard from "../components/InsuranceCard";
 import imagePlus from "../../../assets/images/plus.png";
+import CircleLoader from "../../../components/CircleLoader";
 
 const InsurancePage = () => {
   const { loggedInUser: user, userData } = useGetLoggedInUser();
   const { insuranceData } = useGetInsuranceData();
 
   if (!user || !userData || !insuranceData) {
-    return <div> Loading... </div>;
+    return <CircleLoader />;
   }
 
   return (

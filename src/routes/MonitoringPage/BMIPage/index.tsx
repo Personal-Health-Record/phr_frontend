@@ -3,6 +3,7 @@ import { useGetLoggedInUser } from "../../../helpers/userDataHelper";
 import Header from "../../../components/Header";
 import FormIndeksMassa from "../components/FormIndeksMassa";
 import CardHasilBmi from "../components/CardHasilBmi";
+import CircleLoader from "../../../components/CircleLoader";
 
 export type BMIForm = {
   gender: string;
@@ -21,7 +22,7 @@ const KalkulatorIndeksMassa = () => {
   });
   const { loggedInUser: user } = useGetLoggedInUser();
   if (!user) {
-    return <div> Loading... </div>;
+    return <CircleLoader />;
   }
   if (formState.age === 0) {
     setFormState({

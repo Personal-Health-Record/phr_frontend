@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useGetUserData } from "../../../../helpers/userDataHelper";
 import TextInput from "../../../HomePage/components/TextInput";
+import CircleLoader from "../../../../components/CircleLoader";
 
 const LoginForm = () => {
   const [email, setEmail] = useState("");
@@ -27,7 +28,7 @@ const LoginForm = () => {
   };
 
   if (!userData) {
-    return <div> Loading... </div>;
+    return <CircleLoader />;
   }
 
   return (

@@ -2,6 +2,7 @@
 
 import { useCallback, useState } from "react";
 import { GoogleMap, useJsApiLoader, Marker } from "@react-google-maps/api";
+import CircleLoader from "../../../../components/CircleLoader";
 
 interface Props {
   lat: number;
@@ -42,8 +43,8 @@ const MapsDetail = ({ lat, lng }: Props) => {
   return (
     <div className="flex flex-col">
       {!isLoaded ? (
-        <div className="flex justify-center items-center mt-20">
-          <p>Loading Maps</p>
+        <div className="flex justify-center items-center mt-10">
+          <CircleLoader />
         </div>
       ) : (
         <div className="flex flex-col w-full gap-3 justify-center items-center">

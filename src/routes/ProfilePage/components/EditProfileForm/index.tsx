@@ -9,6 +9,7 @@ import { User } from "../../../../helpers/constants";
 import TextInput from "../../../../components/TextInput";
 import RadioInput from "../../../../components/RadioInput";
 import FileInput from "../../../../components/ImageInput";
+import CircleLoader from "../../../../components/CircleLoader";
 
 export type EditProfileFormAttributes = {
   email?: string;
@@ -42,7 +43,7 @@ const EditProfileForm = () => {
 
   const { loggedInUser, userData } = useGetLoggedInUser();
   if (!userData || !loggedInUser) {
-    return <div> Loading... </div>;
+    return <CircleLoader />;
   }
   // set default state from logged in user data
   if (formState.email === "") {

@@ -12,6 +12,7 @@ import SearchBar from "./components/SearchBar";
 import Title from "../HomePage/components/Title";
 import CardTenkes from "./components/CardTenkes";
 import ButtonSection from "./components/ButtonSection";
+import CircleLoader from "../../components/CircleLoader";
 
 const SharePage = () => {
   const navigate = useNavigate();
@@ -27,7 +28,7 @@ const SharePage = () => {
   let { loggedInUser, userData } = useGetLoggedInUser();
   const { listTenkes } = useGetTenagaKesehatanList();
   if (!loggedInUser || !userData || !notificationData || !listTenkes) {
-    return <div> Loading... </div>;
+    return <CircleLoader />;
   }
   // filter only doctor
   userData = userData.filter((user) => user.role === "doctor");

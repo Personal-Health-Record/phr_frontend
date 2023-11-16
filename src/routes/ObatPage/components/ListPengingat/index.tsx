@@ -6,6 +6,7 @@ import {
 import { useGetLoggedInUser } from "../../../../helpers/userDataHelper";
 import { Obat } from "../../constants";
 import PengingatCard from "../PengingatCard";
+import CircleLoader from "../../../../components/CircleLoader";
 
 const ListPengingat = () => {
   const { loggedInUser } = useGetLoggedInUser();
@@ -13,7 +14,7 @@ const ListPengingat = () => {
   const [obatList, setObatList] = useState<Obat[]>();
 
   if (!loggedInUser || !obatData) {
-    return <div> Loading... </div>;
+    return <CircleLoader />;
   }
   const getFilteredObatData = (listObat: Obat[]) => {
     return listObat.filter((obat) => {

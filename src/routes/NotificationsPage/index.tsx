@@ -5,13 +5,14 @@ import { Notification } from "./constants";
 import { useGetNotificationData } from "../../helpers/notificationDataHelper";
 import { useGetLoggedInUser } from "../../helpers/userDataHelper";
 import BottomNavbar from "../../components/BottomNavbar";
+import CircleLoader from "../../components/CircleLoader";
 
 const NotificationPage = () => {
   const [notificationData, setNotificationData] = useState<Notification[]>();
   let { notificationData: storageNotificationData } = useGetNotificationData();
   const { loggedInUser } = useGetLoggedInUser();
   if (!storageNotificationData || !loggedInUser) {
-    return <div> Loading... </div>;
+    return <CircleLoader />;
   }
 
   if (!notificationData) {

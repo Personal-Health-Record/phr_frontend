@@ -7,6 +7,7 @@ import {
   updateTenkesData,
 } from "../../../../helpers/tenagaKesehatanHelper";
 import TextInput from "../../../HomePage/components/TextInput";
+import CircleLoader from "../../../../components/CircleLoader";
 
 export type EditProfileFormAttributes = {
   specialist: string;
@@ -26,7 +27,7 @@ const EditProfileForm = () => {
 
   const { loggedInUser } = useGetLoggedInUser();
   if (!loggedInUser) {
-    return <div> Loading... </div>;
+    return <CircleLoader />;
   }
 
   const dataTenkes = getTenkesByUserId(loggedInUser.id)!;

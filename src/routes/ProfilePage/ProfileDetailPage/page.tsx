@@ -5,13 +5,14 @@ import DetailInfoCard from "../components/DetailInfoCard";
 import { formatDate } from "../../../helpers/dateHelper";
 import BottomNavbarOneButton from "../../HomePage/components/BottomNavbarOneButton";
 import imgEdit from "../../../assets/images/edit.png";
+import CircleLoader from "../../../components/CircleLoader";
 
 const ProfileDetail = () => {
   const { userData, loggedInUser } = useGetLoggedInUser();
   const params = useParams();
 
   if (!userData || !loggedInUser) {
-    return <div> Loading... </div>;
+    return <CircleLoader />;
   }
 
   const user = userData.find((user) => user.id === params.id)!;

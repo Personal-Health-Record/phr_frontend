@@ -4,13 +4,14 @@ import { User } from "../../helpers/constants";
 import Header from "../../components/Header";
 import SearchBar from "../../components/Searchbar";
 import CardPatient from "./components/CardPatient";
+import CircleLoader from "../../components/CircleLoader";
 
 const PatientPage = () => {
   const { userData } = useGetUserData();
   const [patientData, setPatientData] = useState<User[]>();
 
   if (!userData) {
-    return <div> Loading... </div>;
+    return <CircleLoader />;
   }
 
   if (!patientData) {

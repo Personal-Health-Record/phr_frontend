@@ -7,6 +7,7 @@ import SearchBar from "../components/SearchBar";
 import Title from "../../HomePage/components/Title";
 import CardRiwayat from "../components/CardRiwayat";
 import CardObat from "../components/CardObat";
+import CircleLoader from "../../../components/CircleLoader";
 
 const RiwayatObat = () => {
   const { loggedInUser } = useGetLoggedInUser();
@@ -14,7 +15,7 @@ const RiwayatObat = () => {
   const [obatList, setObatList] = useState<Obat[]>();
 
   if (!loggedInUser || !obatData) {
-    return <div> Loading... </div>;
+    return <CircleLoader />;
   }
   const getFilteredObatData = (listObat: Obat[], keyword: string) => {
     return listObat.filter((obat) => {

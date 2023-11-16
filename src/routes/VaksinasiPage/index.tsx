@@ -5,13 +5,14 @@ import Header from "../HomePage/components/Header";
 import CardPengguna from "./components/CardPengguna";
 import VaksinasiList from "./components/VaksinasiList";
 import Keterangan from "./components/Keterangan";
+import CircleLoader from "../../components/CircleLoader";
 
 const VaksinasiPribadi = () => {
   const { loggedInUser, userData } = useGetLoggedInUser();
   const [user, setUser] = useState<User>();
 
   if (!loggedInUser || !userData) {
-    return <div> Loading... </div>;
+    return <CircleLoader />;
   }
 
   // populate user if not exist

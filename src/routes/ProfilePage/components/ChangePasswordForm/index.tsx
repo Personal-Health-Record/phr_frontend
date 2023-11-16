@@ -6,6 +6,7 @@ import {
 } from "../../../../helpers/userDataHelper";
 import { User } from "../../../../helpers/constants";
 import TextInput from "../../../../components/TextInput";
+import CircleLoader from "../../../../components/CircleLoader";
 
 export type ChangePasswordFormAttributes = {
   previousPass: string;
@@ -22,7 +23,7 @@ const ChangePasswordForm = () => {
   });
   const { loggedInUser, userData } = useGetLoggedInUser();
   if (!userData || !loggedInUser) {
-    return <div> Loading... </div>;
+    return <CircleLoader />;
   }
 
   const handleSubmit = () => {

@@ -6,6 +6,7 @@ import { User } from "../../../../helpers/constants";
 import TextInput from "../../../HomePage/components/TextInput";
 import RadioInput from "../../../HomePage/components/RadioInput";
 import FileInput from "../../../HomePage/components/ImageInput";
+import CircleLoader from "../../../../components/CircleLoader";
 
 export type RegisterFormAttributes = {
   email: string;
@@ -40,8 +41,9 @@ const RegisterForm = () => {
   });
   const { downloadURL, handleSelectFile } = useCloudMediaStorageUtils();
   const { userData } = useGetUserData();
+
   if (!userData) {
-    return <div> Loading... </div>;
+    return <CircleLoader />;
   }
 
   const handleClickRegister = () => {

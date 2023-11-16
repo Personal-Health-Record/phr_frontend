@@ -1,3 +1,4 @@
+import CircleLoader from "../../../components/CircleLoader";
 import Header from "../../../components/Header";
 import { useGetLoggedInUser } from "../../../helpers/userDataHelper";
 import BottomNavbarOneButton from "../../HomePage/components/BottomNavbarOneButton";
@@ -7,7 +8,7 @@ const FamilyPage = () => {
   const { loggedInUser: user, userData } = useGetLoggedInUser();
 
   if (!user || !userData) {
-    return <div> Loading... </div>;
+    return <CircleLoader />;
   }
 
   const userRelations = userData.filter((item) => item.parentId === user.id);

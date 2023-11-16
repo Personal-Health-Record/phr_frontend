@@ -3,13 +3,14 @@ import { useGetUserData } from "../../../helpers/userDataHelper";
 import Header from "../../../components/Header";
 import ProfileHeader from "../components/ProfileHeader";
 import CardOptionPatient from "../components/CardPatientDetail";
+import CircleLoader from "../../../components/CircleLoader";
 
 const ProfilePatientPage = () => {
   const { userData } = useGetUserData();
   const params = useParams();
 
   if (!userData) {
-    return <div> Loading... </div>;
+    return <CircleLoader />;
   }
 
   const patient = userData.find((user) => user.id === params.id)!;

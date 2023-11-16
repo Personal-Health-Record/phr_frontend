@@ -4,12 +4,13 @@ import { Skrining } from "../constants";
 import Header from "../../HomePage/components/Header";
 import SearchBar from "../../../components/Searchbar";
 import RiwayatScreeningCard from "../components/RiwayatScreeningCard";
+import CircleLoader from "../../../components/CircleLoader";
 
 const ScreeningDoctor = () => {
   const [screeningData, setScreeningData] = useState<Skrining[]>();
   const { listSkrining } = useGetSkriningKesehatanList();
   if (!listSkrining) {
-    return <div> Loading... </div>;
+    return <CircleLoader />;
   }
 
   if (!screeningData) {

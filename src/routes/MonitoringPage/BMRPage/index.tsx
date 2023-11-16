@@ -3,6 +3,7 @@ import { useGetLoggedInUser } from "../../../helpers/userDataHelper";
 import Header from "../../../components/Header";
 import FormKalori from "../components/FormKalori";
 import CardHasilBmr from "../components/CardHasilBmr";
+import CircleLoader from "../../../components/CircleLoader";
 
 export type BMRForm = {
   gender: string;
@@ -23,7 +24,7 @@ const KalkulatorKalori = () => {
   });
   const { loggedInUser: user } = useGetLoggedInUser();
   if (!user) {
-    return <div> Loading... </div>;
+    return <CircleLoader />;
   }
   if (formState.age === 0) {
     setFormState({

@@ -1,4 +1,5 @@
 import BottomNavbar from "../../components/BottomNavbar";
+import CircleLoader from "../../components/CircleLoader";
 import { getTenkesByUserId } from "../../helpers/tenagaKesehatanHelper";
 import { logoutUser, useGetLoggedInUser } from "../../helpers/userDataHelper";
 import ProfileHeader from "./components/profileHeader";
@@ -8,13 +9,13 @@ const ProfilePage = () => {
   const { loggedInUser: user } = useGetLoggedInUser();
 
   if (!user) {
-    return <div> Loading... </div>;
+    return <CircleLoader />;
   }
 
   const renderDoctorProfile = () => {
     const tenkes = getTenkesByUserId(user.id);
     if (!tenkes) {
-      return <div> Loading... </div>;
+      return <CircleLoader />;
     }
 
     return (

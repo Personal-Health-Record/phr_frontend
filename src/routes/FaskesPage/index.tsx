@@ -7,6 +7,7 @@ import CardFaskesLocation from "./components/CardFaskesLocation";
 import ChipTypes from "./components/ChipTypes";
 import { useNavigate } from "react-router-dom";
 import Header from "../../components/Header";
+import CircleLoader from "../../components/CircleLoader";
 
 const containerStyle = {
   width: "100%",
@@ -97,8 +98,8 @@ const FaskesPage = () => {
 
       {/* Maps section */}
       {!isLoaded ? (
-        <div className="flex justify-center items-center mt-20">
-          <p>Loading Maps</p>
+        <div className="flex justify-center items-center mt-10">
+          <CircleLoader />
         </div>
       ) : (
         <div className="flex flex-col w-full gap-3 justify-center items-center">

@@ -9,6 +9,7 @@ import {
 import TextInput from "../../../../components/TextInput";
 import RadioInput from "../../../../components/RadioInput";
 import Notifikasi from "../Notifikasi";
+import CircleLoader from "../../../../components/CircleLoader";
 
 const FormTambahPengingat = () => {
   const navigate = useNavigate();
@@ -31,7 +32,7 @@ const FormTambahPengingat = () => {
   const { loggedInUser } = useGetLoggedInUser();
   const { obatData } = useGetObatData();
   if (!loggedInUser || !obatData) {
-    return <div> Loading... </div>;
+    return <CircleLoader />;
   }
   if (formState.userId === "") {
     setFormState({

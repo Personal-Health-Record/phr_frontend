@@ -11,6 +11,7 @@ import CardTenkesDetail from "../components/CardTenkesDetail";
 import CardTempatPraktik from "../components/CardTempatPraktik";
 import BottomNavbarOneButton from "../../HomePage/components/BottomNavbarOneButton";
 import imageEdit from "../../../assets/images/edit.png";
+import CircleLoader from "../../../components/CircleLoader";
 
 const ProfileTenagaMedis = () => {
   const location = useLocation();
@@ -25,7 +26,7 @@ const ProfileTenagaMedis = () => {
   }, [data]);
 
   if (!userData || !loggedInUser || !dataTenkes) {
-    return <div> Loading... </div>;
+    return <CircleLoader />;
   }
 
   return (

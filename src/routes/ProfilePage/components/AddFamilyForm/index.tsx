@@ -6,6 +6,7 @@ import { User } from "../../../../helpers/constants";
 import TextInput from "../../../../components/TextInput";
 import RadioInput from "../../../../components/RadioInput";
 import FileInput from "../../../../components/ImageInput";
+import CircleLoader from "../../../../components/CircleLoader";
 
 export type AddFamilyFormAttributes = {
   name: string;
@@ -31,7 +32,7 @@ const AddFamilyForm = () => {
   const { downloadURL, handleSelectFile } = useCloudMediaStorageUtils();
   const { loggedInUser, userData } = useGetLoggedInUser();
   if (!userData || !loggedInUser) {
-    return <div> Loading... </div>;
+    return <CircleLoader />;
   }
   // set default state from logged in user data
   if (formState.parentId === "") {

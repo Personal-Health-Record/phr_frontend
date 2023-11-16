@@ -5,6 +5,7 @@ import { useGetInsuranceData } from "../../../../helpers/insuranceDataHelper";
 import { Insurance } from "../../constants";
 import TextInput from "../../../../components/TextInput";
 import RadioInput from "../../../../components/RadioInput";
+import CircleLoader from "../../../../components/CircleLoader";
 
 export type AddInsuranceFormAttributes = {
   title: string;
@@ -24,7 +25,7 @@ const AddInsuranceForm = () => {
   const { loggedInUser } = useGetLoggedInUser();
   const { insuranceData } = useGetInsuranceData();
   if (!insuranceData || !loggedInUser) {
-    return <div> Loading... </div>;
+    return <CircleLoader />;
   }
   // set default state from logged in user data
   if (formState.userId === "") {
