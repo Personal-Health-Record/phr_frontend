@@ -13,23 +13,21 @@ const NewsDetail9 = () => {
     <div className="flex flex-col h-screen">
       <Header title="Artikel Kesehatan" />
       <div className="px-4">
-        <div className="mt-4">{dateText("24 April 2023")}</div>
+        <div className="mt-4">{dateText("8 November 2024")}</div>
 
         <div className="mt-1">
-          {titleText("6 Bahaya Cium Bayi Sembarangan yang Jarang Diketahui")}
+          {titleText("Dampak Pernapasan Sadar terhadap Pengurangan Stres")}
         </div>
 
         <div className="my-1">
-          {referenceText("Sumber: Halodoc")}
-          {/* https://www.halodoc.com/artikel/6-bahaya-cium-bayi-sembarangan-yang-jarang-diketahui */}
+          {referenceText("Sumber: ChatGPT")}
+          {/* https://example.com/dampak-pernapasan-sadar-stres-reduksi */}
         </div>
 
         <div className="flex justify-center items-center">
           <img
-            src={
-              "https://d1vbn70lmn1nqe.cloudfront.net/prod/wp-content/uploads/2023/04/24045320/X-Bahaya-Cium-Bayi-Sembarangan-yang-Jarang-Diketahui.jpg"
-            }
-            alt=""
+            src="https://example.com/mindful-breathing.jpg"
+            alt="Pernapasan Sadar"
             width={300}
             height={200}
           />
@@ -37,46 +35,32 @@ const NewsDetail9 = () => {
 
         <div className="mt-4 pb-20">
           {renderDescriptionText(
-            "Ketika kumpul keluarga saat Lebaran, pasti ada beberapa sepupu atau keponakan yang masih bayi. Melihat mereka yang menggemaskan ini, rasanya ingin sekali mengelus atau mencium mereka. "
+            "Pernapasan sadar, atau mindful breathing, telah menjadi metode yang semakin populer untuk mengurangi tingkat stres dan meningkatkan kesejahteraan mental. Artikel ini akan menjelaskan dampak positif pernapasan sadar terhadap kesehatan pikiran dan tubuh."
           )}
+
+          {subTitleText("1. Menenangkan Sistem Saraf")}
           {renderDescriptionText(
-            "Meskipun kelihatannya sederhana, ternyata mencium bayi dapat membahayakan kondisi kesehatan mereka lho. Sebab, kulit bayi yang tipis dan sistem kekebalan tubuh mereka yang masih lemah, membuat mereka lebih sensitif terhadap sentuhan, termasuk juga ciuman. Oleh karena itu yuk ketahui apa saja, sih, bahaya mencium bayi. "
+            "Pernapasan sadar membantu menenangkan sistem saraf, khususnya sistem saraf simpatik yang aktif selama stres. Ini mengaktifkan respons relaksasi tubuh dan membantu mengurangi tingkat hormon stres, seperti kortisol."
           )}
-          {subTitleText("1. Infeksi Virus RSV")}
+
+          {subTitleText("2. Meningkatkan Fokus dan Konsentrasi")}
           {renderDescriptionText(
-            "Respiratory Syncytial Virus (RSV) adalah virus yang menginfeksi paru-paru atau saluran pernapasan. Virus ini sangat menular dan umumnya menyerang anak-anak atau bayi sehingga membuat mereka kesulitan bernapas."
+            "Dengan memusatkan perhatian pada pernapasan, Anda melatih konsentrasi dan fokus pikiran. Hal ini dapat membantu meningkatkan kinerja kognitif dan produktivitas sehari-hari."
           )}
+
+          {subTitleText("3. Mengurangi Gejala Kecemasan")}
           {renderDescriptionText(
-            "Pada anak yang lebih besar usianya, gejalanya bisa ringan dan mirip seperti flu biasa, akan tetapi pada bayi, kondisi ini bisa menjadi serius dan berpotensi fatal. RSV dapat menyebabkan masalah pernapasan yang parah dan dapat mempengaruhi jantung dan otak bayi, terutama bagi bayi prematur yang cenderung memiliki sistem kekebalan tubuh yang lemah."
+            "Pernapasan sadar telah terbukti efektif dalam mengurangi gejala kecemasan. Melalui latihan pernapasan yang teratur, seseorang dapat mengembangkan keterampilan untuk mengatasi pikiran yang meresahkan dan menjaga ketenangan batin."
           )}
-          {subTitleText("2. Herpes Simplex Tipe 1")}
+
+          {subTitleText("4. Mendorong Kesadaran Momen Ini")}
           {renderDescriptionText(
-            "Disebut juga sebagai luka dingin atau herpes oral, penyakit ini mungkin yang paling berbahaya yang terjadi pada bayi, akibat dicium oleh orang lain. Penyakit ini terjadi karena virus herpes simplex tipe 1 (HSV 1) ini, dapat ditularkan melalui kecupan, bahkan hanya kecupan pada tangan saja. Awalnya, luka lecet akan terbentuk di sekitar bibir dan mulut, kemudian menyebar ke bagian wajah lainnya seperti hidung, pipi, dan dagu."
+            "Latihan pernapasan sadar membantu meningkatkan kesadaran terhadap momen ini. Ini mengajarkan untuk hidup dalam kehadiran saat ini, mengurangi pikiran yang berkeliaran dan kekhawatiran tentang masa depan atau masa lalu."
           )}
+
+          {subTitleText("5. Memperbaiki Kualitas Tidur")}
           {renderDescriptionText(
-            "Tak hanya itu, jika tidak segera ditangani, herpes pada bayi juga dapat menyebabkan peradangan otak. Ingat, jika virus ini sudah memasuki tubuh, akan bertahan seumur hidup hingga bayi dewasa. Jadi, jaga bayi agar tidak dicium oleh sembarangan orang atau mereka yang didiagnosis herpes tipe 1."
-          )}
-          {subTitleText("3. Penyakit Tangan, Kaki, dan Mulut (PTKM)")}
-          {renderDescriptionText(
-            "Penyakit ini umumnya terjadi pada anak-anak di bawah usia 10 tahun. Penularannya dapat melalui kontak fisik seperti berpelukan atau mencium bayi. Demam, sariawan, bisul, dan ruam kulit di sekitar mulut, tangan, dan kaki, merupakan tanda anak tertular penyakit ini. Meski sebenarnya tidak fatal, PTKM dapat menyebabkan masalah pada bayi yang memiliki sistem kekebalan tubuh yang lebih lemah."
-          )}
-          {subTitleText("4. Alergi")}
-          {renderDescriptionText(
-            "Mencium bayi ternyata dapat memicu alergi. Orang dewasa biasanya menggunakan produk perawatan kulit atau produk kosmetik yang mengandung bahan kimia. Jika bayi terpapar bahan kimia tersebut maka dapat menyebabkan iritasi kulit atau reaksi alergi. "
-          )}
-          {renderDescriptionText(
-            "Selain itu, orang yang baru saja mengonsumsi makanan seperti produk susu, kacang-kacangan, atau makanan alergen pada umumnya, jika mereka langsung mencium bayi, bayi akan terpapar oleh zat alergen tersebut dan berisiko menimbulkan reaksi alergi."
-          )}
-          {subTitleText("5. Gigi Berlubang")}
-          {renderDescriptionText(
-            "Penyebab utama gigi berlubang adalah kurang menjaga kebersihan gigi dan mulut. Namun, faktanya yang mungkin jarang kamu dengar, gigi berlubang pada bayi dapat terjadi karena bakteri streptococcus mutans. Nah, bakteri ini berada dalam air liur dan bisa ditularkan ke anak melalui ciuman, berbagi makanan dengan anak, atau meniup makanan anak."
-          )}
-          {subTitleText("6. Sistem Kekebalan Tubuh Melemah")}
-          {renderDescriptionText(
-            "Bayi paling rentan terhadap penyakit selama beberapa bulan awal ketika bakteri usus mereka masih dalam tahap perkembangan. Oleh karena itu, setiap anak atau orang dewasa yang ingin bersentuhan dengan bayi harus memastikan bahwa tangan mereka benar-benar bersih dan tidak memiliki tanda-tanda penyakit menular."
-          )}
-          {renderDescriptionText(
-            "Biasanya orang dewasa atau anak-anak tidak menyadari penyakit yang mereka bawa, lalu mereka menularkan penyakit pada bayi dengan mencium bayi. Jika ini terjadi, bayi harus melawan kuman dan virus dengan kekebalan tubuh mereka yang masih lemah, dan akibatnya bayi menjadi mudah sekali jatuh sakit."
+            "Pernapasan sadar dapat digunakan sebagai alat yang efektif untuk merilekskan tubuh sebelum tidur. Hal ini membantu meningkatkan kualitas tidur dan mempersiapkan tubuh untuk istirahat yang mendalam."
           )}
         </div>
       </div>

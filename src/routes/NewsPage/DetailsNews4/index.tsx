@@ -8,28 +8,26 @@ import {
   subTitleText,
 } from "../helper";
 
-const NewsDetail4 = () => {
+const NewsDetail = () => {
+
   return (
     <div className="flex flex-col h-screen">
       <Header title="Artikel Kesehatan" />
       <div className="px-4">
-        <div className="mt-4">{dateText("24 April 2023")}</div>
+        <div className="mt-4">{dateText("5 Desember 2023")}</div>
 
         <div className="mt-1">
-          {titleText("6 Bahaya Cium Bayi Sembarangan yang Jarang Diketahui")}
+          {titleText("Menjelajahi Manfaat Meditasi Mindfulness")}
         </div>
 
         <div className="my-1">
-          {referenceText("Sumber: Halodoc")}
-          {/* https://www.halodoc.com/artikel/6-bahaya-cium-bayi-sembarangan-yang-jarang-diketahui */}
+          {referenceText("Sumber: ChatGPT")}
         </div>
 
         <div className="flex justify-center items-center">
           <img
-            src={
-              "https://d1vbn70lmn1nqe.cloudfront.net/prod/wp-content/uploads/2023/04/24045320/X-Bahaya-Cium-Bayi-Sembarangan-yang-Jarang-Diketahui.jpg"
-            }
-            alt=""
+            src="https://example.com/meditasi-mindfulness.jpg"
+            alt="Meditasi Mindfulness"
             width={300}
             height={200}
           />
@@ -37,46 +35,32 @@ const NewsDetail4 = () => {
 
         <div className="mt-4 pb-20">
           {renderDescriptionText(
-            "Ketika kumpul keluarga saat Lebaran, pasti ada beberapa sepupu atau keponakan yang masih bayi. Melihat mereka yang menggemaskan ini, rasanya ingin sekali mengelus atau mencium mereka. "
+            "Meditasi mindfulness, atau meditasi kesadaran penuh, telah menjadi semakin populer sebagai metode untuk meningkatkan kesehatan mental dan kebahagiaan. Artikel ini akan menjelaskan beberapa manfaat positif yang dapat diperoleh melalui praktik meditasi mindfulness."
           )}
+
+          {subTitleText("1. Mengurangi Stres")}
           {renderDescriptionText(
-            "Meskipun kelihatannya sederhana, ternyata mencium bayi dapat membahayakan kondisi kesehatan mereka lho. Sebab, kulit bayi yang tipis dan sistem kekebalan tubuh mereka yang masih lemah, membuat mereka lebih sensitif terhadap sentuhan, termasuk juga ciuman. Oleh karena itu yuk ketahui apa saja, sih, bahaya mencium bayi. "
+            "Praktik mindfulness dapat membantu mengurangi tingkat stres dengan fokus pada pernapasan dan kesadaran terhadap momen ini. Ini membantu mengurangi tekanan mental dan meningkatkan kemampuan untuk menghadapi tantangan sehari-hari."
           )}
-          {subTitleText("1. Infeksi Virus RSV")}
+
+          {subTitleText("2. Meningkatkan Konsentrasi")}
           {renderDescriptionText(
-            "Respiratory Syncytial Virus (RSV) adalah virus yang menginfeksi paru-paru atau saluran pernapasan. Virus ini sangat menular dan umumnya menyerang anak-anak atau bayi sehingga membuat mereka kesulitan bernapas."
+            "Dengan merenung dan fokus pada satu hal dalam satu waktu, meditasi mindfulness dapat meningkatkan konsentrasi dan daya ingat. Ini membantu dalam pekerjaan dan kegiatan sehari-hari yang memerlukan perhatian lebih."
           )}
+
+          {subTitleText("3. Memperbaiki Kualitas Tidur")}
           {renderDescriptionText(
-            "Pada anak yang lebih besar usianya, gejalanya bisa ringan dan mirip seperti flu biasa, akan tetapi pada bayi, kondisi ini bisa menjadi serius dan berpotensi fatal. RSV dapat menyebabkan masalah pernapasan yang parah dan dapat mempengaruhi jantung dan otak bayi, terutama bagi bayi prematur yang cenderung memiliki sistem kekebalan tubuh yang lemah."
+            "Praktik meditasi ini juga dapat membantu meningkatkan kualitas tidur. Dengan meredakan pikiran dan menenangkan tubuh sebelum tidur, seseorang dapat mengalami tidur yang lebih nyenyak dan pulih."
           )}
-          {subTitleText("2. Herpes Simplex Tipe 1")}
+
+          {subTitleText("4. Meningkatkan Kesejahteraan Emosional")}
           {renderDescriptionText(
-            "Disebut juga sebagai luka dingin atau herpes oral, penyakit ini mungkin yang paling berbahaya yang terjadi pada bayi, akibat dicium oleh orang lain. Penyakit ini terjadi karena virus herpes simplex tipe 1 (HSV 1) ini, dapat ditularkan melalui kecupan, bahkan hanya kecupan pada tangan saja. Awalnya, luka lecet akan terbentuk di sekitar bibir dan mulut, kemudian menyebar ke bagian wajah lainnya seperti hidung, pipi, dan dagu."
+            "Meditasi mindfulness terkait erat dengan peningkatan kesejahteraan emosional. Dengan meningkatkan kesadaran terhadap perasaan dan pikiran, seseorang dapat lebih baik memahami dan mengelola emosinya."
           )}
+
+          {subTitleText("5. Mengurangi Gejala Kecemasan")}
           {renderDescriptionText(
-            "Tak hanya itu, jika tidak segera ditangani, herpes pada bayi juga dapat menyebabkan peradangan otak. Ingat, jika virus ini sudah memasuki tubuh, akan bertahan seumur hidup hingga bayi dewasa. Jadi, jaga bayi agar tidak dicium oleh sembarangan orang atau mereka yang didiagnosis herpes tipe 1."
-          )}
-          {subTitleText("3. Penyakit Tangan, Kaki, dan Mulut (PTKM)")}
-          {renderDescriptionText(
-            "Penyakit ini umumnya terjadi pada anak-anak di bawah usia 10 tahun. Penularannya dapat melalui kontak fisik seperti berpelukan atau mencium bayi. Demam, sariawan, bisul, dan ruam kulit di sekitar mulut, tangan, dan kaki, merupakan tanda anak tertular penyakit ini. Meski sebenarnya tidak fatal, PTKM dapat menyebabkan masalah pada bayi yang memiliki sistem kekebalan tubuh yang lebih lemah."
-          )}
-          {subTitleText("4. Alergi")}
-          {renderDescriptionText(
-            "Mencium bayi ternyata dapat memicu alergi. Orang dewasa biasanya menggunakan produk perawatan kulit atau produk kosmetik yang mengandung bahan kimia. Jika bayi terpapar bahan kimia tersebut maka dapat menyebabkan iritasi kulit atau reaksi alergi. "
-          )}
-          {renderDescriptionText(
-            "Selain itu, orang yang baru saja mengonsumsi makanan seperti produk susu, kacang-kacangan, atau makanan alergen pada umumnya, jika mereka langsung mencium bayi, bayi akan terpapar oleh zat alergen tersebut dan berisiko menimbulkan reaksi alergi."
-          )}
-          {subTitleText("5. Gigi Berlubang")}
-          {renderDescriptionText(
-            "Penyebab utama gigi berlubang adalah kurang menjaga kebersihan gigi dan mulut. Namun, faktanya yang mungkin jarang kamu dengar, gigi berlubang pada bayi dapat terjadi karena bakteri streptococcus mutans. Nah, bakteri ini berada dalam air liur dan bisa ditularkan ke anak melalui ciuman, berbagi makanan dengan anak, atau meniup makanan anak."
-          )}
-          {subTitleText("6. Sistem Kekebalan Tubuh Melemah")}
-          {renderDescriptionText(
-            "Bayi paling rentan terhadap penyakit selama beberapa bulan awal ketika bakteri usus mereka masih dalam tahap perkembangan. Oleh karena itu, setiap anak atau orang dewasa yang ingin bersentuhan dengan bayi harus memastikan bahwa tangan mereka benar-benar bersih dan tidak memiliki tanda-tanda penyakit menular."
-          )}
-          {renderDescriptionText(
-            "Biasanya orang dewasa atau anak-anak tidak menyadari penyakit yang mereka bawa, lalu mereka menularkan penyakit pada bayi dengan mencium bayi. Jika ini terjadi, bayi harus melawan kuman dan virus dengan kekebalan tubuh mereka yang masih lemah, dan akibatnya bayi menjadi mudah sekali jatuh sakit."
+            "Banyak penelitian mendukung bahwa meditasi mindfulness dapat membantu mengurangi gejala kecemasan. Dengan merenung secara teratur, seseorang dapat mengembangkan keterampilan untuk mengatasi kekhawatiran dan ketegangan."
           )}
         </div>
       </div>
@@ -86,4 +70,4 @@ const NewsDetail4 = () => {
   );
 };
 
-export default NewsDetail4;
+export default NewsDetail;
