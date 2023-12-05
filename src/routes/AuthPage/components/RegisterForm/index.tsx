@@ -53,7 +53,7 @@ const RegisterForm = () => {
     if (!isValidated) {
       return;
     }
-    if (!downloadURL) {
+    if (!downloadURL && formState.profilePicture) {
       toggleDiv("success", "Sedang mengunggah gambar");
       return;
     }
@@ -94,15 +94,44 @@ const RegisterForm = () => {
       toggleDiv("error", "Password dan konfirmasi password harus sama");
       return false;
     }
+    if (formState.password.length < 6) {
+      toggleDiv("error", "Password minimal 6 karakter");
+      return false;
+    }
+
     for (const [key, value] of Object.entries(formState)) {
-      if (!value) {
+      if (!value && key !== "profilePicture") {
         toggleDiv("error", `Data ${key} harus diisi`);
         return false;
       }
     }
 
+    // validate email
+    const emailRegex = /\S+@\S+\.\S+/;
+    if (!emailRegex.test(formState.email)) {
+      toggleDiv("error", "Email tidak valid");
+      return false;
+    }
+
+    // validate minimum age is 17
+    if (getAge(formState.dateOfBirth) < 17) {
+      toggleDiv("error", "Umur minimal 17 tahun");
+      return false;
+    }
+
     return true;
   };
+
+  const getAge = (dateOfBirth: string) => {
+    const today = new Date();
+    const birthDate = new Date(dateOfBirth);
+    let age = today.getFullYear() - birthDate.getFullYear();
+    const month = today.getMonth() - birthDate.getMonth();
+    if (month < 0 || (month === 0 && today.getDate() < birthDate.getDate())) {
+      age = age - 1;
+    }
+    return age;
+  }
 
   const handleSelectProfilePicture = (files: FileList | null) => {
     if (!files) {
@@ -122,7 +151,7 @@ const RegisterForm = () => {
       />
       <TextInput
         label="Password"
-        placeholder="****"
+        placeholder="******"
         type="password"
         onChange={(value: any) =>
           setFormState({ ...formState, password: value })
@@ -130,7 +159,7 @@ const RegisterForm = () => {
       />
       <TextInput
         label="Confirmation Password"
-        placeholder="****"
+        placeholder="******"
         type="password"
         onChange={(value: any) =>
           setFormState({ ...formState, confirmPassword: value })
@@ -152,14 +181,8 @@ const RegisterForm = () => {
         placeholder="Tanggal Lahir"
         type="date"
         onChange={(value: any) =>
-          setFormState({ ...formState, dateOfBirth: value })
+          setFormState({ ...formState, dateOfBirth: value, age: getAge(value) })
         }
-      />
-      <TextInput
-        label="Umur"
-        placeholder="Umur"
-        type="number"
-        onChange={(value: any) => setFormState({ ...formState, age: value })}
       />
       <TextInput
         label="Nomor Telepon"
