@@ -39,4 +39,74 @@ export const dummyNewsData: News[] = [
       'https://d1vbn70lmn1nqe.cloudfront.net/prod/wp-content/uploads/2023/04/24045320/X-Bahaya-Cium-Bayi-Sembarangan-yang-Jarang-Diketahui.jpg.webp',
     tags: ['tips kesehatan'],
   },
+  {
+    id: '4',
+    title: '6 Bahaya Cium Bayi Sembarangan yang Jarang Diketahui',
+    descriptionPlaceholder:
+      'Mencium atau menyentuh bayi merupakan hal yang biasa dilakukan. Akan tetapi ternyata mencium bayi...',
+    route: '/news/details/4',
+    imageUrl:
+      'https://d1vbn70lmn1nqe.cloudfront.net/prod/wp-content/uploads/2023/04/24045320/X-Bahaya-Cium-Bayi-Sembarangan-yang-Jarang-Diketahui.jpg.webp',
+    tags: ['tips kesehatan'],
+  },
+  {
+    id: '5',
+    title: '6 Bahaya Cium Bayi Sembarangan yang Jarang Diketahui',
+    descriptionPlaceholder:
+      'Mencium atau menyentuh bayi merupakan hal yang biasa dilakukan. Akan tetapi ternyata mencium bayi...',
+    route: '/news/details/5',
+    imageUrl:
+      'https://d1vbn70lmn1nqe.cloudfront.net/prod/wp-content/uploads/2023/04/24045320/X-Bahaya-Cium-Bayi-Sembarangan-yang-Jarang-Diketahui.jpg.webp',
+    tags: ['tips kesehatan'],
+  },
+  {
+    id: '6',
+    title: '6 Bahaya Cium Bayi Sembarangan yang Jarang Diketahui',
+    descriptionPlaceholder:
+      'Mencium atau menyentuh bayi merupakan hal yang biasa dilakukan. Akan tetapi ternyata mencium bayi...',
+    route: '/news/details/6',
+    imageUrl:
+      'https://d1vbn70lmn1nqe.cloudfront.net/prod/wp-content/uploads/2023/04/24045320/X-Bahaya-Cium-Bayi-Sembarangan-yang-Jarang-Diketahui.jpg.webp',
+    tags: ['tips kesehatan'],
+  },
+  {
+    id: '7',
+    title: '6 Bahaya Cium Bayi Sembarangan yang Jarang Diketahui',
+    descriptionPlaceholder:
+      'Mencium atau menyentuh bayi merupakan hal yang biasa dilakukan. Akan tetapi ternyata mencium bayi...',
+    route: '/news/details/7',
+    imageUrl:
+      'https://d1vbn70lmn1nqe.cloudfront.net/prod/wp-content/uploads/2023/04/24045320/X-Bahaya-Cium-Bayi-Sembarangan-yang-Jarang-Diketahui.jpg.webp',
+    tags: ['tips kesehatan'],
+  },
+  {
+    id: '8',
+    title: '6 Bahaya Cium Bayi Sembarangan yang Jarang Diketahui',
+    descriptionPlaceholder:
+      'Mencium atau menyentuh bayi merupakan hal yang biasa dilakukan. Akan tetapi ternyata mencium bayi...',
+    route: '/news/details/8',
+    imageUrl:
+      'https://d1vbn70lmn1nqe.cloudfront.net/prod/wp-content/uploads/2023/04/24045320/X-Bahaya-Cium-Bayi-Sembarangan-yang-Jarang-Diketahui.jpg.webp',
+    tags: ['tips kesehatan'],
+  },
+  {
+    id: '9',
+    title: '6 Bahaya Cium Bayi Sembarangan yang Jarang Diketahui',
+    descriptionPlaceholder:
+      'Mencium atau menyentuh bayi merupakan hal yang biasa dilakukan. Akan tetapi ternyata mencium bayi...',
+    route: '/news/details/9',
+    imageUrl:
+      'https://d1vbn70lmn1nqe.cloudfront.net/prod/wp-content/uploads/2023/04/24045320/X-Bahaya-Cium-Bayi-Sembarangan-yang-Jarang-Diketahui.jpg.webp',
+    tags: ['tips kesehatan'],
+  },
+  {
+    id: '10',
+    title: '6 Bahaya Cium Bayi Sembarangan yang Jarang Diketahui',
+    descriptionPlaceholder:
+      'Mencium atau menyentuh bayi merupakan hal yang biasa dilakukan. Akan tetapi ternyata mencium bayi...',
+    route: '/news/details/10',
+    imageUrl:
+      'https://d1vbn70lmn1nqe.cloudfront.net/prod/wp-content/uploads/2023/04/24045320/X-Bahaya-Cium-Bayi-Sembarangan-yang-Jarang-Diketahui.jpg.webp',
+    tags: ['tips kesehatan'],
+  },
 ];

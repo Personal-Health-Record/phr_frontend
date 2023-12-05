@@ -71,7 +71,7 @@ const News = () => {
           />
         </div>
 
-        <div className="mt-4">
+        <div className="mt-4 mb-20">
           {data.map((news) => (
             <NewsCard
               key={news.id}

@@ -63,6 +63,13 @@ import KonsumsiMakananTargetPage from "./MonitoringPage/KonsumsiMakananTargetPag
 import MonitoringAktifitasPage from "./MonitoringPage/MonitoringAktifitasPage";
 import UbahTargetFisikpage from "./MonitoringPage/UbahTargetFisikPage";
 import InsertDataTekananDarahPage from "./MonitoringPage/InsertTekananDarahPage";
+import NewsDetail4 from "./NewsPage/DetailsNews4";
+import NewsDetail10 from "./NewsPage/DetailsNews10";
+import NewsDetail5 from "./NewsPage/DetailsNews5";
+import NewsDetail6 from "./NewsPage/DetailsNews6";
+import NewsDetail7 from "./NewsPage/DetailsNews7";
+import NewsDetail8 from "./NewsPage/DetailsNews8";
+import NewsDetail9 from "./NewsPage/DetailsNews9";
 
 const MainRoutes = () => {
   return (
@@ -134,6 +141,13 @@ const MainRoutes = () => {
       <Route path="/news/details/1" element={<NewsDetail1 />} />
       <Route path="/news/details/2" element={<NewsDetail2 />} />
       <Route path="/news/details/3" element={<NewsDetail3 />} />
+      <Route path="/news/details/4" element={<NewsDetail4 />} />
+      <Route path="/news/details/5" element={<NewsDetail5 />} />
+      <Route path="/news/details/6" element={<NewsDetail6 />} />
+      <Route path="/news/details/7" element={<NewsDetail7 />} />
+      <Route path="/news/details/8" element={<NewsDetail8 />} />
+      <Route path="/news/details/9" element={<NewsDetail9 />} />
+      <Route path="/news/details/10" element={<NewsDetail10 />} />
 
       <Route path="/monitoring" element={<MonitoringPage />} />
       <Route path="/monitoring/kalkulator" element={<KalulatorKesehatan />} />
