@@ -39,6 +39,7 @@ export const dummyNewsData: News[] = [
       'https://d1vbn70lmn1nqe.cloudfront.net/prod/wp-content/uploads/2023/04/24045320/X-Bahaya-Cium-Bayi-Sembarangan-yang-Jarang-Diketahui.jpg.webp',
     tags: ['tips kesehatan'],
   },
+  // TODO: adjust news disini sampe news 10
   {
     id: '4',
     title: '6 Bahaya Cium Bayi Sembarangan yang Jarang Diketahui',
