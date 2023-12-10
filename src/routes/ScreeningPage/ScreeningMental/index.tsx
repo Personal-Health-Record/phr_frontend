@@ -15,7 +15,6 @@ const ScreeningMental = () => {
   const [listScore, setListScore] = useState<number[]>(new Array(9).fill(0));
 
   const handleSubimt = () => {
-    console.log({ listScore });
     const totalScore = listScore.reduce(
       (accumulator, currentValue) => accumulator + currentValue,
       0
