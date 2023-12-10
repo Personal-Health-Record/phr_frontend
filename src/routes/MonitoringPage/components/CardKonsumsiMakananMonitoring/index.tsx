@@ -1,4 +1,3 @@
-import imageCheckAll from "../../../../assets/images/pengingat/check_all.png";
 import { useNavigate } from "react-router-dom";
 import { useGetKonsumsiMakananTarget } from "../../../../helpers/konsumsiMakananHelper";
 import { imageKonsumsiMakanan } from "../../constants";
@@ -17,7 +16,7 @@ const CardKonsumsiMakananMonitoring = () => {
 
   return (
     <div
-      className="flex flex-col p-5 shadow-md rounded-xl"
+      className="flex flex-col p-5 shadow-md rounded-xl mb-24"
       onClick={handleToMonitoringMakanan}
     >
       <div className="flex justify-between items-center">

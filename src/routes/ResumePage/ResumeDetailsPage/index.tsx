@@ -4,9 +4,11 @@ import Header from "../../HomePage/components/Header";
 import CardResumeDetail from "../components/CardResumeDetail";
 import BottomNavbarDownloadShare from "../../HomePage/components/BottomNavbarDownloadShare";
 import { formatDate } from "../../../helpers/dateHelper";
+import { usePDF } from "react-to-pdf";
 
 const ResumeDetail = () => {
   const params = useParams();
+  const { toPDF, targetRef } = usePDF({ filename: "page.pdf" });
   const resume = dummyResumeData.find(
     (resume) => resume.id === parseInt(params.id as string)
   )!;
@@ -53,7 +55,7 @@ const ResumeDetail = () => {
   };
 
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col" ref={targetRef}>
       <Header title="Resume Medis" />
       <div className="flex flex-col w-full px-4 py-4 gap-3 mb-2">
         <h3 className="font-semibold">Informasi Umum</h3>
@@ -93,6 +95,7 @@ const ResumeDetail = () => {
         title="Resume Medis"
         body={"Silahkan check resume medis " + resume.recordNumber}
         link={"/resume/details/" + resume.id}
+        toPDF={toPDF}
       />
     </div>
   );

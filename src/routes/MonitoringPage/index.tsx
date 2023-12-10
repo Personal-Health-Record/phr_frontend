@@ -16,10 +16,6 @@ const MonitoringPage = () => {
         <TargetSection />
         <CardKonsumsiMakananMonitoring />
 
-        <button className="border py-3 rounded-3xl text-mainBlue font-semibold border-mainBlue mt-5">
-          + Tambahkan Target
-        </button>
-
         <BottomNavbarDownloadShare body="" link="" title="" />
       </div>
     </div>
