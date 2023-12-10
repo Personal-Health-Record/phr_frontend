@@ -7,12 +7,17 @@ import { formatDate } from "../../helpers/dateHelper";
 import CardVaksin from "./components/CardVaksin";
 import BottomNavbarDownloadShare from "../HomePage/components/BottomNavbarDownloadShare";
 import CircleLoader from "../../components/CircleLoader";
+import { usePDF } from "react-to-pdf";
 
 const VaksinasiDetails = () => {
   const params = useParams();
   const vaksin = dummyVaksinasiData.find(
     (data) => data.id === (params.id as string)
   )!;
+
+  const { toPDF, targetRef } = usePDF({
+    filename: `Vaksinasi - ${vaksin.type}.pdf`,
+  });
 
   const { userData } = useGetUserData();
   if (!userData) {
@@ -22,7 +27,7 @@ const VaksinasiDetails = () => {
   const user = userData.find((data) => data.id === vaksin.userId)!;
 
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col" ref={targetRef}>
       <Header title="Vaksinasi" />
 
       <div className="flex flex-col w-full px-4 py-4 gap-3">
@@ -49,6 +54,7 @@ const VaksinasiDetails = () => {
           vaksin.detailType ?? vaksin.type
         }}`}
         link={`/vaksinasi/details/${vaksin.id}`}
+        toPDF={toPDF}
       />
     </div>
   );

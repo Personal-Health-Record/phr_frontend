@@ -2,10 +2,15 @@ import BottomNavbarDownloadShare from "../../HomePage/components/BottomNavbarDow
 import Header from "../../HomePage/components/Header";
 import CardHistory from "../components/HistoryCard";
 import { dataHistory } from "../constants";
+import { usePDF } from "react-to-pdf";
 
 const ScreeningHistory = () => {
+  const { toPDF, targetRef } = usePDF({
+    filename: `Riwayat Screening.pdf`,
+  });
+
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col" ref={targetRef}>
       <Header title="Riwayat Skrining Kesehatan" />
 
       <div className="flex flex-col py-5 px-4">
@@ -20,6 +25,7 @@ const ScreeningHistory = () => {
         title="Rujukan"
         body={`Silahkan check riwayat skrining`}
         link={`/screening/history/`}
+        toPDF={toPDF}
       />
     </div>
   );

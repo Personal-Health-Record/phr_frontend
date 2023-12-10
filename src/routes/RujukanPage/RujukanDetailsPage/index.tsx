@@ -1,4 +1,6 @@
 import { useParams } from "react-router-dom";
+import { usePDF } from "react-to-pdf";
+
 import { dummyRujukanData } from "../constants";
 import Header from "../../HomePage/components/Header";
 import CardRujukanDetail from "../components/CardRujukanDetail";
@@ -11,8 +13,12 @@ const RujukanDetails = () => {
     (data) => data.id === parseInt(params.id as string)
   )!;
 
+  const { toPDF, targetRef } = usePDF({
+    filename: `Rujukan Detail - ${rujukan.patientName}.pdf`,
+  });
+
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col" ref={targetRef}>
       <Header title="Rujukan" />
 
       <div className="flex flex-col w-full px-4 py-4 gap-3 mb-20">
@@ -56,6 +62,7 @@ const RujukanDetails = () => {
         title="Rujukan"
         body={`Silahkan check rujukan ${rujukan.patientName} di ${rujukan.location}}`}
         link={`/rujukan/details/${rujukan.id}`}
+        toPDF={toPDF}
       />
     </div>
   );

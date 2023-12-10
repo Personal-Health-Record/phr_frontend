@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
+import { usePDF } from "react-to-pdf";
+
 import { PTM } from "../constants";
 import { getSkriningById } from "../../../helpers/skriningKesehatanHelper";
 import Header from "../../HomePage/components/Header";
@@ -13,6 +15,10 @@ const DetailPTM = () => {
   const [data, setData] = useState<PTM>();
   const id = searchParams.get("id");
 
+  const { toPDF, targetRef } = usePDF({
+    filename: `Detail PTM.pdf`,
+  });
+
   useEffect(() => {
     const skriningData = getSkriningById(parseInt(id || ""));
 
@@ -20,7 +26,7 @@ const DetailPTM = () => {
   }, [id]);
 
   return (
-    <div>
+    <div ref={targetRef}>
       <Header title="Riwayat Skrining Kesehatan" />
       <div className="flex flex-col w-full px-4 py-4 gap-3">
         <h3 className="font-semibold text-mainGrey text-sm">Hasil Skrining</h3>
@@ -74,7 +80,7 @@ const DetailPTM = () => {
           <span className="font-semibold text-mainBlue"> rendah</span>{" "}
         </p>
       </div>
-      <BottomNavbarDownloadShare body="" link="" title="" />
+      <BottomNavbarDownloadShare body="" link="" title="" toPDF={toPDF} />
     </div>
   );
 };

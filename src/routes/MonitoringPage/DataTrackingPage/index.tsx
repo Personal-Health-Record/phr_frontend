@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { usePDF } from "react-to-pdf";
+
 import Header from "../../../components/Header";
 import {
   Chart as ChartJS,
@@ -28,10 +30,13 @@ ChartJS.register(
 );
 
 const DataTracking = () => {
+  const { toPDF, targetRef } = usePDF({
+    filename: `Tracking.pdf`,
+  });
   const [activeTabIdx, setActiveTabIdx] = useState(1);
 
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col" ref={targetRef}>
       <Header title="Tracking Data Kesehatan" />
       <TabHeader activeIdx={activeTabIdx} handleClick={setActiveTabIdx} />
 
@@ -52,7 +57,7 @@ const DataTracking = () => {
         )}
       </div>
 
-      <BottomNavbarDownloadShare body="" link="" title="" />
+      <BottomNavbarDownloadShare body="" link="" title="" toPDF={toPDF} />
     </div>
   );
 };
