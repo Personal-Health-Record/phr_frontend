@@ -48,7 +48,7 @@ const InsertDataFisik = () => {
 
       <div className="flex flex-col w-full gap-3">
         <h3 className="font-semibold text-mainGrey pl-4 mt-5">
-          Aktifitas Fisik
+          Aktivitas Fisik
         </h3>
         <Dropdown
           isOpen={isShowDropdownKategori}
