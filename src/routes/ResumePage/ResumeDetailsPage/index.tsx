@@ -8,10 +8,13 @@ import { usePDF } from "react-to-pdf";
 
 const ResumeDetail = () => {
   const params = useParams();
-  const { toPDF, targetRef } = usePDF({ filename: "page.pdf" });
   const resume = dummyResumeData.find(
     (resume) => resume.id === parseInt(params.id as string)
   )!;
+
+  const { toPDF, targetRef } = usePDF({
+    filename: `Resume Medis - ${resume.patientName}.pdf`,
+  });
 
   const renderImage = () => {
     return (

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { usePDF } from "react-to-pdf";
 import { dummyResumeData } from "../constants";
 import Header from "../../HomePage/components/Header";
 import Timeline from "../components/Timeline";
@@ -9,6 +10,9 @@ const PAGE_SIZE = 5;
 
 const RiwayatResume = () => {
   const [pageNumber, setPageNumber] = useState(1);
+  const { toPDF, targetRef } = usePDF({
+    filename: `Riwayat Resume.pdf`,
+  });
 
   const riwayatData = () => {
     return dummyResumeData.slice(
@@ -20,7 +24,7 @@ const RiwayatResume = () => {
   const totalData = dummyResumeData.length;
 
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col" ref={targetRef}>
       <Header title="Riwayat Medis" />
 
       <div className="flex flex-col w-full px-4 py-4 gap-5 mb-4 pb-5">
@@ -50,6 +54,7 @@ const RiwayatResume = () => {
         title="Riwayat Medis"
         body={"Silahkan check riwayat medis"}
         link={"/resume/riwayat/"}
+        toPDF={toPDF}
       />
     </div>
   );

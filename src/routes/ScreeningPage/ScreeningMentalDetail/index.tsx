@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
+import { usePDF } from "react-to-pdf";
+
 import { Mental } from "../constants";
 import { getSkriningById } from "../../../helpers/skriningKesehatanHelper";
 import Header from "../../HomePage/components/Header";
@@ -11,6 +13,10 @@ const DetailMental = () => {
   const searchParams = new URLSearchParams(location.search);
   const [data, setData] = useState<Mental>();
   const id = searchParams.get("id");
+
+  const { toPDF, targetRef } = usePDF({
+    filename: `Screening Mental.pdf`,
+  });
 
   useEffect(() => {
     const skriningData = getSkriningById(parseInt(id || ""));
@@ -36,7 +42,7 @@ const DetailMental = () => {
   };
 
   return (
-    <div>
+    <div ref={targetRef}>
       <Header title="Riwayat Skrining Kesehatan" />
       <div className="flex flex-col w-full px-4 py-4 gap-3 mb-16">
         <h3 className="font-semibold text-mainGrey text-sm">
@@ -88,7 +94,7 @@ const DetailMental = () => {
           data={getValue(data?.melukai || 0)}
         />
       </div>
-      <BottomNavbarDownloadShare body="" link="" title="" />
+      <BottomNavbarDownloadShare body="" link="" title="" toPDF={toPDF} />
     </div>
   );
 };
