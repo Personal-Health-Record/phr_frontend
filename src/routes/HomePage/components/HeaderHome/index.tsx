@@ -1,21 +1,16 @@
-import docter2Img from "../../../../assets/images/docter-2.png";
-import profileIconImg from "../../../../assets/images/profile-icon.png";
 import { useGetLoggedInUser } from "../../../../helpers/userDataHelper";
 
-interface Props {
-  isDoctor: boolean;
-}
-
-const HeaderHome = ({ isDoctor }: Props) => {
+const HeaderHome = () => {
   const { loggedInUser } = useGetLoggedInUser();
 
+  console.log({ loggedInUser });
+
   return (
-    <div className="flex border-b-2 py-3 px-4 items-center gap-5">
+    <div className="flex border-b-2 py-3 px-4 items-center gap-3">
       <img
-        src={isDoctor ? docter2Img : profileIconImg}
+        src={loggedInUser?.profilePicture}
         alt=""
-        width={50}
-        height={50}
+        className="rounded-full h-14 w-14 object-cover"
       />
       <h3 className="text-2xl font-bold text-mainGrey">
         Halo, {loggedInUser?.name}

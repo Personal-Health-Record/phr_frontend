@@ -16,20 +16,18 @@ const HomePage = () => {
     return loggedInUser?.role === "doctor";
   }, [loggedInUser?.role]);
 
-  console.log({ isDoctor });
-
   return (
     <main className="flex flex-col min-h-screen ">
       {isDoctor ? (
         <>
-          <HeaderHome isDoctor />
+          <HeaderHome />
           <HomeListPatient />
           <DoctorMenu />
           <BottomNavbarDoctor />
         </>
       ) : (
         <>
-          <HeaderHome isDoctor={false} />
+          <HeaderHome />
           <Dashboard />
           <Pengingat />
           <MainMenu />
