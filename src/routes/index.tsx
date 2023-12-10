@@ -63,116 +63,121 @@ import KonsumsiMakananTargetPage from "./MonitoringPage/KonsumsiMakananTargetPag
 import MonitoringAktifitasPage from "./MonitoringPage/MonitoringAktifitasPage";
 import UbahTargetFisikpage from "./MonitoringPage/UbahTargetFisikPage";
 import InsertDataTekananDarahPage from "./MonitoringPage/InsertTekananDarahPage";
+import ForgotPasswordPage from "./ForgotPassword";
 
 const MainRoutes = () => {
   return (
     <Routes>
-      <Route element={<PrivateRoutes />}>
-        <Route path="/" element={<HomePage />} />
-      </Route>
-
       <Route path="/auth" element={<AuthenticationPage />} />
       <Route path="/auth/register" element={<RegisterPage />} />
+      <Route path="/auth/forgot-password" element={<ForgotPasswordPage />} />
 
-      <Route path="/vaksinasi" element={<VaksinasiPribadi />} />
-      <Route path="/vaksinasi/history" element={<VaksinasiHistory />} />
-      <Route path="/vaksinasi/details/:id" element={<VaksinasiDetails />} />
+      <Route element={<PrivateRoutes />}>
+        <Route path="/" element={<HomePage />} />
 
-      <Route path="/tenaga" element={<TenagaMedisPage />} />
-      <Route path="/tenaga/profile" element={<ProfileTenagaMedis />} />
-      <Route path="/tenaga/edit" element={<EditProfilePage />} />
+        <Route path="/vaksinasi" element={<VaksinasiPribadi />} />
+        <Route path="/vaksinasi/history" element={<VaksinasiHistory />} />
+        <Route path="/vaksinasi/details/:id" element={<VaksinasiDetails />} />
 
-      <Route path="/share" element={<SharePage />} />
+        <Route path="/tenaga" element={<TenagaMedisPage />} />
+        <Route path="/tenaga/profile" element={<ProfileTenagaMedis />} />
+        <Route path="/tenaga/edit" element={<EditProfilePage />} />
 
-      <Route path="/screening" element={<ScreeningPage />} />
-      <Route path="/screening/covid" element={<ScreeningCovid />} />
-      <Route path="/screening/covid/detail" element={<DetailCovid />} />
-      <Route
-        path="/screening/covid/result"
-        element={<ScreeningCovidResultPage />}
-      />
-      <Route path="/screening/doctor" element={<ScreeningDoctor />} />
-      <Route path="/screening/history" element={<ScreeningHistory />} />
-      <Route path="/screening/mental" element={<ScreeningMental />} />
-      <Route
-        path="/screening/mental/result"
-        element={<ScreeningMentalResult />}
-      />
-      <Route path="/screening/mental/detail" element={<DetailMental />} />
+        <Route path="/share" element={<SharePage />} />
 
-      <Route path="/screening/ptm" element={<ScreeningPTM />} />
-      <Route path="/screening/ptm/detail" element={<DetailPTM />} />
-      <Route path="/screening/ptm/result" element={<ScreeningPTMResult />} />
+        <Route path="/screening" element={<ScreeningPage />} />
+        <Route path="/screening/covid" element={<ScreeningCovid />} />
+        <Route path="/screening/covid/detail" element={<DetailCovid />} />
+        <Route
+          path="/screening/covid/result"
+          element={<ScreeningCovidResultPage />}
+        />
+        <Route path="/screening/doctor" element={<ScreeningDoctor />} />
+        <Route path="/screening/history" element={<ScreeningHistory />} />
+        <Route path="/screening/mental" element={<ScreeningMental />} />
+        <Route
+          path="/screening/mental/result"
+          element={<ScreeningMentalResult />}
+        />
+        <Route path="/screening/mental/detail" element={<DetailMental />} />
 
-      <Route path="/rujukan" element={<RujukanPage />} />
-      <Route path="/rujukan/details/:id" element={<RujukanDetails />} />
+        <Route path="/screening/ptm" element={<ScreeningPTM />} />
+        <Route path="/screening/ptm/detail" element={<DetailPTM />} />
+        <Route path="/screening/ptm/result" element={<ScreeningPTMResult />} />
 
-      <Route path="/resume" element={<ResumePage />} />
-      <Route path="/resume/riwayat" element={<RiwayatResume />} />
-      <Route path="/resume/details/:id" element={<ResumeDetail />} />
+        <Route path="/rujukan" element={<RujukanPage />} />
+        <Route path="/rujukan/details/:id" element={<RujukanDetails />} />
 
-      <Route path="/profile" element={<ProfilePage />} />
-      <Route path="/profile/changepassword" element={<ChangePasswordPage />} />
-      <Route path="/profile/detail/:id" element={<ProfileDetail />} />
-      <Route path="/profile/edit" element={<EditProfilePage />} />
-      <Route path="/profile/edit/family" element={<AddFamilyPage />} />
-      <Route path="/profile/edit/insurance" element={<AddInsurancePage />} />
-      <Route path="/profile/family" element={<FamilyPage />} />
-      <Route path="/profile/insurance" element={<InsurancePage />} />
+        <Route path="/resume" element={<ResumePage />} />
+        <Route path="/resume/riwayat" element={<RiwayatResume />} />
+        <Route path="/resume/details/:id" element={<ResumeDetail />} />
 
-      <Route path="/pesan" element={<KirimPesanPage />} />
+        <Route path="/profile" element={<ProfilePage />} />
+        <Route
+          path="/profile/changepassword"
+          element={<ChangePasswordPage />}
+        />
+        <Route path="/profile/detail/:id" element={<ProfileDetail />} />
+        <Route path="/profile/edit" element={<EditProfilePage />} />
+        <Route path="/profile/edit/family" element={<AddFamilyPage />} />
+        <Route path="/profile/edit/insurance" element={<AddInsurancePage />} />
+        <Route path="/profile/family" element={<FamilyPage />} />
+        <Route path="/profile/insurance" element={<InsurancePage />} />
 
-      <Route path="/patient" element={<PatientPage />} />
-      <Route path="/patient/details/:id" element={<ProfilePatientPage />} />
+        <Route path="/pesan" element={<KirimPesanPage />} />
 
-      <Route path="/obat" element={<PengingatObatPage />} />
-      <Route path="/obat/pemesanan" element={<PemesananObatPage />} />
-      <Route path="/obat/riwayat" element={<RiwayatObat />} />
-      <Route path="/obat/tambah" element={<TambahPengingat />} />
+        <Route path="/patient" element={<PatientPage />} />
+        <Route path="/patient/details/:id" element={<ProfilePatientPage />} />
 
-      <Route path="/news" element={<News />} />
-      <Route path="/news/details/1" element={<NewsDetail1 />} />
-      <Route path="/news/details/2" element={<NewsDetail2 />} />
-      <Route path="/news/details/3" element={<NewsDetail3 />} />
+        <Route path="/obat" element={<PengingatObatPage />} />
+        <Route path="/obat/pemesanan" element={<PemesananObatPage />} />
+        <Route path="/obat/riwayat" element={<RiwayatObat />} />
+        <Route path="/obat/tambah" element={<TambahPengingat />} />
 
-      <Route path="/monitoring" element={<MonitoringPage />} />
-      <Route path="/monitoring/kalkulator" element={<KalulatorKesehatan />} />
-      <Route path="/monitoring/bmr" element={<KalkulatorKalori />} />
-      <Route path="/monitoring/bmi" element={<KalkulatorIndeksMassa />} />
-      <Route path="/monitoring/add-aktifitas" element={<AddAktifitas />} />
-      <Route
-        path="/monitoring/insert-data-fisik"
-        element={<InsertDataFisik />}
-      />
-      <Route
-        path="/monitoring/insert-data"
-        element={<InsertDataHeightWeight />}
-      />
-      <Route path="/monitoring/data-tracking" element={<DataTracking />} />
-      <Route path="/monitoring/dashboard" element={<MonitoringDashboard />} />
-      <Route path="/monitoring/makanan" element={<MonitoringMakananPage />} />
-      <Route path="/monitoring/fisik" element={<MonitoringAktifitasPage />} />
-      <Route
-        path="/monitoring/fisik/change"
-        element={<UbahTargetFisikpage />}
-      />
-      <Route
-        path="/monitoring/darah/change"
-        element={<InsertDataTekananDarahPage />}
-      />
-      <Route
-        path="/monitoring/makanan/insert"
-        element={<InsertKonsumsiMakananPage />}
-      />
-      <Route
-        path="/monitoring/makanan/change"
-        element={<KonsumsiMakananTargetPage />}
-      />
+        <Route path="/news" element={<News />} />
+        <Route path="/news/details/1" element={<NewsDetail1 />} />
+        <Route path="/news/details/2" element={<NewsDetail2 />} />
+        <Route path="/news/details/3" element={<NewsDetail3 />} />
 
-      <Route path="/faskes" element={<FaskesPage />} />
-      <Route path="/faskes/details" element={<FaskesDetail />} />
+        <Route path="/monitoring" element={<MonitoringPage />} />
+        <Route path="/monitoring/kalkulator" element={<KalulatorKesehatan />} />
+        <Route path="/monitoring/bmr" element={<KalkulatorKalori />} />
+        <Route path="/monitoring/bmi" element={<KalkulatorIndeksMassa />} />
+        <Route path="/monitoring/add-aktifitas" element={<AddAktifitas />} />
+        <Route
+          path="/monitoring/insert-data-fisik"
+          element={<InsertDataFisik />}
+        />
+        <Route
+          path="/monitoring/insert-data"
+          element={<InsertDataHeightWeight />}
+        />
+        <Route path="/monitoring/data-tracking" element={<DataTracking />} />
+        <Route path="/monitoring/dashboard" element={<MonitoringDashboard />} />
+        <Route path="/monitoring/makanan" element={<MonitoringMakananPage />} />
+        <Route path="/monitoring/fisik" element={<MonitoringAktifitasPage />} />
+        <Route
+          path="/monitoring/fisik/change"
+          element={<UbahTargetFisikpage />}
+        />
+        <Route
+          path="/monitoring/darah/change"
+          element={<InsertDataTekananDarahPage />}
+        />
+        <Route
+          path="/monitoring/makanan/insert"
+          element={<InsertKonsumsiMakananPage />}
+        />
+        <Route
+          path="/monitoring/makanan/change"
+          element={<KonsumsiMakananTargetPage />}
+        />
 
-      <Route path="/notifications" element={<NotificationPage />} />
+        <Route path="/faskes" element={<FaskesPage />} />
+        <Route path="/faskes/details" element={<FaskesDetail />} />
+
+        <Route path="/notifications" element={<NotificationPage />} />
+      </Route>
     </Routes>
   );
 };
