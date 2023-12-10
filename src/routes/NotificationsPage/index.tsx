@@ -47,7 +47,7 @@ const NotificationPage = () => {
           ))}
       </div>
 
-      <BottomNavbar />
+      <BottomNavbar menuActive="Notifikasi" />
     </div>
   );
 };

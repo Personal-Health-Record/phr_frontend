@@ -68,7 +68,7 @@ const NewsDetail1 = () => {
         </div>
       </div>
 
-      <BottomNavbar />
+      <BottomNavbar menuActive="Artikel" />
     </div>
   );
 };

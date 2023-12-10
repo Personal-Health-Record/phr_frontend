@@ -3,7 +3,11 @@ import { useGetLoggedInUser } from "../../helpers/userDataHelper";
 import { useMemo } from "react";
 import { menuNavbar, menuNavbarDoctor } from "./constants";
 
-const BottomNavbar = () => {
+interface Props {
+  menuActive: string;
+}
+
+const BottomNavbar = ({ menuActive }: Props) => {
   const navigate = useNavigate();
   const { loggedInUser } = useGetLoggedInUser();
 
@@ -27,7 +31,15 @@ const BottomNavbar = () => {
           }}
         >
           <img src={menu.icon} alt="" width={25} height={25} />
-          <p className="text-xs text-mainGrey">{menu.title}</p>
+          <p
+            className={`text-mainGrey ${
+              menuActive === menu.title
+                ? "font-bold text-black text-sm"
+                : "text-xs"
+            }`}
+          >
+            {menu.title}
+          </p>
         </div>
       ))}
     </div>

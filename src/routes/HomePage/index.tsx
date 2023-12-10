@@ -31,7 +31,7 @@ const HomePage = () => {
           <Dashboard />
           <Pengingat />
           <MainMenu />
-          <BottomNavbar />
+          <BottomNavbar menuActive="Beranda" />
         </>
       )}
     </main>
