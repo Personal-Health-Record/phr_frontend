@@ -20,14 +20,21 @@ const Dashboard = () => {
           title="Aktifitas Fisik"
           unit="menit"
           value={totalDuration.toString()}
+          path="/monitoring/"
         />
 
-        <DashboardCard title="Jam Tidur" unit="jam" value="8" />
+        <DashboardCard
+          title="Jam Tidur"
+          unit="jam"
+          value="8"
+          path="/monitoring"
+        />
 
         <DashboardCard
           title="Tekanan darah"
           unit="mmHg"
           value={`${tekananDarah?.systole}/${tekananDarah?.diastole}`}
+          path="/monitoring/"
         />
       </div>
     </div>

@@ -48,7 +48,7 @@ const FormTambahPengingat = () => {
     const isValidated = validateForm();
     if (isValidated) {
       addObatData(formState, obatData);
-      navigate("/obat");
+      navigate("/obat", { replace: true });
     }
   };
 
