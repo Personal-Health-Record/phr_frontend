@@ -13,8 +13,8 @@ export const useGetTekananDarah = () => {
       }
 
       setTekananDarah({
-        diastole: 80,
-        systole: 120,
+        diastole: 0,
+        systole: 0,
       });
     }
   }, [tekananDarah]);

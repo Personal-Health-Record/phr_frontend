@@ -54,7 +54,11 @@ const TargetSection = () => {
                 } `,
               }}
             >
-              <div className="absolute right-0 top-0 mt-1.5 mr-5 text-mainGrey">
+              <div
+                className={`absolute ${
+                  totalDuration > 0 && "right-0 top-0 mt-1.5 mr-5"
+                }  text-mainGrey`}
+              >
                 {totalDuration < durasiTargetFisik && (
                   <p className="text-xs">{totalDuration} menit</p>
                 )}
@@ -79,7 +83,9 @@ const TargetSection = () => {
               <p className="text-xs text-lightGrey">SYSTOLE</p>
               <p className="text-xs text-mainGrey">mmHg</p>
             </div>
-            <p className="text-xs font-bold">{tekananDarah?.systole || 0}</p>
+            <p className="text-xs font-bold">
+              {tekananDarah?.systole === 0 ? "-" : tekananDarah?.systole}
+            </p>
           </div>
 
           <div className="flex items-center gap-8">
@@ -87,7 +93,9 @@ const TargetSection = () => {
               <p className="text-xs text-lightGrey">DIASTOLE</p>
               <p className="text-xs text-mainGrey">mmHg</p>
             </div>
-            <p className="text-xs font-bold">{tekananDarah?.diastole || 0}</p>
+            <p className="text-xs font-bold">
+              {tekananDarah?.diastole === 0 ? "-" : tekananDarah?.diastole}
+            </p>
           </div>
         </div>
       </div>

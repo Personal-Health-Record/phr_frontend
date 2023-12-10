@@ -8,14 +8,14 @@ export type AktifitasFisik = {
 export const dummyAktifitasFisik: AktifitasFisik[] = [
   {
     type: "Jalan Kaki",
-    duration: 5,
+    duration: 0,
   },
   {
     type: "Jogging",
-    duration: 10,
+    duration: 0,
   },
   {
     type: "Push up",
-    duration: 5,
+    duration: 0,
   },
 ];

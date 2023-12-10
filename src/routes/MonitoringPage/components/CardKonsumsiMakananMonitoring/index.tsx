@@ -33,17 +33,6 @@ const CardKonsumsiMakananMonitoring = () => {
                 />
                 <p className="text-sm text-mainGrey mb-1">{konsumsi}</p>
               </div>
-              {(konsumsi === "Makanan Pokok" || konsumsi === "Lauk Pauk") && (
-                <div className="flex gap-1 bg-mainGreen rounded-xl items-center px-3 py-1">
-                  <img
-                    src={imageCheckAll}
-                    alt="check"
-                    width="20px"
-                    height="20px"
-                  />
-                  <p className="text-xs text-white">Dikonsumsi</p>
-                </div>
-              )}
             </div>
             <div
               className="bg-slate-200 mt-1 ml-14"

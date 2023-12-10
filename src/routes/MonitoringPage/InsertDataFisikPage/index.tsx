@@ -61,14 +61,14 @@ const InsertDataFisik = () => {
         <TextInput
           label="Waktu Mulai"
           onChange={(value: any) => setStart(value)}
-          placeholder="06:30"
+          placeholder="Contoh: 06:30"
           type="text"
         />
 
         <TextInput
           label="Waktu Selesai"
           onChange={(value) => setEnd(value)}
-          placeholder="07:00"
+          placeholder="Contoh: 07:00"
           type="text"
         />
 

@@ -36,7 +36,6 @@ const InsertDataHeightWeight = () => {
           onChange={(e) => {
             setWeight(e);
           }}
-          placeholder="80"
           type="number"
         />
 
@@ -45,7 +44,6 @@ const InsertDataHeightWeight = () => {
           onChange={(e) => {
             setHeight(e);
           }}
-          placeholder="170"
           type="number"
         />
 

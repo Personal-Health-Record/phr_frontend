@@ -33,7 +33,6 @@ const InsertDataTekananDarahPage = () => {
           onChange={(e) => {
             setSystole(e);
           }}
-          placeholder="120"
           type="number"
         />
 
@@ -42,7 +41,6 @@ const InsertDataTekananDarahPage = () => {
           onChange={(e) => {
             setDiastole(e);
           }}
-          placeholder="80"
           type="number"
         />
 
