@@ -1,6 +1,4 @@
-'use client';
-
-import { Dispatch, SetStateAction, useEffect, useState } from 'react';
+import { Dispatch, SetStateAction, useEffect, useState } from "react";
 
 interface Props {
   setTotalPenyakit: Dispatch<SetStateAction<number>>;
@@ -29,7 +27,7 @@ const FormPenyakitKeluarga = ({ setTotalPenyakit, setListPenyakit }: Props) => {
   return (
     <div className="flex flex-col gap-3">
       <p className="text-sm text-lightGrey">
-        Apakah Anda merasakan gejala-gejala berikut dalam 14 hari terakhir?
+        Apakah Anda/Keluarga Anda memiliki riwayat penyakit berikut?
       </p>
 
       <div className="flex gap-20">

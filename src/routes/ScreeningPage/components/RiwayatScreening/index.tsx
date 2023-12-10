@@ -13,6 +13,11 @@ const RiwayatScreening = ({ listSkrining }: Props) => {
       </h3>
 
       <div className="flex flex-col gap-4">
+        {listSkrining?.length === 0 && (
+          <p className="text-sm text-mainGrey">
+            Belum ada riwayat skrining kesehatan
+          </p>
+        )}
         {listSkrining?.map((skrining, idx) => (
           <RiwayatScreeningCard
             date={skrining.date}

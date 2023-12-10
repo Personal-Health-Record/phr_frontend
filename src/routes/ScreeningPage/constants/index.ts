@@ -99,23 +99,4 @@ export type PTM = {
   berat: number;
 };
 
-export const dummySkriningList: Skrining[] = [
-  {
-    id: 1,
-    date: "Senin, 18 Maret 2023",
-    location: "Puskesmas Serpong",
-    skriningType: "Skrining Penyakit Tidak Menular",
-  },
-  {
-    id: 2,
-    date: "Kamis, 1 Febaruari 2023",
-    location: "Mandiri",
-    skriningType: "Skrining COVID-19",
-  },
-  {
-    id: 3,
-    date: "Sabtu, 8 Januari 2023",
-    location: "Mandiri",
-    skriningType: "Skrining Kesehatan Mental",
-  },
-];
+export const dummySkriningList: Skrining[] = [];

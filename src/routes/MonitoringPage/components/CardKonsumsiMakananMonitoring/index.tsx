@@ -11,8 +11,15 @@ const CardKonsumsiMakananMonitoring = () => {
     navigate("/monitoring/makanan/change");
   };
 
+  const handleToMonitoringMakanan = () => {
+    navigate("/monitoring/makanan");
+  };
+
   return (
-    <div className="flex flex-col p-5 shadow-md rounded-xl">
+    <div
+      className="flex flex-col p-5 shadow-md rounded-xl"
+      onClick={handleToMonitoringMakanan}
+    >
       <div className="flex justify-between items-center">
         <p>Konsumsi Makanan</p>
         <p className="text-xs text-lightGrey" onClick={handleUbahTarget}>
