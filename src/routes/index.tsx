@@ -32,7 +32,7 @@ import ChangePasswordPage from "./ProfilePage/ProfileChangePassword";
 import ProfileDetail from "./ProfilePage/ProfileDetailPage/page";
 import AddFamilyPage from "./ProfilePage/ProfileEditFamilyPage";
 import AddInsurancePage from "./ProfilePage/ProfileEditInsurancePage/page";
-import FamilyPage from "./ProfilePage/ProfileInsurancePage";
+import FamilyPage from "./ProfilePage/ProfileFamilyPage";
 import InsurancePage from "./ProfilePage/ProfileInsurancePage";
 import KirimPesanPage from "./PesanPage";
 import PatientPage from "./PatientPage";

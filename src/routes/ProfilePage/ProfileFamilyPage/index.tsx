@@ -3,6 +3,7 @@ import Header from "../../../components/Header";
 import { useGetLoggedInUser } from "../../../helpers/userDataHelper";
 import BottomNavbarOneButton from "../../HomePage/components/BottomNavbarOneButton";
 import FamilyCard from "../components/FamilyCard";
+import imagePlus from "../../../assets/images/plus.png";
 
 const FamilyPage = () => {
   const { loggedInUser: user, userData } = useGetLoggedInUser();
@@ -24,7 +25,7 @@ const FamilyPage = () => {
 
       <BottomNavbarOneButton
         path="/profile/edit/family"
-        iconPath="/images/plus.png"
+        iconPath={imagePlus}
         text="Tambahkan Anggota Keluarga"
       />
     </div>
