@@ -45,6 +45,12 @@ const NotificationPage = () => {
               notificationList={storageNotificationData!}
             />
           ))}
+        {
+          (!notificationData || notificationData.length === 0) &&
+          <div className="flex justify-center items-center h-96">
+            <p className="text-gray-500 text-sm">Tidak ada notifikasi</p>
+          </div>
+        }
       </div>
 
       <BottomNavbar menuActive="Notifikasi" />
