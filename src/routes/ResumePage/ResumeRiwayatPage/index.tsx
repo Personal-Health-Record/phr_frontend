@@ -8,7 +8,7 @@ import BottomNavbarDownloadShare from "../../HomePage/components/BottomNavbarDow
 import { isLoggedInUserNewUser, useGetLoggedInUser } from "../../../helpers/userDataHelper";
 import CircleLoader from "../../../components/CircleLoader";
 
-const PAGE_SIZE = 5;
+const PAGE_SIZE = 8;
 
 const RiwayatResume = () => {
   const [pageNumber, setPageNumber] = useState(1);
