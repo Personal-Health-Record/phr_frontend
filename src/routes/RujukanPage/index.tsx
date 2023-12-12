@@ -4,6 +4,8 @@ import Header from "../HomePage/components/Header";
 import SearchBar from "./components/SearchBar";
 import JadwalRujukan from "./components/JadwalRujukan";
 import RiwayatRujukan from "./components/RiwayatRujukan";
+import { isLoggedInUserNewUser, useGetLoggedInUser } from "../../helpers/userDataHelper";
+import CircleLoader from "../../components/CircleLoader";
 
 const RujukanPage = () => {
   const [data, setData] = useState(dummyRujukanData);
@@ -27,14 +29,25 @@ const RujukanPage = () => {
     setData(filteredData);
   };
 
+  const { loggedInUser } = useGetLoggedInUser();
+
+  if (!loggedInUser) {
+    return <CircleLoader />;
+  }
+
   return (
     <div className="flex flex-col">
       <Header title="Rujukan" />
 
       <div className="flex flex-col w-full px-4 py-4 gap-3">
         <SearchBar onSearch={onSearch} />
-        <JadwalRujukan />
-        <RiwayatRujukan rujukanData={data} />
+        {
+          !isLoggedInUserNewUser(loggedInUser) &&
+          <>
+            <JadwalRujukan />
+            <RiwayatRujukan rujukanData={data} />
+          </>
+        }
       </div>
     </div>
   );
