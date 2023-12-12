@@ -21,12 +21,11 @@ const NewsDetail8 = () => {
 
         <div className="my-1">
           {referenceText("Sumber: ChatGPT")}
-          {/* https://example.com/manfaat-berjalan-alam-kesejahteraan-mental */}
         </div>
 
         <div className="flex justify-center items-center">
           <img
-            src="https://example.com/nature-walk-benefits.jpg"
+            src="https://cdn0-production-images-kly.akamaized.net/LsdZtF9HwFxAznCvoktRLiGOdNE=/1200x675/smart/filters:quality(75):strip_icc():format(jpeg)/kly-media-production/medias/756771/original/001145400_1414398857-Make-Your-Jogging-Exciting.jpg"
             alt="Manfaat Berjalan di Alam"
             width={300}
             height={200}

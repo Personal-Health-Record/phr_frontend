@@ -25,7 +25,7 @@ const NewsDetail6 = () => {
 
         <div className="flex justify-center items-center">
           <img
-            src="https://example.com/balancing-screen-time.jpg"
+            src="https://static.promediateknologi.id/crop/0x0:0x0/750x500/webp/photo/p1/590/2023/12/08/produktif-3616308392.jpg"
             alt="Menyeimbangkan Waktu Layar"
             width={300}
             height={200}

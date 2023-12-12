@@ -21,12 +21,11 @@ const NewsDetail10 = () => {
 
         <div className="my-1">
           {referenceText("Sumber: ChatGPT")}
-          {/* https://example.com/manfaat-menulis-jurnal-pertumbuhan-pribadi */}
         </div>
 
         <div className="flex justify-center items-center">
           <img
-            src="https://example.com/journaling-benefits.jpg"
+            src="https://static.promediateknologi.id/crop/0x0:0x0/0x0/webp/photo/akurat/images/2023/03/big/img_64210c4625b557-10429169-63161105.jpeg"
             alt="Manfaat Menulis Jurnal"
             width={300}
             height={200}

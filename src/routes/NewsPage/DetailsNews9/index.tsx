@@ -21,12 +21,11 @@ const NewsDetail9 = () => {
 
         <div className="my-1">
           {referenceText("Sumber: ChatGPT")}
-          {/* https://example.com/dampak-pernapasan-sadar-stres-reduksi */}
         </div>
 
         <div className="flex justify-center items-center">
           <img
-            src="https://example.com/mindful-breathing.jpg"
+            src="https://cdn0-production-images-kly.akamaized.net/6EK1WzSzUO7MAijgIf2HN5rAd7o=/0x443:5184x3365/800x450/filters:quality(75):strip_icc():format(webp)/kly-media-production/medias/3520170/original/099088600_1627144510-benjamin-child-rOn57CBgyMo-unsplash.jpg"
             alt="Pernapasan Sadar"
             width={300}
             height={200}

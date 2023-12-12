@@ -26,8 +26,7 @@ const NewsDetail = () => {
 
         <div className="flex justify-center items-center">
           <img
-            // TODO: adjust news disini sampe news 10
-            src="https://example.com/meditasi-mindfulness.jpg"
+            src="https://res.cloudinary.com/dk0z4ums3/image/upload/v1613435562/attached_image/yuk-terapkan-mindfulness-dalam-keseharianmu.jpg"
             alt="Meditasi Mindfulness"
             width={300}
             height={200}

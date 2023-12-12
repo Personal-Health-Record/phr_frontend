@@ -25,7 +25,7 @@ const NewsDetail5 = () => {
 
         <div className="flex justify-center items-center">
           <img
-            src="https://example.com/olahraga-sehat.jpg"
+            src="https://res.cloudinary.com/dk0z4ums3/image/upload/v1614664558/attached_image/beragam-manfaat-olahraga.jpg"
             alt="Olahraga Sehat"
             width={300}
             height={200}

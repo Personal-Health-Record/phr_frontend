@@ -25,7 +25,7 @@ const NewsDetail7 = () => {
 
         <div className="flex justify-center items-center">
           <img
-            src="https://example.com/work-life-balance.jpg"
+            src="https://cdn.idntimes.com/content-images/community/2022/05/pexels-andrea-piacquadio-927451-ee935e9ea79a32351151a63f3d9c8cb7-74b919d0ca9f2c5b91ca5b972913e293_600x400.jpg"
             alt="Keseimbangan Kerja dan Kehidupan"
             width={300}
             height={200}
