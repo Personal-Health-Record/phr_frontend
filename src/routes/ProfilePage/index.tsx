@@ -78,7 +78,7 @@ const ProfilePage = () => {
           ? renderDoctorProfile()
           : renderPatientProfile()}
       </div>
-      <BottomNavbar />
+      <BottomNavbar menuActive="Profil" />
     </div>
   );
 };

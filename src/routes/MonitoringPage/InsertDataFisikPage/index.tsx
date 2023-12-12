@@ -48,7 +48,7 @@ const InsertDataFisik = () => {
 
       <div className="flex flex-col w-full gap-3">
         <h3 className="font-semibold text-mainGrey pl-4 mt-5">
-          Aktifitas Fisik
+          Aktivitas Fisik
         </h3>
         <Dropdown
           isOpen={isShowDropdownKategori}
@@ -61,14 +61,14 @@ const InsertDataFisik = () => {
         <TextInput
           label="Waktu Mulai"
           onChange={(value: any) => setStart(value)}
-          placeholder="06:30"
+          placeholder="Contoh: 06:30"
           type="text"
         />
 
         <TextInput
           label="Waktu Selesai"
           onChange={(value) => setEnd(value)}
-          placeholder="07:00"
+          placeholder="Contoh: 07:00"
           type="text"
         />
 

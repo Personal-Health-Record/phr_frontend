@@ -1,7 +1,7 @@
 const CardAktifitasFisik = () => {
   return (
     <div className="flex flex-col p-5 shadow-md rounded-xl">
-      <p>Aktifitas Fisik</p>
+      <p>Aktivitas Fisik</p>
       <div className="flex items-end gap-2 mt-3">
         <p className="text-mainBlue text-3xl">15</p>
         <p className="text-lightGrey">menit/hari</p>

@@ -19,7 +19,6 @@ const KonsumsiMakananTargetPage = () => {
 
   const handleSubmit = () => {
     const target = [];
-    console.log({ rice, lauk, vegetable, fruit, milk });
 
     if (rice) {
       target.push("Makanan Pokok");

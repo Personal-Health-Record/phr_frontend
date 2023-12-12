@@ -19,7 +19,7 @@ const CardTempatPraktik = ({ name, id }: Props) => {
       </div>
 
       <button
-        className="text-xs bg-superLightGrey px-2 rounded-2xl font-semibold py-0"
+        className="text-xs bg-mainBlue px-2 rounded-2xl font-semibold py-0 text-white"
         onClick={handleOnClick}
       >
         Lihat Profil Faskes

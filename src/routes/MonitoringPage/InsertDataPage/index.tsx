@@ -1,17 +1,13 @@
-import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { setUserPhysique } from "../../../helpers/dataTrackerHelper";
 import Header from "../../../components/Header";
 import TextInput from "../../../components/TextInput";
+import { useState } from "react";
 
 const InsertDataHeightWeight = () => {
   const navigate = useNavigate();
   const [height, setHeight] = useState("");
   const [weight, setWeight] = useState("");
-
-  useEffect(() => {
-    console.log({ height, weight });
-  }, [height, weight]);
 
   const handleSubmit = () => {
     setUserPhysique({
@@ -36,7 +32,6 @@ const InsertDataHeightWeight = () => {
           onChange={(e) => {
             setWeight(e);
           }}
-          placeholder="80"
           type="number"
         />
 
@@ -45,7 +40,6 @@ const InsertDataHeightWeight = () => {
           onChange={(e) => {
             setHeight(e);
           }}
-          placeholder="170"
           type="number"
         />
 

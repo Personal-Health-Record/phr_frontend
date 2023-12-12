@@ -45,7 +45,7 @@ const MonitoringAktifitasPage = () => {
         </div>
 
         <h3 className="font-semibold text-mainGrey pl-2 mt-3">
-          Aktifitas Fisik
+          Aktivitas Fisik
         </h3>
 
         <div>

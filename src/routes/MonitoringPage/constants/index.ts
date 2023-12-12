@@ -107,8 +107,8 @@ export type TekananDarah = {
 };
 
 export const dummyUserPhysique: PhysiqueData = {
-  height: 170,
-  weight: 80,
+  height: 0,
+  weight: 0,
   latestUpdate: "2023-10-22T12:00:00Z",
 };
 

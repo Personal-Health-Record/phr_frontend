@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Header from "../../../components/Header";
 import TextInput from "../../../components/TextInput";
@@ -8,10 +8,6 @@ const InsertDataTekananDarahPage = () => {
   const navigate = useNavigate();
   const [systole, setSystole] = useState(0);
   const [diastole, setDiastole] = useState(0);
-
-  useEffect(() => {
-    console.log({ systole, diastole });
-  }, [diastole, systole]);
 
   const handleSubmit = () => {
     setTekananDarah({
@@ -33,7 +29,6 @@ const InsertDataTekananDarahPage = () => {
           onChange={(e) => {
             setSystole(e);
           }}
-          placeholder="120"
           type="number"
         />
 
@@ -42,7 +37,6 @@ const InsertDataTekananDarahPage = () => {
           onChange={(e) => {
             setDiastole(e);
           }}
-          placeholder="80"
           type="number"
         />
 

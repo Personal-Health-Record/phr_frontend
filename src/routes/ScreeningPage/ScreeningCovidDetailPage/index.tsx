@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
+import { usePDF } from "react-to-pdf";
 import { Covid } from "../constants";
 import { getSkriningById } from "../../../helpers/skriningKesehatanHelper";
 import Header from "../../HomePage/components/Header";
@@ -12,6 +13,10 @@ const DetailCovid = () => {
   const [data, setData] = useState<Covid>();
   const id = searchParams.get("id");
 
+  const { toPDF, targetRef } = usePDF({
+    filename: `Detail Covid.pdf`,
+  });
+
   useEffect(() => {
     const skriningData = getSkriningById(parseInt(id || ""));
 
@@ -19,7 +24,7 @@ const DetailCovid = () => {
   }, [id]);
 
   return (
-    <div>
+    <div ref={targetRef}>
       <Header title="Riwayat Skrining Kesehatan" />
       <div className="flex flex-col w-full px-4 py-4 gap-3 mb-2">
         <h3 className="font-semibold text-mainGrey text-sm">
@@ -45,7 +50,7 @@ const DetailCovid = () => {
           data={data?.gejala || ""}
         />
       </div>
-      <BottomNavbarDownloadShare body="" link="" title="" />
+      <BottomNavbarDownloadShare body="" link="" title="" toPDF={toPDF} />
     </div>
   );
 };

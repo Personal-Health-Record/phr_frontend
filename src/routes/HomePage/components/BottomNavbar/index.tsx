@@ -1,7 +1,10 @@
 import { menuNavbar } from "./constants";
 import { useNavigate } from "react-router-dom";
 
-const BottomNavbar = () => {
+interface Props {
+  menuActive: string;
+}
+const BottomNavbar = ({ menuActive }: Props) => {
   const navigate = useNavigate();
 
   return (
@@ -18,7 +21,15 @@ const BottomNavbar = () => {
           }}
         >
           <img src={menu.icon} alt="" width={25} height={25} />
-          <p className="text-xs text-mainGrey">{menu.title}</p>
+          <p
+            className={`text-mainGrey ${
+              menuActive === menu.title
+                ? "font-bold text-black text-sm"
+                : "text-xs"
+            }`}
+          >
+            {menu.title}
+          </p>
         </div>
       ))}
     </div>

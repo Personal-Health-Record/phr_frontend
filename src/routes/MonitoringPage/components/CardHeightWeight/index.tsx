@@ -21,7 +21,9 @@ const CardHeightWeight = () => {
           <img src={weightImg} alt="weight" width={40} height={40} />
           <div className="flex flex-col">
             <p className="text-xs text-mainGrey ">Berat Badan</p>
-            <p className="text-xs text-lightGrey">{userPhysique?.weight} kg</p>
+            <p className="text-xs text-lightGrey">
+              {userPhysique?.weight ? `${userPhysique.weight} kg` : "-"}
+            </p>
           </div>
         </div>
       </div>
@@ -34,7 +36,10 @@ const CardHeightWeight = () => {
           <img src={heightImg} alt="weight" width={40} height={40} />
           <div className="flex flex-col">
             <p className="text-xs text-mainGrey ">Tinggi Badan</p>
-            <p className="text-xs text-lightGrey">{userPhysique?.height} kg</p>
+
+            <p className="text-xs text-lightGrey">
+              {userPhysique?.height ? `${userPhysique.height} cm` : "-"}
+            </p>
           </div>
         </div>
       </div>

@@ -29,6 +29,10 @@ const LoginForm = () => {
     navigate("/auth/register");
   };
 
+  const handleForgotPasswordClick = () => {
+    navigate("/auth/forgot-password");
+  };
+
   if (!userData) {
     return <CircleLoader />;
   }
@@ -74,7 +78,12 @@ const LoginForm = () => {
         </span>
       </p>
 
-      <p className="w-full text-center mt-2 text-lightGrey">Lupa Password?</p>
+      <p
+        className="w-full text-center mt-2 text-mainBlue underline"
+        onClick={handleForgotPasswordClick}
+      >
+        Lupa Password
+      </p>
     </div>
   );
 };

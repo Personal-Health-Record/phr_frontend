@@ -21,7 +21,6 @@ const UbahTargetFisikpage = () => {
         <TextInput
           label="Durasi (menit)"
           onChange={(value: number) => setDurasi(value)}
-          placeholder="30"
           type="text"
         />
       </div>

@@ -5,9 +5,15 @@ import CardKonsumsiMakananMonitoring from "./components/CardKonsumsiMakananMonit
 import HeaderMonitoring from "./components/HeaderMonitoring";
 import TargetSection from "./components/TargetSection";
 
+import { usePDF } from "react-to-pdf";
+
 const MonitoringPage = () => {
+  const { toPDF, targetRef } = usePDF({
+    filename: `Monitoring.pdf`,
+  });
+
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col" ref={targetRef}>
       <Header title="Tracking Data Kesehatan" />
 
       <div className="flex flex-col w-full px-4 py-4 gap-3">
@@ -16,11 +22,7 @@ const MonitoringPage = () => {
         <TargetSection />
         <CardKonsumsiMakananMonitoring />
 
-        <button className="border py-3 rounded-3xl text-mainBlue font-semibold border-mainBlue mt-5">
-          + Tambahkan Target
-        </button>
-
-        <BottomNavbarDownloadShare body="" link="" title="" />
+        <BottomNavbarDownloadShare body="" link="" title="" toPDF={toPDF} />
       </div>
     </div>
   );
