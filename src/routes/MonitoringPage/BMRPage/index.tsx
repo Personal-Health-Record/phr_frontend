@@ -80,7 +80,7 @@ const KalkulatorKalori = () => {
   // cari tau type2nya bmr dari result
   return (
     <div className="flex flex-col">
-      <Header title="Kalkulator Kesehatan" />
+      <Header title="Kalkulator Kalori (BMR)" />
 
       <div className="flex flex-col w-full px-4 py-4">
         <h3 className="font-semibold text-mainGrey pl-2">
@@ -93,10 +93,11 @@ const KalkulatorKalori = () => {
           handleCalculate={handleCalculate}
         />
 
-        <h3 className="font-semibold text-mainGrey pl-2 mb-3">Hasil</h3>
-
         {bmrResult > 0 && (
-          <CardHasilBmr bmrResult={bmrResult} formState={formState} />
+          <div>
+            <h3 className="font-semibold text-mainGrey pl-2 mb-3">Hasil</h3>
+            <CardHasilBmr bmrResult={bmrResult} formState={formState} />
+          </div>
         )}
       </div>
     </div>

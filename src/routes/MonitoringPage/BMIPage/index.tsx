@@ -63,7 +63,7 @@ const KalkulatorIndeksMassa = () => {
 
   return (
     <div className="flex flex-col">
-      <Header title="Kalkulator Kesehatan" />
+      <Header title="Indeks Massa Tubuh (BMI)" />
 
       <div className="flex flex-col w-full px-4 py-4">
         <h3 className="font-semibold text-mainGrey pl-2">
@@ -76,10 +76,11 @@ const KalkulatorIndeksMassa = () => {
           handleCalculate={handleCalculate}
         />
 
-        <h3 className="font-semibold text-mainGrey pl-2 mb-3">Hasil</h3>
-
         {bmiResult > 0 && (
-          <CardHasilBmi bmiResult={bmiResult} formState={formState} />
+          <div>
+            <h3 className="font-semibold text-mainGrey pl-2 mb-3">Hasil</h3>
+            <CardHasilBmi bmiResult={bmiResult} formState={formState} />
+          </div>
         )}
       </div>
     </div>
