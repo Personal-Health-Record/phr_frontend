@@ -60,7 +60,7 @@ const RujukanDetails = () => {
       </div>
       <BottomNavbarDownloadShare
         title="Rujukan"
-        body={`Silahkan check rujukan ${rujukan.patientName} di ${rujukan.location}}`}
+        body={`Silahkan check rujukan ${rujukan.patientName} di ${rujukan.location}`}
         link={`/rujukan/details/${rujukan.id}`}
         toPDF={toPDF}
       />

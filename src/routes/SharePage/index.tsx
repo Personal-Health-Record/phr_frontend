@@ -67,45 +67,33 @@ const SharePage = () => {
     }
 
     addNotificationData(newNotificationDataList, notificationData!);
-    toggleDiv("error", "Data berhasil dikirim");
+    toggleDiv("success", "Data berhasil dikirim");
     navigate("/");
   };
 
   const handleKirimEmail = () => {
-    if (listSelectedDoctor.length === 0) {
-      toggleDiv("error", "Harap pilih tenaga kesehatan terlebih dahulu");
-      return;
-    }
-    if (listSelectedDoctor.length > 1) {
-      toggleDiv(
-        "error",
-        "Metode kirim email hanya dapat digunakan untuk satu tenaga kesehatan"
-      );
-      return;
-    }
-
+    const emailList = [];
     const newNotificationDataList = [];
-    for (let i = 0; i < listSelectedDoctor.length; i++) {
-      const doctorId = listSelectedDoctor[i];
-      const doctor = userData!.find((user) => user.id === doctorId);
-      const subject = "Vaksinasi";
-      const body = `Vaksinasi COVID-19 kedua Anda dijadwalkan besok di Klinik Medi-Go. Silahkan buka menu notifikasi pada aplikasi PHR untuk melihat detailnya.`;
+    for (let i = 0; i < listTenkes.length; i++) {
+      const tenkes = listTenkes[i];
+      const doctor = userData!.find((user) => user.id === tenkes.userId);
 
       const newNotification: Notification = {
         id: (notificationData!.length + i + 1).toString(),
         fromUserId: loggedInUser!.id,
-        toUserId: doctorId,
-        title: subject,
-        body: body,
+        toUserId: doctor!.id,
+        title: title!,
+        body: body!,
         date: new Date().toISOString(),
         isRead: false,
         link: "/vaksinasi/details/1",
       };
       newNotificationDataList.push(newNotification);
-
-      document.location =
-        "mailto:" + doctor!.email + "?subject=" + subject + "&body=" + body;
+      emailList.push(doctor!.email);
     }
+
+    document.location =
+      "mailto:" + emailList.join(',') + "?subject=" + title + "&body=" + body;
 
     addNotificationData(newNotificationDataList, notificationData!);
     toggleDiv("success", "Data berhasil dikirim");
