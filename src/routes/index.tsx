@@ -145,13 +145,13 @@ const MainRoutes = () => {
         <Route path="/news/details/1" element={<NewsDetail1 />} />
         <Route path="/news/details/2" element={<NewsDetail2 />} />
         <Route path="/news/details/3" element={<NewsDetail3 />} />
-      <Route path="/news/details/4" element={<NewsDetail4 />} />
-      <Route path="/news/details/5" element={<NewsDetail5 />} />
-      <Route path="/news/details/6" element={<NewsDetail6 />} />
-      <Route path="/news/details/7" element={<NewsDetail7 />} />
-      <Route path="/news/details/8" element={<NewsDetail8 />} />
-      <Route path="/news/details/9" element={<NewsDetail9 />} />
-      <Route path="/news/details/10" element={<NewsDetail10 />} />
+        <Route path="/news/details/4" element={<NewsDetail4 />} />
+        <Route path="/news/details/5" element={<NewsDetail5 />} />
+        <Route path="/news/details/6" element={<NewsDetail6 />} />
+        <Route path="/news/details/7" element={<NewsDetail7 />} />
+        <Route path="/news/details/8" element={<NewsDetail8 />} />
+        <Route path="/news/details/9" element={<NewsDetail9 />} />
+        <Route path="/news/details/10" element={<NewsDetail10 />} />
 
         <Route path="/monitoring" element={<MonitoringPage />} />
         <Route path="/monitoring/kalkulator" element={<KalulatorKesehatan />} />
