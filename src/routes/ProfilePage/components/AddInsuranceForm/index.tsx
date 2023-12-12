@@ -57,7 +57,9 @@ const AddInsuranceForm = () => {
 
     localStorage.setItem("insuranceDataStorage", newInsuranceData);
 
-    navigate("/profile");
+    navigate("/profile/insurance", {
+      replace: true,
+    });
   };
 
   const validateForm = () => {

@@ -28,6 +28,13 @@ const InsurancePage = () => {
             />
           );
         })}
+
+        {
+          (!insuranceData || insuranceData.length === 0) &&
+          <div className="flex justify-center items-center h-96">
+            <p className="text-gray-500 text-sm">Tidak ada asuransi</p>
+          </div>
+        }
       </div>
 
       <BottomNavbarOneButton
