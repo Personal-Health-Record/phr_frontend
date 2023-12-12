@@ -103,3 +103,7 @@ export const forgotPasswordUser = (
     status: "success",
   };
 };
+
+export const isLoggedInUserNewUser = (loggedInUser: User) => {
+  return !dummyUserData.find((user) => user.email === loggedInUser?.email);
+}

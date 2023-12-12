@@ -4,7 +4,6 @@ import { useGetLoggedInUser } from "../../../helpers/userDataHelper";
 import { Obat } from "../constants";
 import Header from "../../../components/Header";
 import SearchBar from "../components/SearchBar";
-import Title from "../../HomePage/components/Title";
 import CardRiwayat from "../components/CardRiwayat";
 import CardObat from "../components/CardObat";
 import CircleLoader from "../../../components/CircleLoader";
@@ -47,7 +46,6 @@ const RiwayatObat = () => {
       <div className="flex flex-col w-full px-4 py-4 gap-5">
         <SearchBar onSearch={onSearch} />
 
-        <Title text="Tenaga Kesehatan Anda" />
         <CardRiwayat />
 
         {obatList &&
