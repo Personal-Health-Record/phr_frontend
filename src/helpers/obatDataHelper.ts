@@ -60,3 +60,20 @@ export const getUpdatedPengingatDataList = (
 
   return updatedPengingatDataList;
 };
+
+export const getFilteredPengingatObatData = (
+  obatData: Obat[],
+  loggedInUserId: string
+): Obat[] => {
+  const filteredObatData = obatData.filter((obat) => {
+    const isLoggedInUserObat = obat.userId === loggedInUserId;
+      const today = new Date();
+      const dateFrom = new Date(obat.dateFrom);
+      const dateTo = new Date(obat.dateTo);
+      const isDateValid = today >= dateFrom && today <= dateTo;
+
+      return isLoggedInUserObat && isDateValid;
+  });
+
+  return filteredObatData;
+}

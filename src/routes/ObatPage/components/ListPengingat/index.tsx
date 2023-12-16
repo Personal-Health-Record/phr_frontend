@@ -1,5 +1,6 @@
 import { useState } from "react";
 import {
+  getFilteredPengingatObatData,
   updateObatData,
   useGetObatData,
 } from "../../../../helpers/obatDataHelper";
@@ -16,25 +17,14 @@ const ListPengingat = () => {
   if (!loggedInUser || !obatData) {
     return <CircleLoader />;
   }
-  const getFilteredObatData = (listObat: Obat[]) => {
-    return listObat.filter((obat) => {
-      const isLoggedInUserObat = obat.userId === loggedInUser.id;
-      const today = new Date();
-      const dateFrom = new Date(obat.dateFrom);
-      const dateTo = new Date(obat.dateTo);
-      const isDateValid = today >= dateFrom && today <= dateTo;
-
-      return isLoggedInUserObat && isDateValid;
-    });
-  };
 
   if (!obatList) {
-    setObatList(getFilteredObatData(obatData));
+    setObatList(getFilteredPengingatObatData(obatData, loggedInUser.id));
   }
 
   const handleChangeObatData = (obat: Obat) => {
     const updatedObatList = updateObatData(obat, obatData);
-    setObatList(getFilteredObatData(updatedObatList));
+    setObatList(getFilteredPengingatObatData(updatedObatList, loggedInUser.id));
   };
 
   return (
