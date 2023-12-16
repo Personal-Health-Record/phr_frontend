@@ -59,7 +59,10 @@ const DataTracking = () => {
         )}
         {activeTabIdx === 2 && (
           <>
-            <CardAktifitasFisik />
+            <CardAktifitasFisik
+              startDate={selectedStartDate}
+              endDate={selectedEndDate}
+            />
             <CardTekananDarah />
             <CardMakananBulanan />
           </>
