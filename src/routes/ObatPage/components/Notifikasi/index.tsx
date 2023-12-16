@@ -32,6 +32,11 @@ const Notifikasi = ({ formState, setFormState }: NotifikasiProps) => {
     // make sure format notification time is correct
     // like 09:00,16:00
     // or 09:00
+    if (!notificationTime) {
+      setErrorMessage("Waktu notifikasi harus diisi");
+      return false;
+    }
+
     if (notificationTime !== "") {
       const timeList = notificationTime.split(",");
       const timeRegex = /^(0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$/;
@@ -88,16 +93,16 @@ const Notifikasi = ({ formState, setFormState }: NotifikasiProps) => {
           <div
             style={{
               flex: 1,
+              marginTop: 14,
             }}
-            className="self-end flex justify-end"
+            className="items-center flex justify-center"
           >
-            <img
-              src={imageEdit}
-              alt=""
-              width={30}
-              height={30}
+            <div
+              className="flex bg-mainBlue items-center justify-center gap-2 px-2 py-1 rounded-2xl"
               onClick={handleSubmit}
-            />
+            >
+              <p className="text-xs text-white">Simpan</p>
+            </div>
           </div>
         </div>
         {errorMessage && (
