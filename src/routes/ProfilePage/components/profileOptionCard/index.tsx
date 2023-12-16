@@ -3,7 +3,7 @@ import arrowRight from "../../../../assets/images/arrow-right.png";
 
 interface Props {
   title: string;
-  path: string;
+  path?: string;
   onClick?: () => void;
 }
 
@@ -11,7 +11,9 @@ const ProfileOptionCard = ({ title, path, onClick }: Props) => {
   const navigate = useNavigate();
 
   const handleOnClick = () => {
-    navigate(path);
+    if (path) {
+      navigate(path);
+    }
     if (onClick) {
       onClick();
     }

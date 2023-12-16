@@ -1,11 +1,16 @@
+import { useState } from "react";
 import BottomNavbar from "../../components/BottomNavbar";
 import CircleLoader from "../../components/CircleLoader";
 import { getTenkesByUserId } from "../../helpers/tenagaKesehatanHelper";
 import { logoutUser, useGetLoggedInUser } from "../../helpers/userDataHelper";
 import ProfileHeader from "./components/profileHeader";
 import ProfileOptionCard from "./components/profileOptionCard";
+import NegativeModal from "../../components/NegativeModal";
+import { useNavigate } from "react-router-dom";
 
 const ProfilePage = () => {
+  const [showLogOutModal, setShowLogOutModal] = useState(false)
+  const navigate = useNavigate();
   const { loggedInUser: user } = useGetLoggedInUser();
 
   if (!user) {
@@ -31,14 +36,24 @@ const ProfilePage = () => {
         />
         <ProfileOptionCard
           title="Logout"
-          path="/auth"
           onClick={() => {
+            setShowLogOutModal(true)
+          }}
+        />
+        <NegativeModal
+          description="Apakah anda yakin ingin keluar?"
+          onClose={() => setShowLogOutModal(false)}
+          onSubmit={() => {
+            navigate("/auth");
             logoutUser();
           }}
+          show={showLogOutModal}
         />
       </div>
     );
   };
+
+  console.log("show modal", showLogOutModal)
 
   const renderPatientProfile = () => {
     return (
@@ -59,10 +74,18 @@ const ProfilePage = () => {
         />
         <ProfileOptionCard
           title="Logout"
-          path="/auth"
           onClick={() => {
+            setShowLogOutModal(true)
+          }}
+        />
+        <NegativeModal
+          description="Apakah anda yakin ingin keluar?"
+          onClose={() => setShowLogOutModal(false)}
+          onSubmit={() => {
+            navigate("/auth");
             logoutUser();
           }}
+          show={showLogOutModal}
         />
       </div>
     );
