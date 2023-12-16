@@ -52,7 +52,7 @@ const RiwayatObat = () => {
   const renderButtonAddRiwayat = () => {
     return (
       <button
-        className="border py-3 rounded-3xl text-mainBlue font-semibold border-mainBlue mt-5"
+        className="border py-3 rounded-3xl text-mainBlue font-semibold border-mainBlue"
         onClick={() => {
           navigate("/obat/riwayat/tambah");
         }}
@@ -71,16 +71,24 @@ const RiwayatObat = () => {
 
         {
           getUserRiwayatAlergi().length === 0 ?
-          renderButtonAddRiwayat() :
-          (
-            <CardRiwayat data={getUserRiwayatAlergi()[0]}/>
-          )
+            renderButtonAddRiwayat() :
+            (
+              <CardRiwayat data={getUserRiwayatAlergi()[0]} />
+            )
         }
 
-        {obatList &&
+        {obatList && obatList.length !== 0 ? (
           obatList.map((obat, index) => {
             return <CardObat obat={obat} key={index} />;
-          })}
+          }))
+          : (
+            <div className="flex flex-col items-center justify-center gap-5">
+              <p className="text-mainGrey text-center">
+                Kamu belum memiliki riwayat obat
+              </p>
+            </div>
+          )
+        }
       </div>
     </div>
   );

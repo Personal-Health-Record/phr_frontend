@@ -31,6 +31,7 @@ const FormUpsertRiwayatAlergi = () => {
     const userRiwayatAlergi = riwayatAlergiData.filter(
       (riwayat) => riwayat.userId === loggedInUser.id
     );
+
     if (userRiwayatAlergi.length > 0) {
       // use existing data
       setFormState({
@@ -75,6 +76,7 @@ const FormUpsertRiwayatAlergi = () => {
     <div className="flex flex-col gap-4">
       <TextInput
         label="Nama/Jenis Obat"
+        value={formState.name}
         onChange={(value) =>
           setFormState({
             ...formState,
