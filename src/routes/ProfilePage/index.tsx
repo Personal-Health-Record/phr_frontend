@@ -53,8 +53,6 @@ const ProfilePage = () => {
     );
   };
 
-  console.log("show modal", showLogOutModal)
-
   const renderPatientProfile = () => {
     return (
       <div>

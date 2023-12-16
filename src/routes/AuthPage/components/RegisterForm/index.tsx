@@ -106,7 +106,7 @@ const RegisterForm = () => {
     }
 
     for (const [key, value] of Object.entries(formState)) {
-      if (!value && key !== "profilePicture") {
+      if (!value && key !== "profilePicture" && key !== "age") {
         toggleDiv("error", `Data ${key} harus diisi`);
         return false;
       }
