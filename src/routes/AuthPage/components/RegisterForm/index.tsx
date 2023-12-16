@@ -99,6 +99,12 @@ const RegisterForm = () => {
       return false;
     }
 
+    // validate nik must be 16 char
+    if (formState.nik.length !== 16) {
+      toggleDiv("error", "NIK harus 16 karakter");
+      return false;
+    }
+
     for (const [key, value] of Object.entries(formState)) {
       if (!value && key !== "profilePicture") {
         toggleDiv("error", `Data ${key} harus diisi`);
