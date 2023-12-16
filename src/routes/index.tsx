@@ -72,6 +72,7 @@ import NewsDetail7 from "./NewsPage/DetailsNews7";
 import NewsDetail8 from "./NewsPage/DetailsNews8";
 import NewsDetail9 from "./NewsPage/DetailsNews9";
 import TambahRiwayatAlergi from "./ObatPage/ObatTambahRiwayatPage";
+import EditPengingat from "./ObatPage/ObatEditPage";
 
 const MainRoutes = () => {
   return (
@@ -142,6 +143,7 @@ const MainRoutes = () => {
         <Route path="/obat/riwayat" element={<RiwayatObat />} />
         <Route path="/obat/riwayat/tambah" element={<TambahRiwayatAlergi />} />
         <Route path="/obat/tambah" element={<TambahPengingat />} />
+        <Route path="/obat/edit/:id" element={<EditPengingat />} />
 
         <Route path="/news" element={<News />} />
         <Route path="/news/details/1" element={<NewsDetail1 />} />

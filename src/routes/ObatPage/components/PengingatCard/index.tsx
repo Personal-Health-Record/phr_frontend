@@ -2,6 +2,7 @@ import { getUpdatedPengingatDataList } from "../../../../helpers/obatDataHelper"
 import { Obat, Pengingat } from "../../constants";
 import imageCheckAll from "../../../../assets/images/pengingat/check_all.png";
 import imageObat from "../../../../assets/images/pengingat/obat.png";
+import { useNavigate } from "react-router-dom";
 
 type PengingatCardProps = {
   obat: Obat;
@@ -14,6 +15,8 @@ const PengingatCard = ({
   handleChangeObatData,
   pengingat: pengigat,
 }: PengingatCardProps) => {
+  const navigate = useNavigate();
+
   const handleConsume = () => {
     pengigat.consumptionStatus = "Sudah dikonsumsi";
 
@@ -53,7 +56,9 @@ const PengingatCard = ({
 
   return (
     <div className="flex shadow-md py-3 px-2 rounded-xl gap-3 justify-between items-center">
-      <div className="flex justify-start items-center">
+      <div className="flex justify-start items-center" onClick={() => {
+        navigate(`/obat/edit/${obat.id}`);
+      }}>
         <img src={imageObat} alt="" width={50} height={50} />
         <div className="flex flex-col justify-between ml-3">
           <p className="text-xs">{obat.name}</p>
