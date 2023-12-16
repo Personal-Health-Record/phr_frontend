@@ -3,16 +3,26 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import arrowRight from "../../../../assets/images/search.png";
 
-const CardSelectDate = () => {
+interface Props {
+  setSelectedStartDate: React.Dispatch<React.SetStateAction<Date>>;
+  setSelectedEndDate: React.Dispatch<React.SetStateAction<Date>>;
+}
+
+const CardSelectDate = ({
+  setSelectedEndDate,
+  setSelectedStartDate,
+}: Props) => {
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
 
   const handleStartDateChange = (date: Date) => {
     setStartDate(date);
+    setSelectedStartDate(date);
   };
 
   const handleEndDateChange = (date: Date) => {
     setEndDate(date);
+    setSelectedEndDate(date);
   };
 
   return (

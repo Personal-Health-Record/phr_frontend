@@ -34,6 +34,8 @@ const DataTracking = () => {
     filename: `Tracking.pdf`,
   });
   const [activeTabIdx, setActiveTabIdx] = useState(1);
+  const [selectedStartDate, setSelectedStartDate] = useState(new Date());
+  const [selectedEndDate, setSelectedEndDate] = useState(new Date());
 
   return (
     <div className="flex flex-col" ref={targetRef}>
@@ -41,10 +43,17 @@ const DataTracking = () => {
       <TabHeader activeIdx={activeTabIdx} handleClick={setActiveTabIdx} />
 
       <div className="flex flex-col w-full px-4 pt-4 gap-2 mb-32">
-        <CardSelectDate />
+        <CardSelectDate
+          setSelectedStartDate={setSelectedStartDate}
+          setSelectedEndDate={setSelectedEndDate}
+        />
         {activeTabIdx === 1 && (
           <>
-            <BarChartSection activeIdx={activeTabIdx} />
+            <BarChartSection
+              activeIdx={activeTabIdx}
+              startDate={selectedStartDate}
+              endDate={selectedEndDate}
+            />
             <CardKonsumsiMakanan />
           </>
         )}

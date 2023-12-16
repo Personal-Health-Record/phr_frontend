@@ -35,6 +35,7 @@ const InsertDataFisik = () => {
       {
         duration: getTimeDifferenceInMinutes(start, end),
         type: kategori,
+        timestamp: Date.now().toString(),
       },
       aktifitasFisik || []
     );

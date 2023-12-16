@@ -1,18 +1,61 @@
-import { Bar } from 'react-chartjs-2';
+import { Bar } from "react-chartjs-2";
 import {
-  dataAktifitasFisik,
   dataAktifitasFisikBulanan,
   dataDarah,
   dataDarahBulanan,
   dataWaktuTidur,
   dataWaktuTidurBulanan,
-} from '../../constants';
+} from "../../constants";
+import { useGetAktifitasFisik } from "../../../../helpers/aktifitasFisikHelper";
+import { AktifitasFisik } from "../../MonitoringAktifitasPage/constants";
 
 interface Props {
   activeIdx: number;
+  startDate: Date;
+  endDate: Date;
 }
 
-const BarChartSection = ({ activeIdx }: Props) => {
+const BarChartSection = ({ activeIdx, endDate, startDate }: Props) => {
+  const { aktifitasFisik } = useGetAktifitasFisik();
+
+  const filteredData =
+    aktifitasFisik?.filter((item) => {
+      const date = new Date(parseInt(item.timestamp));
+      return date >= startDate && date <= endDate;
+    }) || [];
+
+  const daysOfWeek = ["S", "M", "T", "W", "T", "F", "S"];
+
+  const getDayIndex = (day: string): number => {
+    return daysOfWeek.findIndex((d) => d === day);
+  };
+
+  const dataAktifitasFisik = {
+    labels: ["S", "M", "T", "W", "T", "F", "S"],
+    datasets: [
+      {
+        label: "menit",
+        data: [0, 0, 0, 0, 0, 0, 0],
+        backgroundColor: "rgba(54, 162, 235, 0.6)",
+      },
+    ],
+  };
+
+  const data: number[] = new Array(7).fill(0);
+
+  filteredData.forEach((item: AktifitasFisik) => {
+    const date = new Date(parseInt(item.timestamp));
+    const dayIndex = getDayIndex(daysOfWeek[date.getDay()]);
+
+    if (dayIndex !== -1) {
+      data[dayIndex] += item.duration;
+    }
+  });
+
+  console.log({ filteredData });
+
+  dataAktifitasFisik.datasets[0].data = data;
+
   return (
     <>
       <div className="flex flex-col p-5 shadow-md rounded-xl">
