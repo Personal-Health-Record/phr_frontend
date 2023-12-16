@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Obat, Pengingat, dummyObatData } from "../routes/ObatPage/constants";
+import { Obat, Pengingat, RiwayatAlergiObat, dummyObatData, dummyRiwayatAlergiObat } from "../routes/ObatPage/constants";
 
 export const useGetObatData = () => {
   const [obatData, setObatData] = useState<Obat[]>();
@@ -76,4 +76,45 @@ export const getFilteredPengingatObatData = (
   });
 
   return filteredObatData;
+}
+
+export const useGetRiwayatAlergiData = () => {
+  const [riwayatAlergiData, setRiwayatAlergiData] = useState<RiwayatAlergiObat[]>();
+
+  useEffect(() => {
+    if (!riwayatAlergiData && typeof window !== "undefined") {
+      const riwayatAlergiDataStorage = localStorage.getItem("riwayatAlergiDataStorage");
+      if (riwayatAlergiDataStorage) {
+        setRiwayatAlergiData(JSON.parse(riwayatAlergiDataStorage));
+        return;
+      }
+
+      setRiwayatAlergiData(dummyRiwayatAlergiObat);
+    }
+  }, [riwayatAlergiData]);
+
+  return {
+    riwayatAlergiData,
+  };
+}
+
+export const upsertRiwayatAlergiData = (
+  updatedRiwayatAlergiData: RiwayatAlergiObat,
+  existingRiwayatAlergiDataList: RiwayatAlergiObat[]
+) => {
+  let isUpdate = false;
+  const updatedRiwayatAlergiDataList = existingRiwayatAlergiDataList!.map((riwayatAlergi) => {
+    if (riwayatAlergi.id === updatedRiwayatAlergiData.id) {
+      isUpdate = true;
+      return updatedRiwayatAlergiData;
+    }
+    return riwayatAlergi;
+  });
+
+  if (!isUpdate) {
+    updatedRiwayatAlergiDataList.push(updatedRiwayatAlergiData);
+  }
+
+  localStorage.setItem("riwayatAlergiDataStorage", JSON.stringify(updatedRiwayatAlergiDataList));
+  return updatedRiwayatAlergiDataList;
 }

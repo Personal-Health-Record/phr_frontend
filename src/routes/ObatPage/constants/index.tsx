@@ -4,6 +4,12 @@ export type Pengingat = {
   consumptionStatus: string;
 };
 
+export type RiwayatAlergiObat = {
+  id: string;
+  name: string;
+  userId: string;
+}
+
 export type Obat = {
   id: string;
   name: string;
@@ -63,6 +69,15 @@ export const dummyObatData: Obat[] = [
         consumptionStatus: "Belum dikonsumsi",
       },
     ],
+    userId: "1",
+  },
+];
+
+// user id must be unique
+export const dummyRiwayatAlergiObat: RiwayatAlergiObat[] = [
+  {
+    id: "1",
+    name: "Panadol",
     userId: "1",
   },
 ];

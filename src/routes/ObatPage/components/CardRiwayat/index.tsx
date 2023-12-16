@@ -1,21 +1,27 @@
+import { useNavigate } from "react-router-dom";
 import CircleLoader from "../../../../components/CircleLoader";
-import { isLoggedInUserNewUser, useGetLoggedInUser } from "../../../../helpers/userDataHelper";
+import { useGetLoggedInUser } from "../../../../helpers/userDataHelper";
+import { RiwayatAlergiObat } from "../../constants";
 
-const CardRiwayat = () => {
+type Props = {
+  data: RiwayatAlergiObat;
+}
+
+const CardRiwayat = ({ data }: Props) => {
   const { loggedInUser } = useGetLoggedInUser();
+  const navigate = useNavigate();
 
   if (!loggedInUser) {
     return <CircleLoader />;
   }
 
-  if (isLoggedInUserNewUser(loggedInUser)) {
-    return (<div></div>);
-  }
-
   return (
-    <div className="flex flex-col shadow-md py-3 px-5 rounded-lg mb-3 gap-2">
+    <div className="flex flex-col shadow-md py-3 px-5 rounded-lg mb-3 gap-2"
+      onClick={() => {
+        navigate("/obat/riwayat/tambah");
+      }}>
       <p className="text-sm">Riwayat Alergi Obat</p>
-      <p className="text-sm text-mainGrey">Antibiotik</p>
+      <p className="text-sm text-mainGrey">{data.name}</p>
     </div>
   );
 };
