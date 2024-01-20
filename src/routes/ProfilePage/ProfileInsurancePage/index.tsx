@@ -38,7 +38,7 @@ const InsurancePage = () => {
       </div>
 
       <BottomNavbarOneButton
-        path="/profile/edit/insurance"
+        path="/profile/add/insurance"
         iconPath={imagePlus}
         text="Tambahkan Asuransi Kesehatan"
       />

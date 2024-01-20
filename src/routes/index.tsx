@@ -31,7 +31,7 @@ import ProfilePage from "./ProfilePage";
 import ChangePasswordPage from "./ProfilePage/ProfileChangePassword";
 import ProfileDetail from "./ProfilePage/ProfileDetailPage/page";
 import AddFamilyPage from "./ProfilePage/ProfileAddFamilyPage";
-import AddInsurancePage from "./ProfilePage/ProfileEditInsurancePage/page";
+import AddInsurancePage from "./ProfilePage/ProfileAddInsurancePage/page";
 import FamilyPage from "./ProfilePage/ProfileFamilyPage";
 import InsurancePage from "./ProfilePage/ProfileInsurancePage";
 import KirimPesanPage from "./PesanPage";
@@ -131,7 +131,7 @@ const MainRoutes = () => {
         <Route path="/profile/edit" element={<EditProfilePage />} />
         <Route path="/profile/edit/family/:id" element={<EditFamilyPage />} />
         <Route path="/profile/add/family" element={<AddFamilyPage />} />
-        <Route path="/profile/edit/insurance" element={<AddInsurancePage />} />
+        <Route path="/profile/add/insurance" element={<AddInsurancePage />} />
         <Route path="/profile/family" element={<FamilyPage />} />
         <Route path="/profile/insurance" element={<InsurancePage />} />
 
