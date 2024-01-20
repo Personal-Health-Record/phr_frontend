@@ -40,9 +40,9 @@ const RiwayatResume = () => {
         (<>
           <div className="flex flex-col w-full px-4 py-4 gap-5 mb-4 pb-5">
             <div className="flex flex-col gap-2">
-              <h3 className="font-semibold text-mainGrey">Riwayat Medis Anda</h3>
+              <h3 className="font-semibold text-mainGrey">Riwayat Medis Jimmy Daniel</h3>
               <p className="text-xs text-lightGrey">
-                Riwayat medis Anda berdasarkan hasil kunjungan atau pemeriksaan dan
+                Riwayat medis Jimmy Daniel berdasarkan hasil kunjungan atau pemeriksaan dan
                 kode diagnosis ICD-10
               </p>
             </div>
