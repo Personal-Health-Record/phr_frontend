@@ -62,6 +62,20 @@ export const updateUserData = (
   localStorage.setItem("authUserEmail", updatedUserData.email!);
 };
 
+export const updateFamilyData = (
+  updatedUserData: User,
+  existingUserDataList: User[]
+) => {
+  const updatedUserDataList = existingUserDataList!.map((user) => {
+    if (user.id === updatedUserData.id) {
+      return updatedUserData;
+    }
+    return user;
+  });
+
+  localStorage.setItem("userDataStorage", JSON.stringify(updatedUserDataList));
+};
+
 export const logoutUser = () => {
   localStorage.removeItem("authUserEmail");
 };

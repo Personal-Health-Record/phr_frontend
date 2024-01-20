@@ -51,6 +51,7 @@ const useCloudMediaStorageUtils = () => {
         },
         (error: { message: any }) => {
           toggleDiv("error", error.message);
+          setIsUploading(false);
         },
         () => {
           console.log("Upload complete");
@@ -60,12 +61,12 @@ const useCloudMediaStorageUtils = () => {
               setDownloadURL(url);
             }
           );
+          setIsUploading(false);
         }
       );
     } else {
       toggleDiv("error", "File not found");
     }
-    setIsUploading(false);
   };
 
   const handleRemoveFile = () => setImageFile(undefined);

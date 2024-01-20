@@ -1,11 +1,20 @@
+import { useNavigate } from "react-router-dom";
 import { User } from "../../../../helpers/constants";
 
 interface Props {
   user: User;
 }
 const FamilyCard = ({ user }: Props) => {
+  const navigate = useNavigate();
+
+  const goToEditFamily = () => {
+    navigate(`/profile/edit/family/${user.id}`);
+  }
+  
   return (
-    <div className="flex flex-row gap-1 border-b items-center py-2">
+    <div className="flex flex-row gap-1 border-b items-center py-2"
+    onClick={goToEditFamily}
+    >
       <div
         style={{
           width: 60,
