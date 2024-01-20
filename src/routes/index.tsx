@@ -74,6 +74,7 @@ import NewsDetail9 from "./NewsPage/DetailsNews9";
 import TambahRiwayatAlergi from "./ObatPage/ObatTambahRiwayatPage";
 import EditPengingat from "./ObatPage/ObatEditPage";
 import EditFamilyPage from "./ProfilePage/ProfileEditFamilyPage";
+import EditInsurancePage from "./ProfilePage/ProfileEditInsurancePage/page";
 
 const MainRoutes = () => {
   return (
@@ -129,9 +130,10 @@ const MainRoutes = () => {
         />
         <Route path="/profile/detail/:id" element={<ProfileDetail />} />
         <Route path="/profile/edit" element={<EditProfilePage />} />
-        <Route path="/profile/edit/family/:id" element={<EditFamilyPage />} />
         <Route path="/profile/add/family" element={<AddFamilyPage />} />
+        <Route path="/profile/edit/family/:id" element={<EditFamilyPage />} />
         <Route path="/profile/add/insurance" element={<AddInsurancePage />} />
+        <Route path="/profile/edit/insurance/:id" element={<EditInsurancePage />} />
         <Route path="/profile/family" element={<FamilyPage />} />
         <Route path="/profile/insurance" element={<InsurancePage />} />
 

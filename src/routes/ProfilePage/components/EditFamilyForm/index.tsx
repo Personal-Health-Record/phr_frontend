@@ -59,8 +59,6 @@ const EditFamilyForm = () => {
     if (!isValidated) {
       return;
     }
-    console.log(downloadURL);
-    console.log(isUploading);
     if (isUploading) {
       toggleDiv("success", "Sedang mengunggah gambar");
       return;
@@ -86,7 +84,9 @@ const EditFamilyForm = () => {
       userData
     )
 
-    navigate("/profile");
+    navigate("/profile", {
+      replace: true,
+    });
   };
 
   const validateForm = () => {

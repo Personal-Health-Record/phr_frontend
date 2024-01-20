@@ -22,6 +22,7 @@ const InsurancePage = () => {
           return (
             <InsuranceCard
               key={insurance.id}
+              id={insurance.id}
               title={insurance.title}
               cardNumber={insurance.cardNumber}
               isActive={insurance.isActive}

@@ -20,3 +20,20 @@ export const useGetInsuranceData = () => {
     insuranceData,
   };
 };
+
+export const updateInsuranceData = (
+  updatedInsuranceData: Insurance,
+  existingInsuranceDataList: Insurance[]
+) => {
+  const updatedInsuranceDataList = existingInsuranceDataList!.map((insurance) => {
+    if (insurance.id === updatedInsuranceData.id) {
+      return updatedInsuranceData;
+    }
+    return insurance;
+  });
+
+  localStorage.setItem(
+    "insuranceDataStorage",
+    JSON.stringify(updatedInsuranceDataList)
+  );
+}
