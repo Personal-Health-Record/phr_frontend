@@ -8,6 +8,9 @@ module.exports = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
+      flex: {
+        '3': '3 3 0%'
+      },
       colors: {
         mainBlue: "#2CA3FA",
         lightGrey: "#9A9A9A",

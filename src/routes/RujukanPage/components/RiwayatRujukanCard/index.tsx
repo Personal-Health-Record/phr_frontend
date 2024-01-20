@@ -21,13 +21,13 @@ const RiwayatRujukanCard = ({ rujukanData }: RiwayatRujukanCardProps) => {
           Rujukan
         </p>
       </div>
-      <div className="flex justify-between mt-2">
-        <div className="flex flex-col gap-1">
+      <div className="flex mt-2">
+        <div className="flex-3 flex-col gap-1">
           <p className="text-sm text-lightGrey">Faskes rujukan</p>
           <p className="text-sm text-lightGrey">Faskes perujuk</p>
           <p className="text-sm text-lightGrey">Diagnosis</p>
         </div>
-        <div className="flex flex-col gap-1">
+        <div className="flex-1 flex-col gap-1">
           <p className="text-sm text-lightGrey">: {rujukanData.location}</p>
           <p className="text-sm text-lightGrey">
             : {rujukanData.referenceLocation}
