@@ -75,6 +75,7 @@ import TambahRiwayatAlergi from "./ObatPage/ObatTambahRiwayatPage";
 import EditPengingat from "./ObatPage/ObatEditPage";
 import EditFamilyPage from "./ProfilePage/ProfileEditFamilyPage";
 import EditInsurancePage from "./ProfilePage/ProfileEditInsurancePage/page";
+import ProfileDoctorDetail from "./ProfilePage/ProfileDoctorDetailPage/page";
 
 const MainRoutes = () => {
   return (
@@ -136,6 +137,8 @@ const MainRoutes = () => {
         <Route path="/profile/edit/insurance/:id" element={<EditInsurancePage />} />
         <Route path="/profile/family" element={<FamilyPage />} />
         <Route path="/profile/insurance" element={<InsurancePage />} />
+
+        <Route path="/profile/doctor/detail" element={<ProfileDoctorDetail />} />
 
         <Route path="/pesan" element={<KirimPesanPage />} />
 

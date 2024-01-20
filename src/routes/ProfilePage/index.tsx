@@ -28,7 +28,7 @@ const ProfilePage = () => {
         <hr />
         <ProfileOptionCard
           title="Profil Saya"
-          path={`/tenaga/profile?sip=${tenkes?.sip}`}
+          path={"/profile/doctor/detail/"}
         />
         <ProfileOptionCard
           title="Ubah Password"
