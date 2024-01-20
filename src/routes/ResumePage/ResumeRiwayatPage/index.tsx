@@ -63,7 +63,7 @@ const RiwayatResume = () => {
           />
           <BottomNavbarDownloadShare
             title="Riwayat Medis"
-            body={"Silahkan check riwayat medis"}
+            body={`${loggedInUser.name} membagikan data riwayat medis`}
             link={"/resume/riwayat/"}
             toPDF={toPDF}
           />

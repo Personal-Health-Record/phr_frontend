@@ -96,7 +96,7 @@ const ResumeDetail = () => {
 
       <BottomNavbarDownloadShare
         title="Resume Medis"
-        body={"Silahkan check resume medis " + resume.recordNumber}
+        body={`${resume.patientName} membagikan data resume medis`}
         link={"/resume/details/" + resume.id}
         toPDF={toPDF}
       />

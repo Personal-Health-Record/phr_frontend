@@ -1,3 +1,5 @@
+import CircleLoader from "../../../components/CircleLoader";
+import { useGetLoggedInUser } from "../../../helpers/userDataHelper";
 import BottomNavbarDownloadShare from "../../HomePage/components/BottomNavbarDownloadShare";
 import Header from "../../HomePage/components/Header";
 import CardHistory from "../components/HistoryCard";
@@ -8,6 +10,12 @@ const ScreeningHistory = () => {
   const { toPDF, targetRef } = usePDF({
     filename: `Riwayat Screening.pdf`,
   });
+
+  const { loggedInUser } = useGetLoggedInUser();
+
+  if (!loggedInUser) {
+    return <CircleLoader />;
+  }
 
   return (
     <div className="flex flex-col" ref={targetRef}>
@@ -23,7 +31,7 @@ const ScreeningHistory = () => {
 
       <BottomNavbarDownloadShare
         title="Rujukan"
-        body={`Silahkan check riwayat skrining`}
+        body={`${loggedInUser.name} membagikan data riwayat skrining`}
         link={`/screening/history/`}
         toPDF={toPDF}
       />

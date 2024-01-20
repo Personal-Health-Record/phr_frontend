@@ -50,9 +50,7 @@ const VaksinasiDetails = () => {
 
       <BottomNavbarDownloadShare
         title="Vaksinasi"
-        body={`Silahkan check vaksinasi ${user.name} di ${
-          vaksin.detailType ?? vaksin.type
-        }}`}
+        body={`${user.name} membagikan data vaksinasi`}
         link={`/vaksinasi/details/${vaksin.id}`}
         toPDF={toPDF}
       />
