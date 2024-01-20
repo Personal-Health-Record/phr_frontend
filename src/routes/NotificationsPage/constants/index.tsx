@@ -17,7 +17,7 @@ export const dummyNotification: Notification[] = [
     body: 'Rujukan ke Rumah Sakit Hermina sudah dijadwalkan besok di Klinik Medi-Go.',
     date: '2021-10-01',
     isRead: false,
-    link: '/rujukan',
+    link: '/rujukan/details/1',
   },
   {
     id: '2',
@@ -44,6 +44,6 @@ export const dummyNotification: Notification[] = [
     body: 'Vaksinasi COVID-19 di Rumah Sakit Hermina sudah dijadwalkan besok di Klinik Medi-Go.',
     date: '2021-10-01',
     isRead: false,
-    link: '/vaksinasi',
+    link: '/vaksinasi/details/1',
   },
 ];

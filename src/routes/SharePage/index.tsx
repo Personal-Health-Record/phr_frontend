@@ -84,9 +84,9 @@ const SharePage = () => {
         toUserId: doctor!.id,
         title: title!,
         body: body!,
-        date: new Date().toISOString(),
+        date: new Date().toISOString().split("T")[0],
         isRead: false,
-        link: "/vaksinasi",
+        link: link!,
       };
       newNotificationDataList.push(newNotification);
       emailList.push(doctor!.email);

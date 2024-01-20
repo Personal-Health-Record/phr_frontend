@@ -53,7 +53,7 @@ const VaksinasiDetails = () => {
         body={`Silahkan check vaksinasi ${user.name} di ${
           vaksin.detailType ?? vaksin.type
         }}`}
-        link={`/vaksinasi`}
+        link={`/vaksinasi/details/${vaksin.id}`}
         toPDF={toPDF}
       />
     </div>
