@@ -86,7 +86,7 @@ const SharePage = () => {
         body: body!,
         date: new Date().toISOString(),
         isRead: false,
-        link: "/vaksinasi/details/1",
+        link: "/vaksinasi",
       };
       newNotificationDataList.push(newNotification);
       emailList.push(doctor!.email);
