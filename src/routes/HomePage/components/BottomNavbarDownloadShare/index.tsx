@@ -41,6 +41,10 @@ const BottomNavbarDownloadShare = ({
     }
   };
 
+  if (loggedInUser.role === "doctor") {
+    return <div></div>
+  }
+
   return (
     <div
       className="fixed bottom-0 left-0 right-0 px-4 py-3 flex justify-evenly bg-white filter drop-shadow-sm"
@@ -54,17 +58,13 @@ const BottomNavbarDownloadShare = ({
         <p className="text-mainBlue font-semibold">Unduh</p>
       </button>
 
-      {
-        loggedInUser.role !== "doctor" && (
-          <button
-            className="flex items-center py-3 px-7 border rounded-3xl gap-2"
-            onClick={handleClickBagikan}
-          >
-            <img src={shareImg} alt="" width={20} height={20} />
-            <p className="text-mainBlue font-semibold">Bagikan</p>
-          </button>
-        )
-      }
+      <button
+        className="flex items-center py-3 px-7 border rounded-3xl gap-2"
+        onClick={handleClickBagikan}
+      >
+        <img src={shareImg} alt="" width={20} height={20} />
+        <p className="text-mainBlue font-semibold">Bagikan</p>
+      </button>
     </div>
   );
 };
