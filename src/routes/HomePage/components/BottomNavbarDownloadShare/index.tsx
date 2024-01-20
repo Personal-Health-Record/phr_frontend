@@ -3,6 +3,8 @@ import downloadImg from "../../../../assets/images/download.png";
 import shareImg from "../../../../assets/images/share.png";
 
 import { Options } from "react-to-pdf";
+import { useGetLoggedInUser } from "../../../../helpers/userDataHelper";
+import CircleLoader from "../../../../components/CircleLoader";
 
 export type ShareProps = {
   title: string;
@@ -18,6 +20,11 @@ const BottomNavbarDownloadShare = ({
   toPDF,
 }: ShareProps) => {
   const navigate = useNavigate();
+
+  const { loggedInUser } = useGetLoggedInUser();
+  if (!loggedInUser) {
+    return <CircleLoader />;
+  }
 
   const handleClickBagikan = () => {
     navigate(`/share?title=${title}&body=${body}&link=${link}`);
@@ -47,13 +54,17 @@ const BottomNavbarDownloadShare = ({
         <p className="text-mainBlue font-semibold">Unduh</p>
       </button>
 
-      <button
-        className="flex items-center py-3 px-7 border rounded-3xl gap-2"
-        onClick={handleClickBagikan}
-      >
-        <img src={shareImg} alt="" width={20} height={20} />
-        <p className="text-mainBlue font-semibold">Bagikan</p>
-      </button>
+      {
+        loggedInUser.role !== "doctor" && (
+          <button
+            className="flex items-center py-3 px-7 border rounded-3xl gap-2"
+            onClick={handleClickBagikan}
+          >
+            <img src={shareImg} alt="" width={20} height={20} />
+            <p className="text-mainBlue font-semibold">Bagikan</p>
+          </button>
+        )
+      }
     </div>
   );
 };
