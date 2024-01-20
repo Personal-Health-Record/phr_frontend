@@ -29,6 +29,18 @@ const PengingatCard = ({
     handleChangeObatData(obat);
   };
 
+  const handleNotConsume = () => {
+    pengigat.consumptionStatus = "Belum dikonsumsi";
+
+    const newPengingatList = getUpdatedPengingatDataList(
+      pengigat,
+      obat.listPengingat
+    );
+    obat.listPengingat = newPengingatList;
+
+    handleChangeObatData(obat);
+  }
+
   const renderConsumeButton = () => {
     if (pengigat.consumptionStatus === "Sudah dikonsumsi") {
       return (
@@ -37,6 +49,7 @@ const PengingatCard = ({
           style={{
             width: 100,
           }}
+          onClick={handleNotConsume}
         >
           <img src={imageCheckAll} alt="" width={20} height={20} />
           <p className="text-xs text-white pr-2">Dikonsumsi</p>
