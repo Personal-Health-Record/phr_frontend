@@ -24,7 +24,7 @@ const FamilyPage = () => {
       </div>
 
       <BottomNavbarOneButton
-        path="/profile/edit/family"
+        path="/profile/add/family"
         iconPath={imagePlus}
         text="Tambahkan Anggota Keluarga"
       />
