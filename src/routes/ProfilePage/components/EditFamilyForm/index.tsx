@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import useCloudMediaStorageUtils from "../../../../helpers/cloudMediaStorageUtil";
-import { updateFamilyData, updateUserData, useGetUserData } from "../../../../helpers/userDataHelper";
+import { updateFamilyData, useGetUserData } from "../../../../helpers/userDataHelper";
 import { User } from "../../../../helpers/constants";
 import TextInput from "../../../../components/TextInput";
 import RadioInput from "../../../../components/RadioInput";
