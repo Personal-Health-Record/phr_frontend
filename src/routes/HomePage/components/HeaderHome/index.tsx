@@ -11,7 +11,7 @@ const HeaderHome = () => {
         className="rounded-full h-14 w-14 object-cover"
       />
       <h3 className="text-2xl font-bold text-mainGrey">
-        Halo, {loggedInUser?.name.split(" ")[0]}
+        Halo, {loggedInUser?.name}
       </h3>
     </div>
   );
