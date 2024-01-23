@@ -38,6 +38,19 @@ export const updateInsuranceData = (
   );
 }
 
+export const deleteInsuranceDataById = (
+  insuranceId: string,
+  existingInsuranceDataList: Insurance[]
+) => {
+  const updatedInsuranceDataList = existingInsuranceDataList!.filter((insurance) => insurance.id !== insuranceId);
+
+  localStorage.setItem(
+    "insuranceDataStorage",
+    JSON.stringify(updatedInsuranceDataList)
+  );
+  
+}
+
 export const deleteInsuranceDataByUserId = (
   userId: string,
 ) => {

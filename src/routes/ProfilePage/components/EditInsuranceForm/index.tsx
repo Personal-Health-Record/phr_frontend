@@ -1,12 +1,13 @@
 import { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useGetLoggedInUser } from "../../../../helpers/userDataHelper";
-import { updateInsuranceData, useGetInsuranceData } from "../../../../helpers/insuranceDataHelper";
+import { deleteInsuranceDataById, updateInsuranceData, useGetInsuranceData } from "../../../../helpers/insuranceDataHelper";
 import { Insurance } from "../../constants";
 import TextInput from "../../../../components/TextInput";
 import RadioInput from "../../../../components/RadioInput";
 import CircleLoader from "../../../../components/CircleLoader";
 import { useToaster } from "../../../../contexts/ToasterContext";
+import NegativeModal from "../../../../components/NegativeModal";
 
 export type EditInsuranceFormAttributes = {
   title: string;
@@ -27,6 +28,8 @@ const EditInsuranceForm = () => {
   const { loggedInUser } = useGetLoggedInUser();
   const { insuranceData: insuranceDataList } = useGetInsuranceData();
   const { toggleDiv } = useToaster();
+  const [showDeleteModal, setShowDeleteModal] = useState(false)
+  
   if (!insuranceDataList || !loggedInUser) {
     return <CircleLoader />;
   }
@@ -76,6 +79,19 @@ const EditInsuranceForm = () => {
     return true;
   };
 
+  const onClickDelete = ()  => {
+    setShowDeleteModal(true);
+  }
+
+  const onConfirmDelete = ()  => {
+    deleteInsuranceDataById(insurance.id!, insuranceDataList);
+    setShowDeleteModal(false);
+    
+    navigate("/profile/insurance", {
+      replace: true,
+    });
+  }
+
   return (
     <div className="mt-8">
       <TextInput
@@ -106,14 +122,26 @@ const EditInsuranceForm = () => {
         inputKey="isActive"
         value={formState.isActive}
       />
-      <div className="px-8 mt-8 mb-4">
+      <div className="px-8 mt-8 mb-4 flex flex-row gap-2">
         <button
           className="rounded-2xl bg-mainBlue w-full h-10 text-white"
           onClick={handleClickEditInsurance}
         >
           Edit Asuransi
         </button>
+        <button
+          className="rounded-2xl bg-red-600 w-full h-10 text-white"
+          onClick={onClickDelete}
+        >
+          Delete Asuransi
+        </button>
       </div>
+      <NegativeModal
+        description="Apakah anda yakin ingin menghapus data ini?"
+        onClose={() => setShowDeleteModal(false)}
+        onSubmit={onConfirmDelete}
+        show={showDeleteModal}
+      />
     </div>
   );
 };
