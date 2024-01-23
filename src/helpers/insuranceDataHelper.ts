@@ -37,3 +37,15 @@ export const updateInsuranceData = (
     JSON.stringify(updatedInsuranceDataList)
   );
 }
+
+export const deleteInsuranceDataByUserId = (
+  userId: string,
+) => {
+  const insuranceDataList = JSON.parse(localStorage.getItem("insuranceDataStorage")!);
+  const updatedInsuranceDataList = insuranceDataList.filter((insurance: Insurance) => insurance.userId !== userId);
+
+  localStorage.setItem(
+    "insuranceDataStorage",
+    JSON.stringify(updatedInsuranceDataList)
+  );
+}

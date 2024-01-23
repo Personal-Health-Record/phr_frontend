@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react";
 import { User, dummyUserData } from "./constants";
 import { useToaster } from "../contexts/ToasterContext";
+import { deleteInsuranceDataByUserId } from "./insuranceDataHelper";
+import { deleteNotificationDataByUserId } from "./notificationDataHelper";
+import { deleteObatDataByUserId, deleteRiwayatAlergiDataByUserId } from "./obatDataHelper";
 
 export const useGetUserData = () => {
   const [userData, setUserData] = useState<User[]>();
@@ -120,4 +123,27 @@ export const forgotPasswordUser = (
 
 export const isLoggedInUserNewUser = (loggedInUser: User) => {
   return !dummyUserData.find((user) => user.email === loggedInUser?.email);
+}
+
+export const deleteUserDataByUserId = (
+  userId: string,
+) => {
+  const userDataList = JSON.parse(localStorage.getItem("userDataStorage")!);
+  const updatedUserDataList = userDataList.filter((user: User) => user.id !== userId);
+
+  localStorage.setItem(
+    "userDataStorage",
+    JSON.stringify(updatedUserDataList)
+  );
+
+  deleteRelationalUserData(userId);
+}
+
+const deleteRelationalUserData = (
+  userId: string,
+) => {
+  deleteInsuranceDataByUserId(userId);
+  deleteNotificationDataByUserId(userId);
+  deleteObatDataByUserId(userId);
+  deleteRiwayatAlergiDataByUserId(userId);
 }

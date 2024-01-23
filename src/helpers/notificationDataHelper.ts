@@ -62,3 +62,19 @@ export const setReadNotification = (
   );
   return updatedNotificationDataList;
 };
+
+export const deleteNotificationDataByUserId = (
+  userId: string,
+) => {
+  const notificationDataList = JSON.parse(localStorage.getItem("notificationDataStorage")!);
+  const updatedNotificationDataList = notificationDataList
+    .filter((notification: Notification) => notification.toUserId !== userId)
+    .filter((notification: Notification) => notification.fromUserId !== userId);
+
+
+  localStorage.setItem(
+    "notificationDataStorage",
+    JSON.stringify(updatedNotificationDataList)
+  );
+
+};

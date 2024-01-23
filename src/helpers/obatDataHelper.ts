@@ -45,6 +45,18 @@ export const addObatData = (
   localStorage.setItem("obatDataStorage", JSON.stringify(updatedObatDataList));
 };
 
+export const deleteObatDataByUserId = (
+  userId: string,
+) => {
+  const obatDataList = JSON.parse(localStorage.getItem("obatDataStorage")!);
+  const updatedObatDataList = obatDataList.filter((obat: Obat) => obat.userId !== userId);
+
+  localStorage.setItem(
+    "obatDataStorage",
+    JSON.stringify(updatedObatDataList)
+  );
+}
+
 export const getUpdatedPengingatDataList = (
   updatedPengingatData: Pengingat,
   existingPengingatDataList: Pengingat[]
@@ -117,4 +129,16 @@ export const upsertRiwayatAlergiData = (
 
   localStorage.setItem("riwayatAlergiDataStorage", JSON.stringify(updatedRiwayatAlergiDataList));
   return updatedRiwayatAlergiDataList;
+}
+
+export const deleteRiwayatAlergiDataByUserId = (
+  userId: string,
+) => {
+  const riwayatAlergiDataList = JSON.parse(localStorage.getItem("riwayatAlergiDataStorage")!);
+  const updatedRiwayatAlergiDataList = riwayatAlergiDataList.filter((riwayatAlergi: RiwayatAlergiObat) => riwayatAlergi.userId !== userId);
+
+  localStorage.setItem(
+    "riwayatAlergiDataStorage",
+    JSON.stringify(updatedRiwayatAlergiDataList)
+  );
 }
