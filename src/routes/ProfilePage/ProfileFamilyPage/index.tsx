@@ -1,12 +1,27 @@
 import CircleLoader from "../../../components/CircleLoader";
 import Header from "../../../components/Header";
-import { useGetLoggedInUser } from "../../../helpers/userDataHelper";
+import { deleteUserDataByUserId, useGetLoggedInUser } from "../../../helpers/userDataHelper";
 import BottomNavbarOneButton from "../../HomePage/components/BottomNavbarOneButton";
 import FamilyCard from "../components/FamilyCard";
 import imagePlus from "../../../assets/images/plus.png";
+import { User } from "../../../helpers/constants";
+import NegativeModal from "../../../components/NegativeModal";
+import { useState } from "react";
 
 const FamilyPage = () => {
   const { loggedInUser: user, userData } = useGetLoggedInUser();
+
+  const [showDeleteModal, setShowDeleteModal] = useState(false)
+  const [selectedUserId, setSelectedUserId] = useState<string>()
+
+  const onClickDelete = (user: User)  => {
+    setSelectedUserId(user.id);
+    setShowDeleteModal(true);
+  }
+
+  const onConfirmDelete = ()  => {
+    deleteUserDataByUserId(selectedUserId!);
+  }
 
   if (!user || !userData) {
     return <CircleLoader />;
@@ -18,8 +33,10 @@ const FamilyPage = () => {
     <div className="flex flex-col">
       <Header title="Anggota Keluarga" />
       <div className="flex flex-col w-full px-4 py-4 mb-16">
-        {userRelations.map((item, index) => (
-          <FamilyCard key={index} user={item} />
+        {userRelations.map((user, index) => (
+          <FamilyCard key={index} user={user} onClickDelete={() => {
+            onClickDelete(user);
+          }}/>
         ))}
       </div>
 
@@ -27,6 +44,12 @@ const FamilyPage = () => {
         path="/profile/add/family"
         iconPath={imagePlus}
         text="Tambahkan Anggota Keluarga"
+      />
+      <NegativeModal
+        description="Apakah anda yakin ingin menghapus data ini?"
+        onClose={() => setShowDeleteModal(false)}
+        onSubmit={onConfirmDelete}
+        show={showDeleteModal}
       />
     </div>
   );
