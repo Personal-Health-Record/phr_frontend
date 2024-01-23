@@ -67,6 +67,9 @@ export const deleteNotificationDataByUserId = (
   userId: string,
 ) => {
   const notificationDataList = JSON.parse(localStorage.getItem("notificationDataStorage")!);
+  if (!notificationDataList) {
+    return;
+  }
   const updatedNotificationDataList = notificationDataList
     .filter((notification: Notification) => notification.toUserId !== userId)
     .filter((notification: Notification) => notification.fromUserId !== userId);

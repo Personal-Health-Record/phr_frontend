@@ -7,12 +7,19 @@ import imagePlus from "../../../assets/images/plus.png";
 import { User } from "../../../helpers/constants";
 import NegativeModal from "../../../components/NegativeModal";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const FamilyPage = () => {
   const { loggedInUser: user, userData } = useGetLoggedInUser();
 
   const [showDeleteModal, setShowDeleteModal] = useState(false)
   const [selectedUserId, setSelectedUserId] = useState<string>()
+
+  if (!user || !userData) {
+    return <CircleLoader />;
+  }
+
+  const userRelations = userData.filter((item) => item.parentId === user.id);
 
   const onClickDelete = (user: User)  => {
     setSelectedUserId(user.id);
@@ -21,13 +28,10 @@ const FamilyPage = () => {
 
   const onConfirmDelete = ()  => {
     deleteUserDataByUserId(selectedUserId!);
+    setShowDeleteModal(false);
+    
+    window.location.reload();
   }
-
-  if (!user || !userData) {
-    return <CircleLoader />;
-  }
-
-  const userRelations = userData.filter((item) => item.parentId === user.id);
 
   return (
     <div className="flex flex-col">

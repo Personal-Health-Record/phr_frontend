@@ -128,7 +128,10 @@ export const isLoggedInUserNewUser = (loggedInUser: User) => {
 export const deleteUserDataByUserId = (
   userId: string,
 ) => {
-  const userDataList = JSON.parse(localStorage.getItem("userDataStorage")!);
+  let userDataList = JSON.parse(localStorage.getItem("userDataStorage")!);
+  if (!userDataList) {
+    userDataList = dummyUserData;
+  }
   const updatedUserDataList = userDataList.filter((user: User) => user.id !== userId);
 
   localStorage.setItem(

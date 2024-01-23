@@ -42,6 +42,10 @@ export const deleteInsuranceDataByUserId = (
   userId: string,
 ) => {
   const insuranceDataList = JSON.parse(localStorage.getItem("insuranceDataStorage")!);
+  if (!insuranceDataList) {
+    return;
+  }
+
   const updatedInsuranceDataList = insuranceDataList.filter((insurance: Insurance) => insurance.userId !== userId);
 
   localStorage.setItem(

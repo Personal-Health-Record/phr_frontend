@@ -49,6 +49,10 @@ export const deleteObatDataByUserId = (
   userId: string,
 ) => {
   const obatDataList = JSON.parse(localStorage.getItem("obatDataStorage")!);
+  if (!obatDataList) {
+    return;
+  }
+
   const updatedObatDataList = obatDataList.filter((obat: Obat) => obat.userId !== userId);
 
   localStorage.setItem(
@@ -135,6 +139,10 @@ export const deleteRiwayatAlergiDataByUserId = (
   userId: string,
 ) => {
   const riwayatAlergiDataList = JSON.parse(localStorage.getItem("riwayatAlergiDataStorage")!);
+  if (!riwayatAlergiDataList) {
+    return;
+  }
+
   const updatedRiwayatAlergiDataList = riwayatAlergiDataList.filter((riwayatAlergi: RiwayatAlergiObat) => riwayatAlergi.userId !== userId);
 
   localStorage.setItem(
