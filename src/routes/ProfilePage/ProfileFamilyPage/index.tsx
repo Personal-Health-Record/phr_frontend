@@ -7,7 +7,6 @@ import imagePlus from "../../../assets/images/plus.png";
 import { User } from "../../../helpers/constants";
 import NegativeModal from "../../../components/NegativeModal";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 
 const FamilyPage = () => {
   const { loggedInUser: user, userData } = useGetLoggedInUser();
