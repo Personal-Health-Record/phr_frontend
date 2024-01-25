@@ -12,6 +12,7 @@ import FormFisik from "../components/FormFisik";
 import FormBuahSayur from "../components/FormBuahSayur";
 import FormPenyakitKeluarga from "../components/FormPenyakitKeluarga";
 import FormHasilPemeriksaan from "../components/FormHasilPemeriksaan";
+import { useToaster } from "../../../contexts/ToasterContext";
 
 const ScreeningPTM = () => {
   const navigate = useNavigate();
@@ -27,6 +28,8 @@ const ScreeningPTM = () => {
   const [berat, setBerat] = useState(0);
   const [tinggi, setTinggi] = useState(0);
   const [lingkar, setLingkar] = useState(0);
+
+  const { toggleDiv } = useToaster();
 
   const handleSubimt = () => {
     let totalScore = 0;
@@ -61,6 +64,11 @@ const ScreeningPTM = () => {
         gula: gula,
       },
     };
+
+    if (systole === 0) {
+      toggleDiv("error", "Semua form harus diisi");
+      return;
+    }
 
     addSkriningKesehatan(skriningData, listSkrining || []);
 

@@ -17,11 +17,17 @@ interface Props {
 
 const BarChartSection = ({ activeIdx, endDate, startDate }: Props) => {
   const { aktifitasFisik } = useGetAktifitasFisik();
+  console.log({ aktifitasFisik, startDate, endDate });
 
   const filteredData =
     aktifitasFisik?.filter((item) => {
-      const date = new Date(parseInt(item.timestamp));
-      return date >= startDate && date <= endDate;
+      const activityDate = new Date(parseInt(item.timestamp));
+      const activityDay = activityDate.toISOString().split("T")[0]; // Get only the date part
+
+      const startDay = startDate.toISOString().split("T")[0];
+      const endDay = endDate.toISOString().split("T")[0];
+
+      return activityDay >= startDay && activityDay <= endDay;
     }) || [];
 
   const daysOfWeek = ["S", "M", "T", "W", "T", "F", "S"];

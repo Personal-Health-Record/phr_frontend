@@ -1,4 +1,4 @@
-import { Dispatch, SetStateAction } from 'react';
+import { Dispatch, SetStateAction } from "react";
 
 interface Props {
   setRokok: Dispatch<SetStateAction<boolean>>;
