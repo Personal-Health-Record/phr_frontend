@@ -1,4 +1,5 @@
 import { useGetLoggedInUser } from "../../../../helpers/userDataHelper";
+import userIcon from "../../../../assets/images/user.svg";
 
 const HeaderHome = () => {
   const { loggedInUser } = useGetLoggedInUser();
@@ -6,7 +7,7 @@ const HeaderHome = () => {
   return (
     <div className="flex border-b-2 py-3 px-4 items-center gap-3">
       <img
-        src={loggedInUser?.profilePicture}
+        src={loggedInUser?.profilePicture || userIcon}
         alt=""
         className="rounded-full h-14 w-14 object-cover"
       />

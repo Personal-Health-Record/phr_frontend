@@ -15,19 +15,12 @@ const Dashboard = () => {
     <div className="flex flex-col p-4 gap-2">
       <h3>Dashboard Kesehatan</h3>
 
-      <div className="flex justify-between gap-2">
+      <div className="flex gap-4">
         <DashboardCard
           title="Aktifitas Fisik"
           unit="menit"
           value={totalDuration.toString()}
           path="/monitoring/"
-        />
-
-        <DashboardCard
-          title="Jam Tidur"
-          unit="jam"
-          value="8"
-          path="/monitoring"
         />
 
         <DashboardCard

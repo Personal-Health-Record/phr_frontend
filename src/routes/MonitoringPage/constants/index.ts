@@ -109,7 +109,7 @@ export type TekananDarah = {
 export const dummyUserPhysique: PhysiqueData = {
   height: 0,
   weight: 0,
-  latestUpdate: "2023-10-22T12:00:00Z",
+  latestUpdate: new Date().toISOString(),
 };
 
 interface ImageKonsumsiMakanan {

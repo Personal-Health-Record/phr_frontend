@@ -24,6 +24,34 @@ const TargetSection = () => {
     navigate("/monitoring/fisik/change");
   };
 
+  const getStatusTekananDarah = () => {
+    const diastole = tekananDarah?.diastole || 0;
+    const systole = tekananDarah?.systole || 0;
+
+    if (systole < 90 && diastole < 60) {
+      return "Rendah";
+    } else if (
+      systole >= 90 &&
+      systole <= 120 &&
+      diastole >= 60 &&
+      diastole <= 80
+    ) {
+      return "Normal";
+    } else if (
+      (systole >= 121 && systole <= 129) ||
+      (diastole >= 81 && diastole <= 89)
+    ) {
+      return "Normal Tinggi";
+    } else if (
+      (systole >= 130 && systole <= 139) ||
+      (diastole >= 90 && diastole <= 99)
+    ) {
+      return "Hipertensi Tingkat 1";
+    } else {
+      return "Hipertensi Tingkat 2";
+    }
+  };
+
   return (
     <div className="flex flex-col">
       <h3 className="font-semibold text-mainGrey pl-2 mb-3 mt-5">
@@ -79,7 +107,7 @@ const TargetSection = () => {
       >
         <div className="flex justify-between">
           <p className="text-sm">Tekanan Darah</p>
-          <p className="text-sm">Normal</p>
+          <p className="text-sm">{getStatusTekananDarah()}</p>
         </div>
 
         <div className="flex gap-10">
