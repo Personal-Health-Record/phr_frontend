@@ -4,6 +4,8 @@ export type AktifitasFisik = {
   type: string;
   duration: number;
   timestamp: string;
+  startTime: string;
+  endTime: string;
 };
 
 export const dummyAktifitasFisik: AktifitasFisik[] = [];

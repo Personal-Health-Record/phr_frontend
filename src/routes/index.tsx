@@ -76,6 +76,7 @@ import EditPengingat from "./ObatPage/ObatEditPage";
 import EditFamilyPage from "./ProfilePage/ProfileEditFamilyPage";
 import EditInsurancePage from "./ProfilePage/ProfileEditInsurancePage/page";
 import ProfileDoctorDetail from "./ProfilePage/ProfileDoctorDetailPage/page";
+import EditDataFisikPage from "./MonitoringPage/EditDataFisikPage";
 
 const MainRoutes = () => {
   return (
@@ -134,11 +135,17 @@ const MainRoutes = () => {
         <Route path="/profile/add/family" element={<AddFamilyPage />} />
         <Route path="/profile/edit/family/:id" element={<EditFamilyPage />} />
         <Route path="/profile/add/insurance" element={<AddInsurancePage />} />
-        <Route path="/profile/edit/insurance/:id" element={<EditInsurancePage />} />
+        <Route
+          path="/profile/edit/insurance/:id"
+          element={<EditInsurancePage />}
+        />
         <Route path="/profile/family" element={<FamilyPage />} />
         <Route path="/profile/insurance" element={<InsurancePage />} />
 
-        <Route path="/profile/doctor/detail" element={<ProfileDoctorDetail />} />
+        <Route
+          path="/profile/doctor/detail"
+          element={<ProfileDoctorDetail />}
+        />
 
         <Route path="/pesan" element={<KirimPesanPage />} />
 
@@ -172,6 +179,10 @@ const MainRoutes = () => {
         <Route
           path="/monitoring/insert-data-fisik"
           element={<InsertDataFisik />}
+        />
+        <Route
+          path="/monitoring/edit-data-fisik"
+          element={<EditDataFisikPage />}
         />
         <Route
           path="/monitoring/insert-data"

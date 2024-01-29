@@ -1,15 +1,20 @@
-import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import Dropdown from "../../../components/Dropdown";
 import Header from "../../../components/Header";
 import TextInput from "../../../components/TextInput";
-import Dropdown from "../../../components/Dropdown";
-import { useState } from "react";
-import { getTimeDifferenceInMinutes } from "../../../helpers/dateHelper";
 import {
-  addAktifitasFisik,
+  editAktifitasFisik,
   useGetAktifitasFisik,
 } from "../../../helpers/aktifitasFisikHelper";
+import { useLocation, useNavigate } from "react-router-dom";
+import { getTimeDifferenceInMinutes } from "../../../helpers/dateHelper";
+import { AktifitasFisik } from "../MonitoringAktifitasPage/constants";
 
-const InsertDataFisik = () => {
+interface State {
+  aktifitas?: AktifitasFisik;
+}
+
+const EditDataFisikPage = () => {
   const { aktifitasFisik } = useGetAktifitasFisik();
   const [isShowDropdownKategori, setIsShowDropdownKategori] = useState(false);
   const [kategori, setKategori] = useState("");
@@ -17,6 +22,9 @@ const InsertDataFisik = () => {
   const [end, setEnd] = useState("");
   const [isError, setIsError] = useState(false);
   const navigate = useNavigate();
+
+  const location = useLocation();
+  const { aktifitas } = (location?.state as State) || {};
 
   const handleClickKategori = (value: string) => {
     setKategori(value);
@@ -31,19 +39,29 @@ const InsertDataFisik = () => {
       return;
     }
 
-    addAktifitasFisik(
+    editAktifitasFisik(
       {
         duration: getTimeDifferenceInMinutes(start, end),
         type: kategori,
-        timestamp: Date.now().toString(),
-        endTime: end,
+        timestamp: aktifitas?.timestamp || "",
         startTime: start,
+        endTime: end,
       },
       aktifitasFisik || []
     );
 
     navigate(-1);
   };
+
+  if (!aktifitas) {
+    navigate("/monitoring/fisik");
+  }
+
+  useEffect(() => {
+    setKategori(aktifitas?.type || "");
+    setStart(aktifitas?.startTime || "");
+    setEnd(aktifitas?.endTime || "");
+  }, [aktifitas?.endTime, aktifitas?.startTime, aktifitas?.type]);
 
   return (
     <div className="flex flex-col">
@@ -66,6 +84,7 @@ const InsertDataFisik = () => {
           onChange={(value: any) => setStart(value)}
           placeholder="Contoh: 06:30"
           type="text"
+          defaultValue={aktifitas?.startTime}
         />
 
         <TextInput
@@ -73,6 +92,7 @@ const InsertDataFisik = () => {
           onChange={(value) => setEnd(value)}
           placeholder="Contoh: 07:00"
           type="text"
+          defaultValue={aktifitas?.endTime}
         />
 
         {isError && (
@@ -92,4 +112,4 @@ const InsertDataFisik = () => {
   );
 };
 
-export default InsertDataFisik;
+export default EditDataFisikPage;

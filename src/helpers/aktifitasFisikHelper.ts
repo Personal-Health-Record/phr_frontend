@@ -39,6 +39,26 @@ export const addAktifitasFisik = (
   );
 };
 
+export const editAktifitasFisik = (
+  newAktifitas: AktifitasFisik,
+  existingAktifitasFisikList: AktifitasFisik[]
+) => {
+  const updatedAktifitasFisikList = existingAktifitasFisikList!.map(
+    (aktifitas) => {
+      if (aktifitas.timestamp === newAktifitas.timestamp) {
+        return newAktifitas;
+      }
+
+      return aktifitas;
+    }
+  );
+
+  localStorage.setItem(
+    "aktifitasFisikStorage",
+    JSON.stringify(updatedAktifitasFisikList)
+  );
+};
+
 export const useGetAktifitasTargetFisik = () => {
   const [durasiTargetFisik, setDurasiTargetFisik] = useState<number>(0);
 

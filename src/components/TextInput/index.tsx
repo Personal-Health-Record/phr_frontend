@@ -4,6 +4,7 @@ type TextInputProps = {
   type?: string;
   onChange: (value: any) => void;
   value?: any;
+  defaultValue?: any;
 };
 
 const TextInput = ({
@@ -12,6 +13,7 @@ const TextInput = ({
   type,
   onChange,
   value,
+  defaultValue,
 }: TextInputProps) => {
   return (
     <div className="relative mt-4 px-4">
@@ -27,6 +29,7 @@ const TextInput = ({
         placeholder={placeholder}
         onChange={(e) => onChange(e.target.value)}
         value={value}
+        defaultValue={defaultValue}
       />
     </div>
   );

@@ -30,7 +30,7 @@ const MonitoringMakananPage = () => {
 
   return (
     <div className="flex flex-col">
-      <Header title="Traking Data Kesehatan" />
+      <Header title="Tracking Data Kesehatan" />
 
       <div className="flex flex-col w-full px-4 pt-4 gap-2">
         <ChipTypes handleClickChip={setTypeFilter} selectedChip={typeFilter} />
