@@ -9,7 +9,7 @@ import NegativeModal from "../../components/NegativeModal";
 import { useNavigate } from "react-router-dom";
 
 const ProfilePage = () => {
-  const [showLogOutModal, setShowLogOutModal] = useState(false)
+  const [showLogOutModal, setShowLogOutModal] = useState(false);
   const navigate = useNavigate();
   const { loggedInUser: user } = useGetLoggedInUser();
 
@@ -27,7 +27,7 @@ const ProfilePage = () => {
       <div>
         <hr />
         <ProfileOptionCard
-          title="Profil Saya"
+          title="Profil Sayaa"
           path={"/profile/doctor/detail/"}
         />
         <ProfileOptionCard
@@ -37,7 +37,7 @@ const ProfilePage = () => {
         <ProfileOptionCard
           title="Logout"
           onClick={() => {
-            setShowLogOutModal(true)
+            setShowLogOutModal(true);
           }}
         />
         <NegativeModal
@@ -73,7 +73,7 @@ const ProfilePage = () => {
         <ProfileOptionCard
           title="Logout"
           onClick={() => {
-            setShowLogOutModal(true)
+            setShowLogOutModal(true);
           }}
         />
         <NegativeModal

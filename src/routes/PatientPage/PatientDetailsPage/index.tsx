@@ -17,7 +17,7 @@ const ProfilePatientPage = () => {
 
   return (
     <div className="flex flex-col">
-      <Header title="Profil Tenaga Kesehatan" />
+      <Header title="Profil Pasien" />
 
       <div className="flex flex-col py-3 px-4 gap-3 pt-6 ">
         <div className="self-center">
@@ -36,7 +36,7 @@ const ProfilePatientPage = () => {
         <ProfileHeader age={patient.age.toString()} gender={patient.gender} />
         <CardOptionPatient
           path={"/profile/detail/" + patient.id}
-          title="Profil Saya"
+          title="Profil Lengkap"
         />
         <CardOptionPatient path="/resume" title="Resume Medis Pasien" />
         <CardOptionPatient path="/rujukan" title="Rujukan Pasien" />

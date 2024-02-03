@@ -6,13 +6,16 @@ export const dummyDataPatient = [
   {
     name: "Jimmy Daniel",
     profileIcon: profile1Img,
+    id: 1,
   },
   {
-    name: "Ajeng Lailasari",
+    name: "Mawar Indah",
     profileIcon: profile2Img,
+    id: 3,
   },
   {
-    name: "Almira Pratiwi",
+    name: "Milo Cornelius",
     profileIcon: profile3Img,
+    id: 4,
   },
 ];

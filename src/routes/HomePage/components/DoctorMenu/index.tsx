@@ -11,9 +11,7 @@ const DoctorMenu = () => {
 
   return (
     <div className="flex flex-col p-4 gap-4">
-      <h3 className="font-semibold text-mainGrey">
-        Pasien yang Perlu ditangani
-      </h3>
+      <h3 className="font-semibold text-mainGrey">Menu Utama</h3>
       <div className="flex gap-3">
         <img src={menuDoctorImg} alt="menu" width={50} height={50} />
         <div

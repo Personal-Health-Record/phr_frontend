@@ -44,9 +44,9 @@ const DetailMental = () => {
   return (
     <div ref={targetRef}>
       <Header title="Riwayat Skrining Kesehatan" />
-      <div className="flex flex-col w-full px-4 py-4 gap-3 mb-16">
+      <div className="flex flex-col w-full px-4 py-4 gap-3 mb-16 pb-32">
         <h3 className="font-semibold text-mainGrey text-sm">
-          Riwayat Kontak dan Perjalanan
+          Riwayat 2 minggu terakhir
         </h3>
 
         <TextFieldDetail

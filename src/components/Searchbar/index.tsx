@@ -7,7 +7,7 @@ type SearchProps = {
 
 const SearchBar = ({ onSearch, placeHolder }: SearchProps) => {
   return (
-    <div className="relative mt-4">
+    <div className="relative mt-4 px-4">
       <input
         className="border border-lightGrey w-full px-3 h-11 rounded-2xl focus:outline-none focus:border-blue-500"
         placeholder={placeHolder}
@@ -21,7 +21,7 @@ const SearchBar = ({ onSearch, placeHolder }: SearchProps) => {
         alt=""
         width={30}
         height={30}
-        className="absolute top-2 right-3"
+        className="absolute top-2 right-3 mr-4"
       />
     </div>
   );

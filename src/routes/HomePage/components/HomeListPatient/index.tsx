@@ -14,6 +14,7 @@ const HomeListPatient = () => {
             name={patient.name}
             profileIcon={patient.profileIcon}
             key={`patient-${idx}`}
+            idPatient={patient.id}
           />
         ))}
       </div>

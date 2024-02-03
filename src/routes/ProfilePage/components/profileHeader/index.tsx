@@ -1,5 +1,5 @@
 import { User } from "../../../../helpers/constants";
-
+import userIcon from "../../../../assets/images/user.svg";
 interface Props {
   user: User;
 }
@@ -12,7 +12,7 @@ const ProfileHeader = ({ user }: Props) => {
           width: 86,
           height: 86,
           borderRadius: 86,
-          background: `url(${user.profilePicture})`,
+          background: `url(${user?.profilePicture || userIcon})`,
           backgroundSize: "cover",
         }}
       ></div>
