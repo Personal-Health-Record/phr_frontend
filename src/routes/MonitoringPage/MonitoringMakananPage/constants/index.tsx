@@ -4,25 +4,10 @@ export type KonsumsiMakanan = {
   type: string;
   category: string;
   name: string;
+  timestamp: string;
 };
 
-export const dummyKonsumsiMakanan: KonsumsiMakanan[] = [
-  {
-    category: "Makanan Pokok",
-    name: "Roti",
-    type: "Sarapan",
-  },
-  {
-    category: "Buah",
-    name: "Apel",
-    type: "Sarapan",
-  },
-  {
-    category: "Makanan Pokok",
-    name: "Nasi Goreng",
-    type: "Makan Siang",
-  },
-];
+export const dummyKonsumsiMakanan: KonsumsiMakanan[] = [];
 
 export const dummyTargetMakanan = [
   "Makanan Pokok",

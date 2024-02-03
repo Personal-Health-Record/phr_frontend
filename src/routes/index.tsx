@@ -77,6 +77,7 @@ import EditFamilyPage from "./ProfilePage/ProfileEditFamilyPage";
 import EditInsurancePage from "./ProfilePage/ProfileEditInsurancePage/page";
 import ProfileDoctorDetail from "./ProfilePage/ProfileDoctorDetailPage/page";
 import EditDataFisikPage from "./MonitoringPage/EditDataFisikPage";
+import EditKonsumsiMakananPage from "./MonitoringPage/EditKonsumsiMakananPage";
 
 const MainRoutes = () => {
   return (
@@ -183,6 +184,10 @@ const MainRoutes = () => {
         <Route
           path="/monitoring/edit-data-fisik"
           element={<EditDataFisikPage />}
+        />
+        <Route
+          path="/monitoring/edit-data-makanan"
+          element={<EditKonsumsiMakananPage />}
         />
         <Route
           path="/monitoring/insert-data"

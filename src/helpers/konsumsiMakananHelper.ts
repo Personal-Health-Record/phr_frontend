@@ -40,6 +40,26 @@ export const addKonsumsiMakanan = (
   );
 };
 
+export const editKonsumsiMakanan = (
+  newMakanan: KonsumsiMakanan,
+  existingKonsumsiMakananList: KonsumsiMakanan[]
+) => {
+  const updatedKonsumsiMakananList = existingKonsumsiMakananList!.map(
+    (makanan) => {
+      if (makanan.timestamp === newMakanan.timestamp) {
+        return newMakanan;
+      }
+
+      return makanan;
+    }
+  );
+
+  localStorage.setItem(
+    "konsumsiMakananStorage",
+    JSON.stringify(updatedKonsumsiMakananList)
+  );
+};
+
 export const useGetKonsumsiMakananTarget = () => {
   const [konsumsiMakananTarget, setKonsumsiMakananTarget] =
     useState<string[]>();

@@ -39,11 +39,17 @@ const MonitoringMakananPage = () => {
         </h3>
 
         <div>
+          {finalDataMakanan?.length === 0 && (
+            <p className="text-center text-mainGrey mt-5">
+              Tidak ada data makanan
+            </p>
+          )}
           {finalDataMakanan?.map((makanan, idx) => (
             <CardMakanan
               name={makanan.name}
               type={makanan.category}
               key={`makanan-${idx}`}
+              makanan={makanan}
             />
           ))}
         </div>
