@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { usePDF } from "react-to-pdf";
 import { Covid } from "../constants";
@@ -8,6 +8,7 @@ import TextFieldDetail from "../components/TextFieldDetail";
 import BottomNavbarDownloadShare from "../../HomePage/components/BottomNavbarDownloadShare";
 
 const DetailCovid = () => {
+  const [isCovid, setIsCovid] = useState(false);
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
   const [data, setData] = useState<Covid>();
@@ -22,6 +23,32 @@ const DetailCovid = () => {
 
     setData(skriningData?.detail as Covid);
   }, [id]);
+
+  const checkCovid = useCallback(() => {
+    let totalScore = 0;
+
+    if (data?.area) {
+      totalScore += 1;
+    }
+    if (data?.kontak) {
+      totalScore += 1;
+    }
+    if (data?.luarNegri) {
+      totalScore += 1;
+    }
+
+    const gejala = data?.gejala?.split(", ");
+
+    totalScore += gejala?.length || 0;
+
+    return totalScore;
+  }, [data?.area, data?.gejala, data?.kontak, data?.luarNegri]);
+
+  useEffect(() => {
+    if (checkCovid() > 4) {
+      setIsCovid(true);
+    }
+  }, [checkCovid]);
 
   return (
     <div ref={targetRef}>
@@ -49,6 +76,14 @@ const DetailCovid = () => {
           title="Gejala yang dirasakan"
           data={data?.gejala || ""}
         />
+
+        <p className="text-center shadow-md py-5 px-3 rounded-xl">
+          Anda{" "}
+          <span className="font-semibold text-mainBlue">
+            {isCovid ? "Memiliki" : "Tidak memiliki"}
+          </span>{" "}
+          risiko terinfeksi COVID-19
+        </p>
       </div>
       <BottomNavbarDownloadShare body="" link="" title="" toPDF={toPDF} />
     </div>
