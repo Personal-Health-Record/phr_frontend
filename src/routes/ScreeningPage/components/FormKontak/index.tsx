@@ -1,10 +1,11 @@
-import { Dispatch, SetStateAction } from 'react';
+import { Dispatch, SetStateAction } from "react";
 
 interface Props {
   setKontak: Dispatch<SetStateAction<boolean>>;
+  onClickKontak: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const FormKontak = ({ setKontak }: Props) => {
+const FormKontak = ({ setKontak, onClickKontak }: Props) => {
   return (
     <div className="flex flex-col gap-3">
       <p className="text-sm text-lightGrey">
@@ -13,7 +14,13 @@ const FormKontak = ({ setKontak }: Props) => {
       </p>
 
       <div className="flex gap-20">
-        <label className="flex items-center" onClick={() => setKontak(true)}>
+        <label
+          className="flex items-center"
+          onClick={() => {
+            setKontak(true);
+            onClickKontak(true);
+          }}
+        >
           <input
             type="radio"
             name="radioOption-kontak"
@@ -22,7 +29,13 @@ const FormKontak = ({ setKontak }: Props) => {
           />
           <p className="text-sm">Ya</p>
         </label>
-        <label className="flex items-center" onClick={() => setKontak(false)}>
+        <label
+          className="flex items-center"
+          onClick={() => {
+            setKontak(false);
+            onClickKontak(true);
+          }}
+        >
           <input
             type="radio"
             name="radioOption-kontak"

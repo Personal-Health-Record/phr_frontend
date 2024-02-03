@@ -12,7 +12,6 @@ import FormFisik from "../components/FormFisik";
 import FormBuahSayur from "../components/FormBuahSayur";
 import FormPenyakitKeluarga from "../components/FormPenyakitKeluarga";
 import FormHasilPemeriksaan from "../components/FormHasilPemeriksaan";
-import { useToaster } from "../../../contexts/ToasterContext";
 
 const ScreeningPTM = () => {
   const navigate = useNavigate();
@@ -29,7 +28,11 @@ const ScreeningPTM = () => {
   const [tinggi, setTinggi] = useState(0);
   const [lingkar, setLingkar] = useState(0);
 
-  const { toggleDiv } = useToaster();
+  const [error, setError] = useState(false);
+
+  const [isCheckRokok, setIsCheckRokok] = useState(false);
+  const [isCheckFisik, setIsCheckFisik] = useState(false);
+  const [isCheckBuahSayur, setIsCheckBuahSayur] = useState(false);
 
   const handleSubimt = () => {
     let totalScore = 0;
@@ -65,10 +68,22 @@ const ScreeningPTM = () => {
       },
     };
 
-    if (systole === 0) {
-      toggleDiv("error", "Semua form harus diisi");
+    if (
+      isCheckBuahSayur === false ||
+      isCheckFisik === false ||
+      isCheckRokok === false ||
+      systole === 0 ||
+      diastole === 0 ||
+      gula === 0 ||
+      berat === 0 ||
+      tinggi === 0 ||
+      lingkar === 0
+    ) {
+      setError(true);
       return;
     }
+
+    setError(false);
 
     addSkriningKesehatan(skriningData, listSkrining || []);
 
@@ -84,9 +99,12 @@ const ScreeningPTM = () => {
           Skrining Kesehatan
         </h3>
 
-        <FormRokok setRokok={setRokok} />
-        <FormFisik setFisik={setFisik} />
-        <FormBuahSayur setBuahSayur={setBuahSayur} />
+        <FormRokok setRokok={setRokok} onClickRokok={setIsCheckRokok} />
+        <FormFisik setFisik={setFisik} onClickFisik={setIsCheckFisik} />
+        <FormBuahSayur
+          setBuahSayur={setBuahSayur}
+          onClickSayur={setIsCheckBuahSayur}
+        />
         <FormPenyakitKeluarga
           setTotalPenyakit={setTotalPenyakit}
           setListPenyakit={setListPenyakit}
@@ -99,6 +117,12 @@ const ScreeningPTM = () => {
           setSystole={setSystole}
           setTinggi={setTinggi}
         />
+
+        {error && (
+          <p className="text-red-500 text-xs ml-3">
+            Harap isi semua form yang ada
+          </p>
+        )}
 
         <button
           className="bg-mainBlue rounded-3xl text-white font-semibold py-3"

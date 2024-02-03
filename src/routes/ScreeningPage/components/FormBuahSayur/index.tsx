@@ -1,10 +1,11 @@
-import { Dispatch, SetStateAction } from 'react';
+import { Dispatch, SetStateAction } from "react";
 
 interface Props {
   setBuahSayur: Dispatch<SetStateAction<boolean>>;
+  onClickSayur: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const FormBuahSayur = ({ setBuahSayur }: Props) => {
+const FormBuahSayur = ({ setBuahSayur, onClickSayur }: Props) => {
   return (
     <div className="flex flex-col gap-3">
       <p className="text-sm text-lightGrey">
@@ -12,7 +13,13 @@ const FormBuahSayur = ({ setBuahSayur }: Props) => {
       </p>
 
       <div className="flex gap-20">
-        <label className="flex items-center" onClick={() => setBuahSayur(true)}>
+        <label
+          className="flex items-center"
+          onClick={() => {
+            setBuahSayur(true);
+            onClickSayur(true);
+          }}
+        >
           <input
             type="radio"
             name="radioOption-buahsayur"
@@ -23,7 +30,10 @@ const FormBuahSayur = ({ setBuahSayur }: Props) => {
         </label>
         <label
           className="flex items-center"
-          onClick={() => setBuahSayur(false)}
+          onClick={() => {
+            setBuahSayur(false);
+            onClickSayur(true);
+          }}
         >
           <input
             type="radio"

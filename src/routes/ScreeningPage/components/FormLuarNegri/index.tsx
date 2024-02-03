@@ -1,10 +1,11 @@
-import { Dispatch, SetStateAction } from 'react';
+import { Dispatch, SetStateAction } from "react";
 
 interface Props {
   setLuarNegri: Dispatch<SetStateAction<boolean>>;
+  onClickLuar: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const FormLuarNegri = ({ setLuarNegri }: Props) => {
+const FormLuarNegri = ({ setLuarNegri, onClickLuar }: Props) => {
   return (
     <div className="flex flex-col gap-3">
       <p className="text-sm text-lightGrey">
@@ -13,7 +14,13 @@ const FormLuarNegri = ({ setLuarNegri }: Props) => {
       </p>
 
       <div className="flex gap-20">
-        <label className="flex items-center" onClick={() => setLuarNegri(true)}>
+        <label
+          className="flex items-center"
+          onClick={() => {
+            setLuarNegri(true);
+            onClickLuar(true);
+          }}
+        >
           <input
             type="radio"
             name="radioOption-luarnegri"
@@ -24,7 +31,10 @@ const FormLuarNegri = ({ setLuarNegri }: Props) => {
         </label>
         <label
           className="flex items-center"
-          onClick={() => setLuarNegri(false)}
+          onClick={() => {
+            setLuarNegri(false);
+            onClickLuar(true);
+          }}
         >
           <input
             type="radio"

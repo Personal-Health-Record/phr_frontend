@@ -1,10 +1,11 @@
-import { Dispatch, SetStateAction } from 'react';
+import { Dispatch, SetStateAction } from "react";
 
 interface Props {
   setFisik: Dispatch<SetStateAction<boolean>>;
+  onClickFisik: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const FormFisik = ({ setFisik }: Props) => {
+const FormFisik = ({ setFisik, onClickFisik }: Props) => {
   return (
     <div className="flex flex-col gap-3">
       <p className="text-sm text-lightGrey">
@@ -13,7 +14,13 @@ const FormFisik = ({ setFisik }: Props) => {
       </p>
 
       <div className="flex gap-20">
-        <label className="flex items-center" onClick={() => setFisik(true)}>
+        <label
+          className="flex items-center"
+          onClick={() => {
+            setFisik(true);
+            onClickFisik(true);
+          }}
+        >
           <input
             type="radio"
             name="radioOption-fisik"
@@ -22,7 +29,13 @@ const FormFisik = ({ setFisik }: Props) => {
           />
           <p className="text-sm">Ya</p>
         </label>
-        <label className="flex items-center" onClick={() => setFisik(false)}>
+        <label
+          className="flex items-center"
+          onClick={() => {
+            setFisik(false);
+            onClickFisik(true);
+          }}
+        >
           <input
             type="radio"
             name="radioOption-fisik"

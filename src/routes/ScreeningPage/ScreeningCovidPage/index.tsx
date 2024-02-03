@@ -20,6 +20,12 @@ const ScreeningCovid = () => {
   const [listGejala, setListGejala] = useState<string[]>([]);
   const { listSkrining } = useGetSkriningKesehatanList();
 
+  const [isCheckKontak, setIsCheckKontak] = useState(false);
+  const [isCheckLuarNegri, setIsCheckLuarNegri] = useState(false);
+  const [isCheckLocal, setIsCheckLocal] = useState(false);
+
+  const [error, setError] = useState(false);
+
   const navigate = useNavigate();
 
   const handleSubmit = () => {
@@ -50,6 +56,17 @@ const ScreeningCovid = () => {
       },
     };
 
+    if (
+      isCheckKontak === false ||
+      isCheckLuarNegri === false ||
+      isCheckLocal === false
+    ) {
+      setError(true);
+      return;
+    }
+
+    setError(false);
+
     addSkriningKesehatan(skriningData, listSkrining || []);
 
     navigate(`/screening/covid/result?score=${totalScore}`);
@@ -64,9 +81,12 @@ const ScreeningCovid = () => {
           Riwayat Kontak dan Perjalanan
         </h3>
 
-        <FormKontak setKontak={setKontak} />
-        <FormLuarNegri setLuarNegri={setLuarNegri} />
-        <FormLokal setLocal={setLocal} />
+        <FormKontak setKontak={setKontak} onClickKontak={setIsCheckKontak} />
+        <FormLuarNegri
+          setLuarNegri={setLuarNegri}
+          onClickLuar={setIsCheckLuarNegri}
+        />
+        <FormLokal setLocal={setLocal} onClickLokal={setIsCheckLocal} />
 
         <h3 className="font-semibold text-mainGrey text-sm mt-5">
           Gejala yang dirasakan
@@ -76,6 +96,12 @@ const ScreeningCovid = () => {
           setTotalGejala={setTotalGejala}
           setListGejala={setListGejala}
         />
+
+        {error && (
+          <p className="text-red-500 text-xs ml-3">
+            Harap isi semua form yang ada
+          </p>
+        )}
 
         <button
           className="bg-mainBlue rounded-3xl text-white font-semibold py-3"

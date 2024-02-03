@@ -14,6 +14,8 @@ const ScreeningMental = () => {
   const { listSkrining } = useGetSkriningKesehatanList();
   const [listScore, setListScore] = useState<number[]>(new Array(9).fill(0));
 
+  const [error, setError] = useState(false);
+
   const handleSubimt = () => {
     const totalScore = listScore.reduce(
       (accumulator, currentValue) => accumulator + currentValue,
@@ -40,6 +42,13 @@ const ScreeningMental = () => {
 
     addSkriningKesehatan(skriningData, listSkrining || []);
 
+    if (listScore.includes(0)) {
+      setError(true);
+      return;
+    }
+
+    setError(false);
+
     navigate(`/screening/mental/result?score=${totalScore}`);
   };
 
@@ -62,6 +71,12 @@ const ScreeningMental = () => {
             idx={index}
           />
         ))}
+
+        {error && (
+          <p className="text-red-500 text-xs ml-3">
+            Harap isi semua form yang ada
+          </p>
+        )}
 
         <button
           className="bg-mainBlue rounded-3xl text-white font-semibold py-3"

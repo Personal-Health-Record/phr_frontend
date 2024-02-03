@@ -1,10 +1,11 @@
-import { Dispatch, SetStateAction } from 'react';
+import { Dispatch, SetStateAction } from "react";
 
 interface Props {
   setLocal: Dispatch<SetStateAction<boolean>>;
+  onClickLokal: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const FormLokal = ({ setLocal }: Props) => {
+const FormLokal = ({ setLocal, onClickLokal }: Props) => {
   return (
     <div className="flex flex-col gap-3">
       <p className="text-sm text-lightGrey">
@@ -13,7 +14,13 @@ const FormLokal = ({ setLocal }: Props) => {
       </p>
 
       <div className="flex gap-20">
-        <label className="flex items-center" onClick={() => setLocal(true)}>
+        <label
+          className="flex items-center"
+          onClick={() => {
+            setLocal(true);
+            onClickLokal(true);
+          }}
+        >
           <input
             type="radio"
             name="radioOption-local"
@@ -22,7 +29,13 @@ const FormLokal = ({ setLocal }: Props) => {
           />
           <p className="text-sm">Ya</p>
         </label>
-        <label className="flex items-center" onClick={() => setLocal(false)}>
+        <label
+          className="flex items-center"
+          onClick={() => {
+            setLocal(false);
+            onClickLokal(true);
+          }}
+        >
           <input
             type="radio"
             name="radioOption-local"
