@@ -4,8 +4,57 @@ import fruitImg from "../../../../assets/images/food/fruit.png";
 import vegetableImg from "../../../../assets/images/food/vegetable.png";
 import circleCheck from "../../../../assets/images/circle_check.png";
 import circleCross from "../../../../assets/images/circle_cross.png";
+import { useGetKonsumsiMakanan } from "../../../../helpers/konsumsiMakananHelper";
+import { getDayOfWeekFromTimestamp } from "../../../NewsPage/helper";
 
-const CardKonsumsiMakanan = () => {
+interface Props {
+  startDate: Date;
+  endDate: Date;
+}
+
+const CardKonsumsiMakanan = ({ startDate, endDate }: Props) => {
+  const { konsumsiMakanan } = useGetKonsumsiMakanan();
+
+  const filteredData =
+    konsumsiMakanan?.filter((item) => {
+      const activityDate = new Date(parseInt(item.timestamp));
+      const activityDay = activityDate.toISOString().split("T")[0]; // Get only the date part
+
+      const startDay = startDate.toISOString().split("T")[0];
+      const endDay = endDate.toISOString().split("T")[0];
+
+      return activityDay >= startDay && activityDay <= endDay;
+    }) || [];
+
+  const makananPokok = filteredData?.filter(
+    (makanan) => makanan.category === "Makanan Pokok"
+  );
+
+  const laukPauk = filteredData?.filter(
+    (makanan) => makanan.category === "Lauk Pauk"
+  );
+
+  const sayuran = filteredData?.filter(
+    (makanan) => makanan.category === "Sayuran"
+  );
+
+  const buah = filteredData?.filter((makanan) => makanan.category === "Buah");
+
+  const listDayMakananPokok = makananPokok?.map((makanan) =>
+    getDayOfWeekFromTimestamp(makanan.timestamp)
+  );
+
+  const listdayLaukPauk = laukPauk?.map((makanan) =>
+    getDayOfWeekFromTimestamp(makanan.timestamp)
+  );
+
+  const listDaySayuran = sayuran?.map((makanan) =>
+    getDayOfWeekFromTimestamp(makanan.timestamp)
+  );
+
+  const listDayBuah = buah?.map((makanan) =>
+    getDayOfWeekFromTimestamp(makanan.timestamp)
+  );
   return (
     <div className="flex flex-col p-5 shadow-md rounded-xl">
       <p>Konsumsi Makanan</p>
@@ -59,14 +108,72 @@ const CardKonsumsiMakanan = () => {
         </div>
         <div className="flex flex-col">
           <div className="flex max-h-5 justify-end gap-1 mb-8 mt-3">
-            <img src={circleCheck} alt="check" width="20px" height="20px" />
-            <img src={circleCheck} alt="check" width="20px" height="20px" />
-            <img src={circleCheck} alt="check" width="20px" height="20px" />
-            <img src={circleCheck} alt="check" width="20px" height="20px" />
-            <img src={circleCheck} alt="check" width="20px" height="20px" />
-            <img src={circleCheck} alt="check" width="20px" height="20px" />
             <img
-              src={circleCheck}
+              src={
+                listDayMakananPokok?.includes("Monday")
+                  ? circleCheck
+                  : circleCross
+              }
+              alt="check"
+              width="20px"
+              height="20px"
+            />
+            <img
+              src={
+                listDayMakananPokok?.includes("Tuesday")
+                  ? circleCheck
+                  : circleCross
+              }
+              alt="check"
+              width="20px"
+              height="20px"
+            />
+            <img
+              src={
+                listDayMakananPokok?.includes("Wednesday")
+                  ? circleCheck
+                  : circleCross
+              }
+              alt="check"
+              width="20px"
+              height="20px"
+            />
+            <img
+              src={
+                listDayMakananPokok?.includes("Thursday")
+                  ? circleCheck
+                  : circleCross
+              }
+              alt="check"
+              width="20px"
+              height="20px"
+            />
+            <img
+              src={
+                listDayMakananPokok?.includes("Friday")
+                  ? circleCheck
+                  : circleCross
+              }
+              alt="check"
+              width="20px"
+              height="20px"
+            />
+            <img
+              src={
+                listDayMakananPokok?.includes("Saturday")
+                  ? circleCheck
+                  : circleCross
+              }
+              alt="check"
+              width="20px"
+              height="20px"
+            />
+            <img
+              src={
+                listDayMakananPokok?.includes("Sunday")
+                  ? circleCheck
+                  : circleCross
+              }
               alt="check"
               width="20px"
               height="20px"
@@ -74,14 +181,64 @@ const CardKonsumsiMakanan = () => {
             />
           </div>
           <div className="flex max-h-5 justify-end gap-1 mb-9">
-            <img src={circleCheck} alt="check" width="20px" height="20px" />
-            <img src={circleCheck} alt="check" width="20px" height="20px" />
-            <img src={circleCheck} alt="check" width="20px" height="20px" />
-            <img src={circleCheck} alt="check" width="20px" height="20px" />
-            <img src={circleCheck} alt="check" width="20px" height="20px" />
-            <img src={circleCheck} alt="check" width="20px" height="20px" />
             <img
-              src={circleCheck}
+              src={
+                listdayLaukPauk?.includes("Monday") ? circleCheck : circleCross
+              }
+              alt="check"
+              width="20px"
+              height="20px"
+            />
+            <img
+              src={
+                listdayLaukPauk?.includes("Tuesday") ? circleCheck : circleCross
+              }
+              alt="check"
+              width="20px"
+              height="20px"
+            />
+            <img
+              src={
+                listdayLaukPauk?.includes("Wednesday")
+                  ? circleCheck
+                  : circleCross
+              }
+              alt="check"
+              width="20px"
+              height="20px"
+            />
+            <img
+              src={
+                listdayLaukPauk?.includes("Thursday")
+                  ? circleCheck
+                  : circleCross
+              }
+              alt="check"
+              width="20px"
+              height="20px"
+            />
+            <img
+              src={
+                listdayLaukPauk?.includes("Friday") ? circleCheck : circleCross
+              }
+              alt="check"
+              width="20px"
+              height="20px"
+            />
+            <img
+              src={
+                listdayLaukPauk?.includes("Saturday")
+                  ? circleCheck
+                  : circleCross
+              }
+              alt="check"
+              width="20px"
+              height="20px"
+            />
+            <img
+              src={
+                listdayLaukPauk?.includes("Sunday") ? circleCheck : circleCross
+              }
               alt="check"
               width="20px"
               height="20px"
@@ -89,14 +246,60 @@ const CardKonsumsiMakanan = () => {
             />
           </div>
           <div className="flex max-h-5 justify-end gap-1 mb-8">
-            <img src={circleCheck} alt="check" width="20px" height="20px" />
-            <img src={circleCross} alt="check" width="20px" height="20px" />
-            <img src={circleCheck} alt="check" width="20px" height="20px" />
-            <img src={circleCheck} alt="check" width="20px" height="20px" />
-            <img src={circleCheck} alt="check" width="20px" height="20px" />
-            <img src={circleCheck} alt="check" width="20px" height="20px" />
             <img
-              src={circleCheck}
+              src={
+                listDaySayuran?.includes("Monday") ? circleCheck : circleCross
+              }
+              alt="check"
+              width="20px"
+              height="20px"
+            />
+            <img
+              src={
+                listDaySayuran?.includes("Tuesday") ? circleCheck : circleCross
+              }
+              alt="check"
+              width="20px"
+              height="20px"
+            />
+            <img
+              src={
+                listDaySayuran?.includes("Wednesday")
+                  ? circleCheck
+                  : circleCross
+              }
+              alt="check"
+              width="20px"
+              height="20px"
+            />
+            <img
+              src={
+                listDaySayuran?.includes("Thursday") ? circleCheck : circleCross
+              }
+              alt="check"
+              width="20px"
+              height="20px"
+            />
+            <img
+              src={
+                listDaySayuran?.includes("Friday") ? circleCheck : circleCross
+              }
+              alt="check"
+              width="20px"
+              height="20px"
+            />
+            <img
+              src={
+                listDaySayuran?.includes("Saturday") ? circleCheck : circleCross
+              }
+              alt="check"
+              width="20px"
+              height="20px"
+            />
+            <img
+              src={
+                listDaySayuran?.includes("Sunday") ? circleCheck : circleCross
+              }
               alt="check"
               width="20px"
               height="20px"
@@ -104,14 +307,50 @@ const CardKonsumsiMakanan = () => {
             />
           </div>
           <div className="flex max-h-5 justify-end gap-1">
-            <img src={circleCheck} alt="check" width="20px" height="20px" />
-            <img src={circleCross} alt="check" width="20px" height="20px" />
-            <img src={circleCross} alt="check" width="20px" height="20px" />
-            <img src={circleCross} alt="check" width="20px" height="20px" />
-            <img src={circleCross} alt="check" width="20px" height="20px" />
-            <img src={circleCheck} alt="check" width="20px" height="20px" />
             <img
-              src={circleCheck}
+              src={listDayBuah?.includes("Monday") ? circleCheck : circleCross}
+              alt="check"
+              width="20px"
+              height="20px"
+            />
+            <img
+              src={listDayBuah?.includes("Tuesday") ? circleCheck : circleCross}
+              alt="check"
+              width="20px"
+              height="20px"
+            />
+            <img
+              src={
+                listDayBuah?.includes("Wednesday") ? circleCheck : circleCross
+              }
+              alt="check"
+              width="20px"
+              height="20px"
+            />
+            <img
+              src={
+                listDayBuah?.includes("Thursday") ? circleCheck : circleCross
+              }
+              alt="check"
+              width="20px"
+              height="20px"
+            />
+            <img
+              src={listDayBuah?.includes("Friday") ? circleCheck : circleCross}
+              alt="check"
+              width="20px"
+              height="20px"
+            />
+            <img
+              src={
+                listDayBuah?.includes("Saturday") ? circleCheck : circleCross
+              }
+              alt="check"
+              width="20px"
+              height="20px"
+            />
+            <img
+              src={listDayBuah?.includes("Sunday") ? circleCheck : circleCross}
               alt="check"
               width="20px"
               height="20px"

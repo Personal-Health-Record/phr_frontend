@@ -15,10 +15,7 @@ const CardKonsumsiMakananMonitoring = () => {
   };
 
   return (
-    <div
-      className="flex flex-col p-5 shadow-md rounded-xl mb-24"
-      onClick={handleToMonitoringMakanan}
-    >
+    <div className="flex flex-col p-5 shadow-md rounded-xl mb-24">
       <div className="flex justify-between items-center">
         <p>Konsumsi Makanan</p>
         <p className="text-xs text-lightGrey" onClick={handleUbahTarget}>
@@ -26,9 +23,9 @@ const CardKonsumsiMakananMonitoring = () => {
         </p>
       </div>
 
-      <div className="mt-5">
-        {konsumsiMakananTarget?.map((konsumsi) => (
-          <>
+      <div className="mt-5" onClick={handleToMonitoringMakanan}>
+        {konsumsiMakananTarget?.map((konsumsi, index) => (
+          <div key={`konsumsi-${index}`}>
             <div className="flex items-center justify-between mt-3">
               <div className="flex items-center gap-3">
                 <img
@@ -44,7 +41,7 @@ const CardKonsumsiMakananMonitoring = () => {
               className="bg-slate-200 mt-1 ml-14"
               style={{ height: "1px" }}
             />
-          </>
+          </div>
         ))}
       </div>
     </div>

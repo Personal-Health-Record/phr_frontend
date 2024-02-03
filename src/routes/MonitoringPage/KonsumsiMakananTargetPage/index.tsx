@@ -63,7 +63,7 @@ const KonsumsiMakananTargetPage = () => {
                 type="checkbox"
                 name="radioOption"
                 value="Demam"
-                className="mr-2 justify-items-end"
+                className="mr-10 justify-items-end"
                 checked={rice}
                 onClick={() => {
                   setRice(!rice);
@@ -71,7 +71,7 @@ const KonsumsiMakananTargetPage = () => {
               />
             </div>
             <div
-              className="bg-slate-200 mt-3 ml-16"
+              className="bg-slate-200 mt-3 ml-16 mr-7"
               style={{ height: "2px" }}
             />
           </div>
@@ -91,7 +91,7 @@ const KonsumsiMakananTargetPage = () => {
                 type="checkbox"
                 name="radioOption"
                 value="Demam"
-                className="mr-2 justify-items-end"
+                className="mr-10 justify-items-end"
                 checked={lauk}
                 onClick={() => {
                   setLauk(!lauk);
@@ -99,7 +99,7 @@ const KonsumsiMakananTargetPage = () => {
               />
             </div>
             <div
-              className="bg-slate-200 mt-3 ml-16"
+              className="bg-slate-200 mt-3 ml-16 mr-7"
               style={{ height: "2px" }}
             />
           </div>
@@ -119,7 +119,7 @@ const KonsumsiMakananTargetPage = () => {
                 type="checkbox"
                 name="radioOption"
                 value="Demam"
-                className="mr-2 justify-items-end"
+                className="mr-10 justify-items-end"
                 checked={vegetable}
                 onClick={() => {
                   setVegetable(!vegetable);
@@ -127,7 +127,7 @@ const KonsumsiMakananTargetPage = () => {
               />
             </div>
             <div
-              className="bg-slate-200 mt-3 ml-16"
+              className="bg-slate-200 mt-3 ml-16 mr-7"
               style={{ height: "2px" }}
             />
           </div>
@@ -142,7 +142,7 @@ const KonsumsiMakananTargetPage = () => {
                 type="checkbox"
                 name="radioOption"
                 value="Demam"
-                className="mr-2 justify-items-end"
+                className="mr-10 justify-items-end"
                 checked={fruit}
                 onClick={() => {
                   setFruit(!fruit);
@@ -150,7 +150,7 @@ const KonsumsiMakananTargetPage = () => {
               />
             </div>
             <div
-              className="bg-slate-200 mt-3 ml-16"
+              className="bg-slate-200 mt-3 ml-16 mr-7"
               style={{ height: "2px" }}
             />
           </div>
@@ -165,7 +165,7 @@ const KonsumsiMakananTargetPage = () => {
                 type="checkbox"
                 name="radioOption"
                 value="Demam"
-                className="mr-2 justify-items-end"
+                className="mr-10 justify-items-end"
                 checked={milk}
                 onClick={() => {
                   setMilk(!milk);
@@ -173,7 +173,7 @@ const KonsumsiMakananTargetPage = () => {
               />
             </div>
             <div
-              className="bg-slate-200 mt-3 ml-16"
+              className="bg-slate-200 mt-3 ml-16 mr-7"
               style={{ height: "2px" }}
             />
           </div>

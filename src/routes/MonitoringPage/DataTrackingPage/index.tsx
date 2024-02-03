@@ -54,7 +54,10 @@ const DataTracking = () => {
               startDate={selectedStartDate}
               endDate={selectedEndDate}
             />
-            <CardKonsumsiMakanan />
+            <CardKonsumsiMakanan
+              startDate={selectedStartDate}
+              endDate={selectedEndDate}
+            />
           </>
         )}
         {activeTabIdx === 2 && (
