@@ -7,7 +7,7 @@ import sehatq from "../../../assets/images/pesan/sehatq.png";
 const PemesananObatPage = () => {
   return (
     <div className="flex flex-col">
-      <Header title="Kirim Pesan" />
+      <Header title="Pemesanan Obat" />
 
       <div className="flex flex-col w-full px-4 py-4 gap-3">
         <p className="text-mainGrey text-sm text-justify">
