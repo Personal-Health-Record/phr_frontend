@@ -35,7 +35,7 @@ const FaskesPage = () => {
       setFilteredFaskes(dummyFaskes);
     } else {
       const filtered = dummyFaskes.filter((faskes) =>
-        faskes.name.toLowerCase().includes(val)
+        faskes.name.toLowerCase().includes(val.toLowerCase())
       );
 
       setFilteredFaskes(filtered);
