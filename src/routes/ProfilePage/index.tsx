@@ -1,25 +1,31 @@
 import { useState } from "react";
 import BottomNavbar from "../../components/BottomNavbar";
 import CircleLoader from "../../components/CircleLoader";
-import { getTenkesByUserId } from "../../helpers/tenagaKesehatanHelper";
+import { useGetTenagaKesehatanList } from "../../helpers/tenagaKesehatanHelper";
 import { logoutUser, useGetLoggedInUser } from "../../helpers/userDataHelper";
 import ProfileHeader from "./components/profileHeader";
 import ProfileOptionCard from "./components/profileOptionCard";
 import NegativeModal from "../../components/NegativeModal";
 import { useNavigate } from "react-router-dom";
+import { useToaster } from "../../contexts/ToasterContext";
 
 const ProfilePage = () => {
   const [showLogOutModal, setShowLogOutModal] = useState(false);
   const navigate = useNavigate();
   const { loggedInUser: user } = useGetLoggedInUser();
+  const { listTenkes } = useGetTenagaKesehatanList();
+  const { toggleDiv } = useToaster();
 
-  if (!user) {
+  if (!user || !listTenkes) {
     return <CircleLoader />;
   }
 
   const renderDoctorProfile = () => {
-    const tenkes = getTenkesByUserId(user.id);
+    const tenkes = listTenkes.find(
+      (tenkes) => tenkes.userId === user.id)!;
+
     if (!tenkes) {
+      toggleDiv("error", "Tenkes data not found");
       return <CircleLoader />;
     }
 
