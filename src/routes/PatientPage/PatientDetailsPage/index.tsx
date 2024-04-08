@@ -41,6 +41,10 @@ const ProfilePatientPage = () => {
         <CardOptionPatient path="/resume" title="Resume Medis Pasien" />
         <CardOptionPatient path="/rujukan" title="Rujukan Pasien" />
         <CardOptionPatient
+          path={`/vaksinasi?userId=${patient.id}`}
+          title="Vaksinasi Pasien"
+        />
+        <CardOptionPatient
           path="/screening/doctor"
           title="Skrining Kesehatan Pasien"
         />
