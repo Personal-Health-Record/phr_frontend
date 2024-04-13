@@ -45,7 +45,7 @@ const ProfilePatientPage = () => {
           title="Vaksinasi Pasien"
         />
         <CardOptionPatient
-          path="/screening/doctor"
+          path="/screening"
           title="Skrining Kesehatan Pasien"
         />
         {/* TODO: setelah tracking selesai */}

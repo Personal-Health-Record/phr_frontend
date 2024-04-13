@@ -21,8 +21,7 @@ const ProfilePage = () => {
   }
 
   const renderDoctorProfile = () => {
-    const tenkes = listTenkes.find(
-      (tenkes) => tenkes.userId === user.id)!;
+    const tenkes = listTenkes.find((tenkes) => tenkes.userId === user.id)!;
 
     if (!tenkes) {
       toggleDiv("error", "Tenkes data not found");
@@ -33,7 +32,7 @@ const ProfilePage = () => {
       <div>
         <hr />
         <ProfileOptionCard
-          title="Profil Sayaa"
+          title="Profil Saya"
           path={"/profile/doctor/detail/"}
         />
         <ProfileOptionCard
