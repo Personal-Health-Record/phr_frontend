@@ -48,8 +48,7 @@ const ProfilePatientPage = () => {
           path="/screening"
           title="Skrining Kesehatan Pasien"
         />
-        {/* TODO: setelah tracking selesai */}
-        <CardOptionPatient path="/" title="Tracking Data Kesehatan" />
+        <CardOptionPatient path="/monitoring" title="Tracking Data Kesehatan" />
       </div>
     </div>
   );
