@@ -44,7 +44,10 @@ const RujukanPage = () => {
         {
           !isLoggedInUserNewUser(loggedInUser) &&
           <>
-            <JadwalRujukan />
+            {
+              loggedInUser.role !== "doctor" &&
+              <JadwalRujukan />
+            }
             <RiwayatRujukan rujukanData={data} />
           </>
         }

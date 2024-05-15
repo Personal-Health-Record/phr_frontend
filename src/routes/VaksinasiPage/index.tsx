@@ -39,7 +39,12 @@ const VaksinasiPribadi = () => {
       <Header title="Vaksinasi" />
 
       <div className="flex flex-col w-full px-4 py-4 gap-6">
-        <CardPengguna user={user!} setUser={setUser} userData={userData} />
+        {
+          /* Only patient have this user selection */
+          !userId && (
+            <CardPengguna user={user!} setUser={setUser} userData={userData} />
+          )
+        }
 
         <VaksinasiList user={user!} />
         <Keterangan />
