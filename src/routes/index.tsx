@@ -78,6 +78,8 @@ import EditInsurancePage from "./ProfilePage/ProfileEditInsurancePage/page";
 import ProfileDoctorDetail from "./ProfilePage/ProfileDoctorDetailPage/page";
 import EditDataFisikPage from "./MonitoringPage/EditDataFisikPage";
 import EditKonsumsiMakananPage from "./MonitoringPage/EditKonsumsiMakananPage";
+import MonitoringListPage from "./MonitoringListPage";
+import MonitoringDetailPage from "./MonitoringDetailPage";
 
 const MainRoutes = () => {
   return (
@@ -218,6 +220,8 @@ const MainRoutes = () => {
         <Route path="/faskes/details" element={<FaskesDetail />} />
 
         <Route path="/notifications" element={<NotificationPage />} />
+        <Route path="/monitoring/list" element={<MonitoringListPage />} />
+        <Route path="/monitoring/details" element={<MonitoringDetailPage />} />
       </Route>
     </Routes>
   );
