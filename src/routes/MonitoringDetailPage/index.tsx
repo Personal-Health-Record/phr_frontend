@@ -1,8 +1,12 @@
+import { useLocation } from "react-router-dom";
 import Header from "../../components/Header";
 import BarChartSection from "../MonitoringPage/components/BarChartSection";
 import CardKonsumsiMakanan from "../MonitoringPage/components/CardKonsumsiMakanan";
 
 const MonitoringDetailPage = () => {
+  const location = useLocation();
+  const { date } = location.state;
+
   return (
     <div className="flex flex-col">
       <Header title="Tracking Data Kesehatan" />
@@ -12,9 +16,7 @@ const MonitoringDetailPage = () => {
 
         <div className="flex border-b-2 py-2 items-center justify-between mb-3">
           <div className="flex flex-col gap-1">
-            <p className="text-sm text-lightGrey">
-              11 April 2024 - 14 April 2024
-            </p>
+            <p className="text-sm text-lightGrey">{date}</p>
           </div>
         </div>
 

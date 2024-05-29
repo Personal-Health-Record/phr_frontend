@@ -93,3 +93,9 @@ export const dummyUserData: User[] = [
     maritalStatus: "Sudah Menikah",
   },
 ];
+
+export const dummyListTrackingKesehatanFaskes = [
+  "11 April 2024 - 17 April 2024",
+  "18 April 2024 - 25 April 2024",
+  "1 Mei 2024 - 8 Mei 2024",
+];
